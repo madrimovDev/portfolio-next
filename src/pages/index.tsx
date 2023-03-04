@@ -17,8 +17,8 @@ export default function Home({ result }: { result: DataType }) {
 	)
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-	const response = await fetch('http://localhost:3000/api/hero')
+export const getStaticProps: GetStaticProps = async (context) => {
+	const response = await fetch('/api/hero')
 	const result = await response.json()
 	return {
 		props: {
