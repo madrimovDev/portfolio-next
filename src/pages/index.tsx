@@ -1,7 +1,6 @@
 import { Hero, Iam, Navbar, Skills } from '@/components'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import { DataType } from './types'
-import { useEffect, useState } from 'react'
 import path from 'path'
 import fs from 'fs/promises'
 
@@ -11,15 +10,13 @@ export default function Home({
 	result: DataType
 	}) {
 	
-	console.log(result);
-	
 	return (
 		<>
 			<div className='container px-4 md:px-0 max-w-screen-sm mx-auto'>
 				<Navbar />
 				<Hero data={result.hero} />
 				<Iam />
-				<Skills />
+				<Skills skills={result.skills}/>
 			</div>
 		</>
 	)

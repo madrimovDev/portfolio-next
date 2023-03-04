@@ -3,5 +3,31 @@
 		"title": "Hello, I'm Madrimov Xudoshukur",
 		"icon": "👋",
 		"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa impedit ab dolor excepturi dicta"
-	}
+	},
+	"skills": [
+		{
+			"title": "Basics",
+			"skills": ["HTML/CSS", "Sass/SCSS Less", "Bootstrap", "Tailwindcss"]
+		},
+		{
+			"title": "Frameworks & Library",
+			"skills": ["ReactJS", "NextJS", "SvelteJS", "NodeJS", "ExpressJS"]
+		},
+		{
+			"title": "Languages", 
+			"skills": ["JavaScript", "Typescript"]
+		},
+		{
+			"title": "State Managements", 
+			"skills": ["Redux", "Redux-toolkit", "MobX", "Zustand", "Context API"]
+		},
+		{
+			"title": "UI Library",
+			"skills": ["Ant Design", "Material UI", "Chakra UI", "Styled Components"]
+		},
+		{
+			"title": "Additional",
+			"skills": ["REST API", "UI/UX"]
+		}
+	]
 }
