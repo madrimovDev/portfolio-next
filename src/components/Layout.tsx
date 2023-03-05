@@ -1,7 +1,6 @@
 import React, { FC, PropsWithChildren, useRef } from 'react'
 import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
-import { motion } from 'framer-motion'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
 	const ref = useRef<HTMLElement>(null)
