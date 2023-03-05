@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import Link from 'next/link'
 import { Button, Logo } from '../core'
 import { BsSunFill } from 'react-icons/bs'
-import { useColorMode, useMenu } from '@/hooks'
+import { useColorMode } from '@/hooks'
 import Menu from './Menu'
 import DesktopMenu from './DesktopMenu'
 
-const Navbar = () => {
+
+const Navbar = forwardRef<HTMLElement, unknown>((_, ref) => {
 	const { toggleTheme } = useColorMode()
 	return (
-		<nav className='fixed z-10 w-full top-0 left-0 px-4 py-3 bg-gray-800/5 backdrop-blur-sm shadow-sm'>
-			<div className='max-w-screen-md mx-auto flex items-center justify-between'>
+		<nav ref={ref} className='fixed z-10 w-full top-0 left-0 px-4 py-3 bg-gray-800/5 backdrop-blur-sm shadow-sm'>
+			<div className='max-w-screen-sm mx-auto flex items-center justify-between'>
 				<Link
 					href='/'
 					replace
@@ -30,6 +31,8 @@ const Navbar = () => {
 			</div>
 		</nav>
 	)
-}
+})
+
+Navbar.displayName = 'Navbar'
 
 export default Navbar

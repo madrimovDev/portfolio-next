@@ -12,12 +12,11 @@ export default function Home({
 	
 	return (
 		<>
-			<div className='container px-4 md:px-0 max-w-screen-sm mx-auto'>
-				<Navbar />
+			<>
 				<Hero data={result.hero} />
 				<Iam />
 				<Skills skills={result.skills}/>
-			</div>
+			</>
 		</>
 	)
 }

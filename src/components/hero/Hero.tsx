@@ -5,9 +5,8 @@ import { DataType } from '@/pages/types'
 
 const Hero = ({ data }: { data: DataType['hero'] }) => {
 	const { show, toggleMenu } = useMenu()
-
 	return (
-		<section className='pt-20 border-b dark:border-b-gray-700 '>
+		<section className='border-b dark:border-b-gray-700 '>
 			<div className='py-20'>
 				<h1 className='text-3xl leading-relaxed'>
 					{data.title}
