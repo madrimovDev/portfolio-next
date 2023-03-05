@@ -39,7 +39,11 @@ const Menu = () => {
 				}}
 				animate={{
 					scale: show ? 1 : 0,
-					opacity: show ? 1 : 0
+					opacity: show ? 1 : 0,
+					transition: {
+						staggerChildren: 0.2, 
+						delayChildren: 0.2
+					}
 				}}
 				className='absolute origin-top-right top-[140%] right-0'
 			>

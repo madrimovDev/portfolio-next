@@ -1,4 +1,10 @@
-import { Hero, Iam, Navbar, Skills } from '@/components'
+import {
+	Bio,
+	Hero,
+	Iam,
+	Navbar,
+	Skills
+} from '@/components'
 import { GetStaticProps } from 'next'
 import { DataType } from './types'
 import path from 'path'
@@ -8,21 +14,20 @@ export default function Home({
 	result
 }: {
 	result: DataType
-	}) {
-	
+}) {
 	return (
 		<>
 			<>
 				<Hero data={result.hero} />
 				<Iam />
-				<Skills skills={result.skills}/>
+				<Bio />
+				<Skills skills={result.skills} />
 			</>
 		</>
 	)
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	
 	const dataDir = path.join(
 		process.cwd(),
 		'src/pages/api/hero/data.json'

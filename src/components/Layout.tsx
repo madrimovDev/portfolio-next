@@ -1,6 +1,12 @@
 import React, { FC, PropsWithChildren, useRef } from 'react'
 import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
+import { Fira_Mono } from 'next/font/google'
+
+const fira = Fira_Mono({
+	weight: ['400', '700', '500'],
+	subsets: ['latin']
+})
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
 	const ref = useRef<HTMLElement>(null)
@@ -11,12 +17,8 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 			style={{
 				paddingTop: padding
 			}}
-			className='container px-4 md:px-0 max-w-screen-sm mx-auto'
+			className={`container px-4 md:px-0 max-w-screen-sm mx-auto ${fira.className}`}
 		>
-			<div className='animate-spin-slow fixed inset-0 opacity-30 -z-10'>
-				<div className='w-1/2 absolute top-0 left-0 rounded-full blur-[200px] opacity-50 aspect-square bg-gradient-to-tr to-blue-500 from-violet-500' />
-				<div className='w-1/2 absolute bottom-0 right-0 rounded-full blur-[200px] opacity-20 aspect-square bg-gradient-to-tr to-red-500 from-violet-500' />
-			</div>
 			<Navbar ref={ref} />
 			{children}
 			<Footer />

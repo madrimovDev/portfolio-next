@@ -1,16 +1,13 @@
 import React from 'react'
 import Avatar from '@/assets/avatar.png'
 import Image from 'next/image'
-import { Button } from '../core'
+import { Button, Section } from '../core'
 import Link from 'next/link'
 import { BsTelegram } from 'react-icons/bs'
 
 const Iam = () => {
 	return (
-		<section className='py-10 border-b dark:border-b-gray-700 '>
-			<h4 className='text-gray-400 mb-4 text-center md:text-right'>
-				Front-end Engineer
-			</h4>
+		<Section >
 			<div className='flex flex-col items-center md:flex-row gap-10 '>
 				<Image
 					blurDataURL={Avatar.blurDataURL}
@@ -40,7 +37,7 @@ const Iam = () => {
 					</Button>
 				</div>
 			</div>
-		</section>
+		</Section>
 	)
 }
 

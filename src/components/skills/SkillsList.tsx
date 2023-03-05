@@ -1,7 +1,5 @@
 import React, { FC } from 'react'
 import {
-	TargetAndTransition,
-	Variants,
 	motion
 } from 'framer-motion'
 import { DataType } from '@/pages/types'
@@ -10,14 +8,16 @@ import { VariantType } from './types'
 
 const ulVariantse: VariantType = {
 	hidden: {
+		y: -20,
 		opacity: 0,
 	},
 	visible: {
+		y: 0,
     opacity: 1,
 		transition: {
 			type: 'spring',
 			staggerChildren: 0.1,
-			delayChildren: 0.5
+			delayChildren: 0.3
 		}
 	}
 }
@@ -25,7 +25,7 @@ const ulVariantse: VariantType = {
 const liVariants: VariantType = {
 	hidden: {
 		opacity: 0,
-		y: -20
+		y: -6
 	},
 	visible: {
 		opacity: 1,

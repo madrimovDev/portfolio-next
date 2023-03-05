@@ -3,6 +3,7 @@ import SkillsList from './SkillsList'
 import { DataType } from '@/pages/types'
 import { motion } from 'framer-motion'
 import { VariantType } from './types'
+import { Section } from '../core'
 
 const divVariants: VariantType = {
 	hidden: {
@@ -24,10 +25,7 @@ interface Props {
 
 const Skills: FC<Props> = ({ skills }) => {
 	return (
-		<div className='py-10'>
-			<h4 className='text-center md:text-right'>
-				Skills 🛠
-			</h4>
+		<Section title='Skills 🛠'>
 			<div className='mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10'>
 				{skills.map((skill, index) => {
 					return (
@@ -38,7 +36,7 @@ const Skills: FC<Props> = ({ skills }) => {
 					)
 				})}
 			</div>
-		</div>
+		</Section>
 	)
 }
 
