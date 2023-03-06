@@ -1,8 +1,6 @@
 import {
 	Bio,
 	Hero,
-	Iam,
-	Navbar,
 	Skills
 } from '@/components'
 import { GetStaticProps } from 'next'
@@ -19,7 +17,6 @@ export default function Home({
 		<>
 			<>
 				<Hero data={result.hero} />
-				<Iam />
 				<Bio />
 				<Skills skills={result.skills} />
 			</>

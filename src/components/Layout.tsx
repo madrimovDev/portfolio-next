@@ -1,16 +1,28 @@
-import React, { FC, PropsWithChildren, useRef } from 'react'
+import React, {
+	FC,
+	PropsWithChildren,
+	useEffect,
+	useRef,
+	useState
+} from 'react'
 import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
-import { Fira_Mono } from 'next/font/google'
+import { Cabin } from 'next/font/google'
 
-const fira = Fira_Mono({
-	weight: ['400', '700', '500'],
+const fira = Cabin({
+	weight: ['400', '700', '500','600'],
 	subsets: ['latin']
 })
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
 	const ref = useRef<HTMLElement>(null)
-	const padding = ref.current ? ref.current.clientHeight : 0
+	const [padding, setPadding] = useState(0)
+	
+	useEffect(() => {
+		if (ref.current) {
+			setPadding(ref.current.clientHeight)
+		}
+	}, [ref])
 
 	return (
 		<div

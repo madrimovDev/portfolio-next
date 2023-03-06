@@ -10,8 +10,8 @@ import DesktopMenu from './DesktopMenu'
 const Navbar = forwardRef<HTMLElement, unknown>((_, ref) => {
 	const { toggleTheme } = useColorMode()
 	return (
-		<nav ref={ref} className='fixed z-10 w-full top-0 left-0 px-4 py-3 bg-gray-800/5 backdrop-blur-sm shadow-sm'>
-			<div className='max-w-screen-sm mx-auto flex items-center justify-between'>
+		<nav ref={ref} className='fixed z-10 w-full top-0 left-0  dark:bg-zinc-900/80 bg-amber-100/80 backdrop-blur-sm'>
+			<div className='max-w-screen-md mx-auto px-4 md:px-0 py-3 flex items-center justify-between'>
 				<Link
 					href='/'
 					replace

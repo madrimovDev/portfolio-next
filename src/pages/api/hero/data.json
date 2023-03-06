@@ -1,8 +1,8 @@
 {
 	"hero": {
-		"title": "Hello, I'm Madrimov Xudoshukur",
-		"icon": "👋",
-		"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa impedit ab dolor excepturi dicta"
+		"title": "Madrimov Xudoshukur",
+		"info": "Front-end Engineer",
+		"desc": "Hello, I'm a Front-end developer in Uzbekistan"
 	},
 	"skills": [
 		{

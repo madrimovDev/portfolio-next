@@ -8,8 +8,8 @@ interface Props {
 
 const Section: FC<Props> = ({ children, title }) => {
 	return (
-		<section className='py-10 border-b dark:border-b-gray-700'>
-			<SectionTitle title={title} />
+		<section className='py-5 md:py-10'>
+			{title && <SectionTitle title={title} />}
 			{children}
 		</section>
 	)
