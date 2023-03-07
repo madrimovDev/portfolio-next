@@ -84,12 +84,12 @@
 	],
 	"works": [
 		{
-			"title": "Work Title",
-			"img": "https://api.lorem.space/image/house"
+			"title": "ReactJS",
+			"img": "/img1.jpg"
 		},
 		{
-			"title": "Work Title",
-			"img": "https://api.lorem.space/image/house"
+			"title": "Typescript",
+			"img": "/img2.jpg"
 		},
 		{
 			"title": "Work Title",

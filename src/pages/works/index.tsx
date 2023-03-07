@@ -11,15 +11,15 @@ const Works = ({ result }: { result: DataType }) => {
 	return (
 		<Section title='Works'>
 			<div className='grid grid-cols-2 gap-4 md:gap-8'>
-				{result.works.map((_, index) => {
+				{result.works.map((work, index) => {
 					return (
 						<div
 							className='flex flex-col gap-2'
 							key={index}
 						>
-							<ImageView img={_.img} />
+							<ImageView img={work.img} />
 							<h4 className='text-lg font-bold'>
-								{_.title}
+								{work.title}
 							</h4>
 						</div>
 					)
