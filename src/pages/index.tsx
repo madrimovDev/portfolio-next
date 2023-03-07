@@ -1,8 +1,4 @@
-import {
-	Bio,
-	Hero,
-	Skills
-} from '@/components'
+import { Bio, Hero, Skills } from '@/components'
 import { GetStaticProps } from 'next'
 import { DataType } from './types'
 import path from 'path'
@@ -17,7 +13,7 @@ export default function Home({
 		<>
 			<>
 				<Hero data={result.hero} />
-				<Bio />
+				<Bio bio={result.bio} />
 				<Skills skills={result.skills} />
 			</>
 		</>

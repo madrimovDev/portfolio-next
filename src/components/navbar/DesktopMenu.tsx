@@ -17,7 +17,7 @@ const DesktopMenu = () => {
 					<li>
 						<Link
 							className='hover:underline'
-							href='works'
+							href='/about'
 						>
 							About
 						</Link>

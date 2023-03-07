@@ -7,27 +7,97 @@
 	"skills": [
 		{
 			"title": "Basics",
-			"skills": ["HTML/CSS", "Sass/SCSS Less", "Bootstrap", "Tailwindcss"]
+			"skills": [
+				"HTML/CSS",
+				"Sass/SCSS Less",
+				"Bootstrap",
+				"Tailwindcss"
+			]
 		},
 		{
 			"title": "Frameworks & Library",
-			"skills": ["ReactJS", "NextJS", "SvelteJS", "NodeJS", "ExpressJS"]
+			"skills": [
+				"ReactJS",
+				"NextJS",
+				"SvelteJS",
+				"NodeJS",
+				"ExpressJS"
+			]
 		},
 		{
-			"title": "Languages", 
+			"title": "Languages",
 			"skills": ["JavaScript", "Typescript"]
 		},
 		{
-			"title": "State Managements", 
-			"skills": ["Redux", "Redux-toolkit", "MobX", "Zustand", "Context API"]
+			"title": "State Managements",
+			"skills": [
+				"Redux",
+				"Redux-toolkit",
+				"MobX",
+				"Zustand",
+				"Context API"
+			]
 		},
 		{
 			"title": "UI Library",
-			"skills": ["Ant Design", "Material UI", "Chakra UI", "Styled Components"]
+			"skills": [
+				"Ant Design",
+				"Material UI",
+				"Chakra UI",
+				"Styled Components"
+			]
 		},
 		{
 			"title": "Additional",
 			"skills": ["REST API", "UI/UX"]
+		}
+	],
+	"bio": [
+		{
+			"year": 1999,
+			"info": "Born in Uzbekistan, Khiva"
+		},
+		{
+			"year": 2018,
+			"info": "I graduated from Khiva College of Tourism, Hotel and Restaurant Manager"
+		},
+		{
+			"year": 2020,
+			"info": "I learned Frontend programming independently"
+		},
+		{
+			"year": 2021,
+			"info": "I worked as a frontend developer at Khiva IT Center, taught programming in addition to programming"
+		},
+		{
+			"year": 2022,
+			"info": "I joined the developer team of IDeapGroup as a frontend developer, I have been participating in many startups in this team and created the UI part of web applications"
+		},
+		{
+			"year": 2022,
+			"info": "I joined \"Data Learning Station\" as a front-end programming mentor, where I have been teaching kids basic programming skills."
+		},
+		{
+			"year": 2023,
+			"info": "I am participating in a startup project, This startup is focused on the right learning assessment system (LMS)."
+		}
+	],
+	"works": [
+		{
+			"title": "Work Title",
+			"img": "https://api.lorem.space/image/house"
+		},
+		{
+			"title": "Work Title",
+			"img": "https://api.lorem.space/image/house"
+		},
+		{
+			"title": "Work Title",
+			"img": "https://api.lorem.space/image/house"
+		},
+		{
+			"title": "Work Title",
+			"img": "https://api.lorem.space/image/house?w=1000&h=1000"
 		}
 	]
 }

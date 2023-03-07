@@ -9,9 +9,7 @@ const useColorMode = () => {
       const colorMode = window.localStorage.getItem('color-mode')
       if (colorMode && colorMode === 'dark') {
         window.document.documentElement.className = 'dark'
-        setDark(true)
-        console.log('render');
-        
+        setDark(true)        
       }
     }
   }, [])

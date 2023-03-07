@@ -4,6 +4,7 @@ import {
 } from 'framer-motion'
 import { DataType } from '@/pages/types'
 import { VariantType } from './types'
+import { ArrayElement } from '../types'
 
 
 const ulVariantse: VariantType = {
@@ -33,10 +34,6 @@ const liVariants: VariantType = {
 	}
 }
 
-type ArrayElement<ArrayType extends readonly unknown[]> =
-	ArrayType extends readonly (infer ElementType)[]
-		? ElementType
-		: never
 
 interface Props {
 	skill: ArrayElement<DataType['skills']>
