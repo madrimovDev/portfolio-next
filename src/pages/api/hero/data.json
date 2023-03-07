@@ -85,19 +85,13 @@
 	"works": [
 		{
 			"title": "ReactJS",
-			"img": "/img1.jpg"
+			"img": "/img1.jpg",
+			"src": "https://github.com/madrimovDev"
 		},
 		{
 			"title": "Typescript",
-			"img": "/img2.jpg"
-		},
-		{
-			"title": "Work Title",
-			"img": "https://api.lorem.space/image/house"
-		},
-		{
-			"title": "Work Title",
-			"img": "https://api.lorem.space/image/house?w=1000&h=1000"
+			"img": "/img2.jpg",
+			"src": "https://github.com/madrimovDev"
 		}
 	]
 }

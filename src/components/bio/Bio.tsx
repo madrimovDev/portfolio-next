@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Fragment } from 'react'
 import { Section } from '../core'
 import { ArrayElement } from '../types'
 import { DataType } from '@/pages/types'
@@ -13,10 +13,10 @@ const Bio: FC<Props> = ({ bio }) => {
 			<div className='grid grid-cols-[auto_90%] gap-y-3 gap-x-2'>
 				{bio.map((b, index) => {
 					return (
-						<>
+						<Fragment key={index}>
 							<h4 className='font-bold'>{b.year}</h4>
 							<p className='dark:text-white'>{b.info}</p>
-						</>
+						</Fragment>
 					)
 				})}
 			</div>

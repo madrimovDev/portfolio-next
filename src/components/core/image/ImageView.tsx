@@ -71,7 +71,7 @@ const ImageView: FC<Props> = ({ img }) => {
 				alt={img}
 				width={200}
 				height={200}
-				className='w-full h-[200px] object-cover'
+				className='w-full md:h-[200px] aspect-video object-cover'
 			/>
 			<AnimatePresence mode='wait'>
 				{show && (

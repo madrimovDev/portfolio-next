@@ -1,8 +1,8 @@
-import { Bio, Hero, Skills } from '@/components'
-import { GetStaticProps } from 'next'
-import { DataType } from './types'
 import path from 'path'
 import fs from 'fs/promises'
+import { GetStaticProps } from 'next'
+import { Bio, Hero, Skills } from '@/components'
+import { DataType } from './types'
 
 export default function Home({
 	result

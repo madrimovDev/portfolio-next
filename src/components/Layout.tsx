@@ -29,11 +29,12 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 			style={{
 				paddingTop: padding
 			}}
-			className={`container px-4 md:px-0 max-w-screen-sm mx-auto ${fira.className}`}
+			className={`container h-full flex flex-col px-4 md:px-0 max-w-screen-sm mx-auto ${fira.className}`}
 		>
 			<Navbar ref={ref} />
-
-			{children}
+			<div className='flex-grow'>
+				{children}
+			</div>
 			<Footer />
 		</div>
 	)

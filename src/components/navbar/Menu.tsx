@@ -4,12 +4,10 @@ import Link from 'next/link'
 import {
 	BsList,
 	BsGithub,
-	BsInstagram,
 	BsLinkedin
 } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import {
-	useMatchMedia,
 	useMenu,
 	useOutsideClick
 } from '@/hooks'
@@ -51,14 +49,7 @@ const Menu = () => {
 					<ul className='flex flex-col text-xl gap-3'>
 						<li>
 							<Link
-								className='hover:underline'
-								href='/'
-							>
-								About
-							</Link>
-						</li>
-						<li>
-							<Link
+								onClick={closeMenu}
 								className='hover:underline'
 								href='works'
 							>
@@ -66,17 +57,10 @@ const Menu = () => {
 							</Link>
 						</li>
 						<li>
-							<Link
-								className='hover:underline'
-								href='contact'
-							>
-								Contact
-							</Link>
-						</li>
-
-						<li>
 							<a
-								href=''
+								onClick={closeMenu}
+								href='https://github.com/madrimovDev'
+								target='_blank'
 								className='flex text-sky-400 items-center gap-2'
 							>
 								Github <BsGithub />
@@ -84,18 +68,12 @@ const Menu = () => {
 						</li>
 						<li>
 							<a
-								href=''
+								onClick={closeMenu}
+								href='https://linkedin.com'
+								target='_blank'
 								className='flex text-sky-400 items-center gap-2'
 							>
 								Linkedin <BsLinkedin />
-							</a>
-						</li>
-						<li>
-							<a
-								href=''
-								className='flex text-sky-400 items-center gap-2'
-							>
-								Instagram <BsInstagram />
 							</a>
 						</li>
 					</ul>
