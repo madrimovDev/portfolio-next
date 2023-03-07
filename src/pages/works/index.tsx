@@ -5,6 +5,7 @@ import path from 'path'
 import fs from 'fs/promises'
 import { DataType } from '../types'
 import Image from 'next/image'
+import ImageView from '@/components/core/image/ImageView'
 
 const Works = ({ result }: { result: DataType }) => {	
 	return (
@@ -16,13 +17,7 @@ const Works = ({ result }: { result: DataType }) => {
 							className='flex flex-col gap-2'
 							key={index}
 						>
-							<Image
-								src={_.img}
-								alt='works'
-								width={200}
-								height={200}
-								className='w-full'
-							/>
+							<ImageView img={_.img} />
 							<h4 className='text-lg font-bold'>
 								{_.title}
 							</h4>
