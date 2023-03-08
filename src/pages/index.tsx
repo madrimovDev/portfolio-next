@@ -15,7 +15,7 @@ export default function Home({
 			<>
 				<Head>
 					<title>Madrimov&apos;s Life</title>
-					<meta name="description" content={result.skills.join(' ')} />
+					<meta name="description" content={result.skills.map((_) => `${_.skills}`).join(' ')} />
 					<meta name='author' content={result.hero.title} />
 					<meta name="robots" content="index, follow" />
 					<meta name='keywords' content='webkids, react, developer, javascript, Madrimov Xudoshukur, Xudoshukur, Madrimov, Typescript, Data, DATA LEARNING CENTER'/>
