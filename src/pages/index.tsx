@@ -3,6 +3,7 @@ import fs from 'fs/promises'
 import { GetStaticProps } from 'next'
 import { Bio, Hero, Skills } from '@/components'
 import { DataType } from './types'
+import Head from 'next/head'
 
 export default function Home({
 	result
@@ -12,6 +13,14 @@ export default function Home({
 	return (
 		<>
 			<>
+				<Head>
+					<title>Madrimov&apos;s Life</title>
+					<meta name="description" content={result.hero.info} />
+					<meta name='author' content={result.hero.title} />
+					<meta name="robots" content="index, follow" />
+					<meta name='keywords' content='webkids, react, developer, javascript, Madrimov Xudoshukur, Xudoshukur, Madrimov, Typescript, Data, DATA LEARNING CENTER'/>
+					<meta name="googlebots" content="index, follow" />
+				</Head>
 				<Hero data={result.hero} />
 				<Bio bio={result.bio} />
 				<Skills skills={result.skills} />

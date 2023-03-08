@@ -22,6 +22,7 @@ const Navbar = forwardRef<HTMLElement, unknown>((_, ref) => {
 					<Menu />
 					<DesktopMenu />
 					<Button
+						aria-label='change-theme'
 						onClick={toggleTheme}
 						colorScheme='blue'
 					>

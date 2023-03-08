@@ -6,9 +6,9 @@ interface Props {
 
 const SectionTitle: FC<Props> = ({ title }) => {
 	return (
-		<h4 className='text-2xl font-bold underline mb-10'>
+		<h2 className='text-2xl font-bold underline mb-10'>
 			{title}
-		</h4>
+		</h2>
 	)
 }
 
