@@ -1,9 +1,9 @@
 import path from 'path'
 import fs from 'fs/promises'
+import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import { Bio, Hero, Skills } from '@/components'
 import { DataType } from './types'
-import Head from 'next/head'
 
 export default function Home({
 	result

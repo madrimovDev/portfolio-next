@@ -1,18 +1,16 @@
 import Link from 'next/link'
 import React from 'react'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import navigation from './navigation'
 
 const DesktopMenu = () => {
 	return (
 		<ul className='md:flex hidden items-center gap-4 ml-10'>
-			<li>
-				<Link
-					className='hover:underline'
-					href='works'
-				>
-					Works
-				</Link>
-			</li>
+			{
+				navigation.map((nav) => (
+					<Link key={nav.id} href={nav.slug}>{nav.title}</Link>
+				))
+			}
 			<li>
 				<a
 					href='https://github.com/madrimovDev'

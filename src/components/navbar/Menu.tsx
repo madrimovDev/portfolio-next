@@ -7,10 +7,8 @@ import {
 	BsLinkedin
 } from 'react-icons/bs'
 import { motion } from 'framer-motion'
-import {
-	useMenu,
-	useOutsideClick
-} from '@/hooks'
+import { useMenu, useOutsideClick } from '@/hooks'
+import navigation from './navigation'
 
 const Menu = () => {
 	const { show, closeMenu, toggleMenu } = useMenu()
@@ -39,7 +37,7 @@ const Menu = () => {
 					scale: show ? 1 : 0,
 					opacity: show ? 1 : 0,
 					transition: {
-						staggerChildren: 0.2, 
+						staggerChildren: 0.2,
 						delayChildren: 0.2
 					}
 				}}
@@ -47,13 +45,22 @@ const Menu = () => {
 			>
 				<div className='bg-gray-700 text-white px-4 py-6 shadow-md dark:bg-gray-800 w-[200px] rounded-md'>
 					<ul className='flex flex-col text-xl gap-3'>
+						{navigation.map((nav) => (
+							<Link
+								key={nav.id}
+								onClick={closeMenu}
+								href={nav.slug}
+							>
+								{nav.title}
+							</Link>
+						))}
 						<li>
 							<Link
 								onClick={closeMenu}
 								className='hover:underline'
-								href='works'
+								href='blogs'
 							>
-								Works
+								Blogs
 							</Link>
 						</li>
 						<li>
