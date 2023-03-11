@@ -1,12 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsEye, BsHeart, BsViewList } from 'react-icons/bs'
 
-const BlogCard = () => {
+const BlogCard = ({blog}: {blog: number}) => {
+  useEffect(() => {
+
+  }, [])
 	return (
 		<div className=''>
-			<Link href=''>
+			<Link href={'blogs/' + blog}>
 				<Image
 					src='https://api.lorem.space/image/house'
 					className='w-full rounded-md'
@@ -15,7 +18,7 @@ const BlogCard = () => {
 					height={200}
 				/>
 			</Link>
-			<div className='p-2 flex justify-between items-center'>
+			<div className='p-2 flex flex-col md:flex-row justify-between items-start md:items-center'>
 				<h4 className='text-xl'>Card Title</h4>
 				<div className='flex gap-2'>
 					<button className='flex items-center gap-2'>

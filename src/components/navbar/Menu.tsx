@@ -55,15 +55,6 @@ const Menu = () => {
 							</Link>
 						))}
 						<li>
-							<Link
-								onClick={closeMenu}
-								className='hover:underline'
-								href='blogs'
-							>
-								Blogs
-							</Link>
-						</li>
-						<li>
 							<a
 								onClick={closeMenu}
 								href='https://github.com/madrimovDev'

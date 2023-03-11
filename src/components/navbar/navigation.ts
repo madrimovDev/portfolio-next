@@ -8,12 +8,12 @@ const navigation: Navigation[] = [
   {
     id: 1,
     title: 'Works',
-    slug: 'works'
+    slug: '/works'
   },
   {
     id: 2,
     title: 'Blogs',
-    slug: 'blogs'
+    slug: '/blogs'
   },
 ]
 

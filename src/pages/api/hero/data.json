@@ -93,5 +93,11 @@
 			"img": "/img2.jpg",
 			"src": "https://github.com/madrimovDev"
 		}
+	],
+	"blogs": [
+		{
+			"title": "Blog Title",
+			"img": "/img2.jpg"
+		}
 	]
 }
