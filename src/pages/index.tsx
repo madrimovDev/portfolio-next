@@ -15,11 +15,32 @@ export default function Home({
 			<>
 				<Head>
 					<title>Madrimov&apos;s Life</title>
-					<meta name="description" content={result.skills.map((_) => `${_.skills}`).join(' ')} />
-					<meta name='author' content={result.hero.title} />
-					<meta name="robots" content="index, follow" />
-					<meta name='keywords' content='webkids, react, developer, javascript, Madrimov Xudoshukur, Xudoshukur, Madrimov, Typescript, Data, DATA LEARNING CENTER'/>
-					<meta name="googlebots" content="index, follow" />
+					<meta
+						name='description'
+						content={result.skills
+							.map((_) => `${_.skills}`)
+							.join(' ') + result.hero.desc}
+					/>
+					<meta
+						name='author'
+						content={result.hero.title}
+					/>
+					<meta
+						name='robots'
+						content='index, follow'
+					/>
+					<meta
+						name='keywords'
+						content={`${result.skills
+							.map((_) => `${_.skills}`)
+							.join(
+								' '
+							)} webkids, react, developer, javascript, Madrimov Xudoshukur, Xudoshukur, Madrimov, Typescript, Data, DATA LEARNING CENTER`}
+					/>
+					<meta
+						name='googlebots'
+						content='index, follow'
+					/>
 				</Head>
 				<Hero data={result.hero} />
 				<Bio bio={result.bio} />

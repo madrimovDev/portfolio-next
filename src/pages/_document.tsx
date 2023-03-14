@@ -12,7 +12,7 @@ export default function Document() {
 				<Main />
 				<NextScript />
 				<Script
-					async
+					id='gtag'
 					src='https://www.googletagmanager.com/gtag/js?id=G-6BSPQHBC28'
 				/>
 				<Script
