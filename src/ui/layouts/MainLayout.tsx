@@ -8,7 +8,6 @@ export const MainLayout: FC<PropsWithChildren> = ({ children }) => {
 			<Navbar />
 			<Container
 				zIndex={0}
-				px='10'
 				maxW="container.sm"
 			>
 				{children}
