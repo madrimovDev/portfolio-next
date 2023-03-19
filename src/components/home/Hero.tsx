@@ -47,9 +47,14 @@ export const Hero = () => {
 					</Text>
 				</Box>
 				<Image
-					src="https://api.lorem.space/image/face?w=150&h=150"
+					src="/avatar.jpg"
 					alt="img"
 					rounded="full"
+					w='100px'
+					h='100px'
+					borderWidth={4}
+					borderStyle='solid'
+					borderColor='blue.400'
 				/>
 			</Flex>
 		</Box>
