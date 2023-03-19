@@ -1,6 +1,3 @@
-export { default as Navbar } from './navbar/Navbar'
-export { default as Hero } from './hero/Hero'
-export { default as Skills } from './skills/Skills'
-export { default as Layout } from './Layout'
-export { default as Bio } from './bio/Bio'
-export { default as BlogCards } from './blogs/BlogCards'
+import { Experience } from './experience/Experience';
+import { Hero } from "./home/Hero";
+export { Hero, Experience };

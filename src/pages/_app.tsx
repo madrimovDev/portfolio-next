@@ -1,15 +1,18 @@
-import { NextComponentType } from 'next'
-import { AppProps } from 'next/app'
-import '@/assets/styles/style.css'
-import { Layout } from '@/components'
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "@/shared";
+import { MainLayout } from "@/ui";
 
-export default function MyApp({
-	Component,
-	pageProps
-}: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
-	)
+		<ChakraProvider
+			resetCSS
+			theme={theme}
+		>
+			<MainLayout>
+				<Component {...pageProps} />
+			</MainLayout>
+		</ChakraProvider>
+	);
 }
+

@@ -1,7 +1,0 @@
-export { default as Button } from './buttons/Button'
-export { default as Logo } from './logo/Logo'
-export { default as Section } from './sections/Section'
-export { default as SectionTitle } from './sections/SectionTitle'
-export { default as ImageView } from './image/ImageView'
-export { default as Comment } from './comments/Comment'
-export { default as AddComment } from './comments/AddComment'
