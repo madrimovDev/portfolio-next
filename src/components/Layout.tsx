@@ -7,10 +7,10 @@ import React, {
 } from 'react'
 import Navbar from './navbar/Navbar'
 import Footer from './footer/Footer'
-import { Cabin } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 
-const fira = Cabin({
-	weight: ['400', '700', '500', '600'],
+const fira = Open_Sans({
+	weight: ['400', '700', '500', '600', '300'],
 	subsets: ['latin']
 })
 
@@ -32,9 +32,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
 			className={`container h-full flex flex-col px-4 md:px-0 max-w-screen-sm mx-auto ${fira.className}`}
 		>
 			<Navbar ref={ref} />
-			<div className='flex-grow'>
-				{children}
-			</div>
+			<div className='flex-grow'>{children}</div>
 			<Footer />
 		</div>
 	)

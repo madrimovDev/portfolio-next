@@ -1,7 +1,14 @@
-import { Section } from '@/components/core'
+import {
+	AddComment,
+	Button,
+	Comment,
+	Section
+} from '@/components/core'
+import LikeButton from '@/components/core/buttons/LikeButton'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { BsHeart } from 'react-icons/bs'
 
 const Blog = () => {
 	const { id } = useRouter().query
@@ -14,7 +21,7 @@ const Blog = () => {
 				height={300}
 				className='w-full h-[300px] object-cover rounded-md overflow-hidden'
 			/>
-			<p className='leading-loose text-base tracking-widest mt-10'>
+			<p className='tracking-wider leading-normal mt-10'>
 				Lorem ipsum dolor sit amet, consectetur adipisicing
 				elit. Ullam dicta ut architecto reiciendis molestiae
 				magni reprehenderit rerum assumenda deleniti,
@@ -92,50 +99,13 @@ const Blog = () => {
 				Earum dolore officia voluptates minus corporis
 				doloremque fugit aperiam sint corrupti excepturi!
 			</p>
-
-			<div className='flex flex-col gap-6 mt-10'>
+			<LikeButton />
+			<div className='relative flex flex-col gap-6 mt-10'>
 				<p>Comments</p>
-				<div className='p-4 bg-gray-400/10 rounded-md'>
-					<p className='mb-4'>email@mail.com</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Rerum quisquam enim dolorem,
-						asperiores pariatur vel cumque officia inventore
-						blanditiis esse.
-					</p>
-				</div>
-				<div className='p-4 bg-gray-400/10 rounded-md'>
-					<p className='mb-4'>email@mail.com</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Rerum quisquam enim dolorem,
-						asperiores pariatur vel cumque officia inventore
-						blanditiis esse.
-					</p>
-				</div>
-				<div className='p-4 bg-gray-400/10 rounded-md'>
-					<p className='mb-4'>email@mail.com</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Rerum quisquam enim dolorem,
-						asperiores pariatur vel cumque officia inventore
-						blanditiis esse.
-					</p>
-				</div>
-
-				<form className='flex flex-col gap-4'>
-					<input
-						className='bg-gray-400/50'
-						type='email'
-						placeholder='email'
-					/>
-					<textarea
-						name='comment'
-						className='bg-gray-400/50'
-						id=''
-          ></textarea>
-          <button>Comment</button>
-				</form>
+				{[0, 1, 2, 3, 4].map((item) => {
+					return <Comment key={item} />
+				})}
+				<AddComment />
 			</div>
 		</Section>
 	)
