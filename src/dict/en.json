@@ -1,0 +1,60 @@
+{
+	"Index": {
+		"menu": [
+			{
+				"href": "/",
+				"title": "Home"
+			},
+			{
+				"href": "/#about",
+				"title": "About"
+			},
+			{
+				"href": "/portfolio",
+				"title": "Portfolio"
+			}
+		],
+		"header": {
+			"subtitle": "Hello, I'm a frontend developer based in Uzbekistan!",
+			"name": "Khodushukur Madrimov",
+			"jobTitle": "Frontend Engineer"
+		},
+		"work": {
+			"title": "Work",
+			"quote": "If you work, It will work",
+			"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi.",
+			"links": {
+				"Github": "https://github.com/madrimovdev",
+				"Instagram": "https://instagram.com/xudish.madrimov",
+				"Telegram": "https://t.me/madrimov"
+			}
+		},
+		"experience": {
+			"title": "Experience",
+			"organizations": [
+				{
+					"year": "2024 - current",
+					"jobTitle": "Frontend Developer",
+					"organization": "Mbos - Multibranch Online Service",
+					"link": "mbos.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				},
+				{
+					"year": "2023 - current",
+					"jobTitle": "Frontend Developer",
+					"organization": "Youcode - Online Education",
+					"link": "youcode.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				},
+				{
+					"year": "2021 - 2023",
+					"jobTitle": "Frontend Developer / Mentor",
+					"organization": "Youcode - Online Education",
+					"link": "youcode.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				}
+			]
+		}
+	}
+}
+

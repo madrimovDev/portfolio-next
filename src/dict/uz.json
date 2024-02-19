@@ -1,0 +1,60 @@
+{
+	"Index": {
+		"menu": [
+			{
+				"href": "/",
+				"title": "Bosh sahifa"
+			},
+			{
+				"href": "/#about",
+				"title": "Biz haqimizda"
+			},
+			{
+				"href": "/portfolio",
+				"title": "Portfel"
+			}
+		],
+		"header": {
+			"subtitle": "Salom, men O'zbekistonlik frontend dasturchiman!",
+			"name": "Xodushukur Madrimov",
+			"jobTitle": "Frontend injener"
+		},
+		"work": {
+			"title": "Ish",
+			"quote": "Ishlasangiz, ishlaydi",
+			"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi.",
+			"links": {
+				"Github": "https://github.com/madrimovdev",
+				"Instagram": "https://instagram.com/xudish.madrimov",
+				"Telegram": "https://t.me/madrimov"
+			}
+		},
+		"experience": {
+			"title": "Faoliyat",
+			"organizations": [
+				{
+					"year": "2024 - hozirgacha",
+					"jobTitle": "Frontend Dasturchi",
+					"organization": "Mbos - Multibranch Online Service",
+					"link": "mbos.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				},
+				{
+					"year": "2023 - hozirgacha",
+					"jobTitle": "Frontend Dasturchi",
+					"organization": "Youcode - Online Education",
+					"link": "youcode.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				},
+				{
+					"year": "2021 - 2023",
+					"jobTitle": "Frontend Dasturchi / Mentor",
+					"organization": "Data Ta'lim Stansiyasi",
+					"link": "youcode.uz",
+					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+				}
+			]
+		}
+	}
+}
+
