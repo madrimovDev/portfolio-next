@@ -13,7 +13,6 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 		.split("/")
 		.filter((path) => path !== lang)
 		.join("/");
-	const isEN = lang === "en";
 
 	return (
 		<div className="fixed top-0 inset-x-0 flex justify-center px-2 lg:px-0 z-10">
@@ -94,17 +93,33 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 							})}
 						</ul>
 					</div>
-					<label className="swap btn btn-ghost btn-sm">
-						<input
-							type="checkbox"
-							defaultChecked={isEN}
-							onChange={() => {
-								router.push(lang === "uz" ? "/en/" + locale : "/uz/" + locale);
-							}}
-						/>
-						<span className="swap-on">EN 🇺🇸</span>
-						<span className="swap-off">UZ 🇺🇿</span>
-					</label>
+					<div className="dropdown">
+						<div
+							role="button"
+							className="btn btn-ghost btn-sm capitalize text-xs"
+							tabIndex={0}
+						>
+							{lang}
+						</div>
+						<ul
+							className="dropdown-content menu bg-base-200"
+							tabIndex={0}
+						>
+							{["uz", "ru", "en"].map((l) => {
+								return (
+									<li
+										className="btn btn-ghost btn-xs min-w-10 capitalize"
+										onClick={() => {
+											router.push(`/${l}/${locale.substring(1)}`);
+										}}
+										key={l}
+									>
+										{l}
+									</li>
+								);
+							})}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

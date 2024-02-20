@@ -1,9 +1,11 @@
 import Portfolio from "~/components/portfolio/portfolio";
+import { PropsWithParams } from "~/types";
 
-export default function Page() {
+export default function Page({ params }: PropsWithParams) {
 	return (
 		<>
-			<Portfolio />
+			<Portfolio lang={params.lang} />
 		</>
 	);
 }
+

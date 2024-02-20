@@ -1,60 +1,77 @@
 {
-	"Index": {
-		"menu": [
-			{
-				"href": "/",
-				"title": "Home"
-			},
-			{
-				"href": "/#about",
-				"title": "About"
-			},
-			{
-				"href": "/portfolio",
-				"title": "Portfolio"
-			}
-		],
-		"header": {
-			"subtitle": "Hello, I'm a frontend developer based in Uzbekistan!",
-			"name": "Khodushukur Madrimov",
-			"jobTitle": "Frontend Engineer"
-		},
-		"work": {
-			"title": "Work",
-			"quote": "If you work, It will work",
-			"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi.",
-			"links": {
-				"Github": "https://github.com/madrimovdev",
-				"Instagram": "https://instagram.com/xudish.madrimov",
-				"Telegram": "https://t.me/madrimov"
-			}
-		},
-		"experience": {
-			"title": "Experience",
-			"organizations": [
-				{
-					"year": "2024 - current",
-					"jobTitle": "Frontend Developer",
-					"organization": "Mbos - Multibranch Online Service",
-					"link": "mbos.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
-				},
-				{
-					"year": "2023 - current",
-					"jobTitle": "Frontend Developer",
-					"organization": "Youcode - Online Education",
-					"link": "youcode.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
-				},
-				{
-					"year": "2021 - 2023",
-					"jobTitle": "Frontend Developer / Mentor",
-					"organization": "Youcode - Online Education",
-					"link": "youcode.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
-				}
-			]
-		}
-	}
+  "Index": {
+    "menu": [
+      {
+        "href": "/",
+        "title": "Home"
+      },
+      {
+        "href": "/#about",
+        "title": "About"
+      },
+      {
+        "href": "/portfolio",
+        "title": "Portfolio"
+      }
+    ],
+    "header": {
+      "subtitle": "Hello, I'm a frontend developer based in Uzbekistan!",
+      "name": "Khodushukur Madrimov",
+      "jobTitle": "Frontend Engineer"
+    },
+    "work": {
+      "title": "Work",
+      "quote": "If you work, It will work",
+      "desc": "I started my programming career as a mentor at an educational center in 2021. I'm deeply committed to learning web development thoroughly. I constantly utilize technologies like ReactJS, NextJS, and Typescript. Besides, I also work with backend APIs. Overall, I might refer to myself as a full-stack developer. You can get detailed information about me through this website.",
+      "links": {
+        "Github": "https://github.com/madrimovdev",
+        "Instagram": "https://instagram.com/xudish.madrimov",
+        "Telegram": "https://t.me/madrimov"
+      }
+    },
+    "experience": {
+      "title": "Experience",
+      "organizations": [
+        {
+          "year": "2024 - current",
+          "jobTitle": "Frontend Developer",
+          "organization": "Mbos - Multibranch Online Service",
+          "link": "mbos.uz",
+          "desc": "The company is engaged in developing startup projects. I work as a frontend developer in this company. My main tasks include supporting projects, brainstorming new solutions, and developing new projects."
+        },
+        {
+          "year": "2023 - current",
+          "jobTitle": "Frontend Developer",
+          "organization": "Youcode - Online Education",
+          "link": "youcode.uz",
+          "desc": "The company works with an online IT education platform. My position in the company is a senior frontend developer. My main task is to develop CRM and Landing page sections of the platform. In the development of this platform, I use ReactJS, Redux, React Query, Ant Design."
+        },
+        {
+          "year": "2021 - 2023",
+          "jobTitle": "Frontend Developer / Mentor",
+          "organization": "Data Education Station",
+          "link": "datamarkaz.uz",
+          "desc": "I mainly served as a mentor in this company. Besides, I actively participated in software development in the company. Throughout my activity, I worked on various web applications for the company using ReactJS and NextJS."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "projects": [
+        {
+          "title": "Mbos Lead System",
+          "description": "The project provides registration and re-engagement of the company's new customers.",
+          "tags": ["ReactJS", "CRM", "Private"],
+          "img": "/mbos-lead.png"
+        },
+        {
+          "title": "Mbos Landing Page",
+          "description": "The project is created to provide complete information about the company and share projects.",
+          "tags": ["NextJS", "Landing", "Beta"],
+          "img": "/mbos-lead.png",
+          "link": "mbos.uz"
+        }
+      ]
+    }
+  }
 }
-

@@ -17,7 +17,6 @@ export default async function RootLayout({
 	return (
 		<html
 			lang="en"
-			data-theme="coffee"
 			className="h-full"
 		>
 			<body className={`${inter.className} h-full flex flex-col`}>

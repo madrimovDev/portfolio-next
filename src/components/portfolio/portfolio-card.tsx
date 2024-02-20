@@ -1,26 +1,39 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Dict } from "~/dict";
 
-export default function PortfolioCard() {
+export default function PortfolioCard({
+	project,
+}: {
+	project: Dict["Index"]["portfolio"]["projects"][number];
+}) {
 	return (
 		<>
 			<div className="card card-compact w-full bg-base-200 shadow-xl">
 				<figure className="h-[200px]">
 					<Image
-						src="/mbos-lead.png"
-            alt="Shoes"
-            className="w-full h-full object-cover"
+						src={project.img}
+						alt={project.title}
+						className="w-full h-full object-cover"
 						width={300}
 						height={200}
 					/>
 				</figure>
 				<div className="card-body">
-					<h2 className="card-title">
-						Mbos Lead System
-					</h2>
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, rerum.</p>
+					<h2 className="card-title">{project.title}</h2>
+					<p>{project.description}</p>
+					{project.link && <Link className="link" href={project.link}>Visit</Link>}
 					<div className="card-actions justify-end">
-						<div className="badge badge-outline">Landing</div>
-						<div className="badge badge-outline">ReactJS</div>
+						{project.tags.map((tag) => {
+							return (
+								<div
+									className="badge badge-outline badge-sm"
+									key={tag}
+								>
+									{tag}
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>

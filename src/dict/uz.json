@@ -17,12 +17,12 @@
 		"header": {
 			"subtitle": "Salom, men O'zbekistonlik frontend dasturchiman!",
 			"name": "Xodushukur Madrimov",
-			"jobTitle": "Frontend injener"
+			"jobTitle": "Frontend Dasturchi"
 		},
 		"work": {
 			"title": "Ish",
 			"quote": "Ishlasangiz, ishlaydi",
-			"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi.",
+			"desc": "Men dasturchilik faoliyatimni 2021 yilda o'quv markazda ustozlikdan boshlaganman. Web Dasturlashni chuqur o'rganishga harakat qilayapman. ReactJS, NextJS, Typescript texnologiyalaridan doimiy foydalanib kelaman. Undan tashqari Backedn API lar bilan ham ishlayman. Umuman olganda men o'zimni fullstack dasturchi deb atashim mumkin. Bu sayt orqali men haqimda to'liq malumot olishingiz mumkin bo'ladi",
 			"links": {
 				"Github": "https://github.com/madrimovdev",
 				"Instagram": "https://instagram.com/xudish.madrimov",
@@ -37,21 +37,39 @@
 					"jobTitle": "Frontend Dasturchi",
 					"organization": "Mbos - Multibranch Online Service",
 					"link": "mbos.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+					"desc": "Kompaniya Startup loyihalarni ishlab chiqish bilan shug'ullanadi. Bu kompaniyada men Frontend dasturchi sifatida faoliyat olib boraman. Asosiy vazifam Loyihalarni qo'llab quvatlash yangi yechimlar o'ylab topish va yangi loyihalar ishlab chiqishdan iborat"
 				},
 				{
 					"year": "2023 - hozirgacha",
 					"jobTitle": "Frontend Dasturchi",
 					"organization": "Youcode - Online Education",
 					"link": "youcode.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+					"desc": "Kompaniya online IT o'quv platformasi bilan shug'ullanadi. Kompaniyadagi lavozimim katta frontend dasturchi. Mening asosiy vazifam platformaning CRM va Landing page qisimlarini ishlab chiqish. Bu platformani ishlab chiqishda men ReactJS, Redux, React Query, Ant Design larni qo'llab kelaman."
 				},
 				{
 					"year": "2021 - 2023",
 					"jobTitle": "Frontend Dasturchi / Mentor",
 					"organization": "Data Ta'lim Stansiyasi",
-					"link": "youcode.uz",
-					"desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, in sequi quos deleniti culpa asperiores est eaque maiores. Ex hic eius similique doloremque vel ea delectus animi fugit aperiam sequi."
+					"link": "datamarkaz.uz",
+					"desc": "Bu kompaniyada men asosan mentorlik qildim. Undan tashqari kompaniyada dastur ishlab chiqishda ham faol qatnashdim. Faoliyatim davimda ReactJS, NextJS yordamida kompaniya uchun turli web dasturlar ishladim"
+				}
+			]
+		},
+		"portfolio": {
+			"title": "Partfel",
+			"projects": [
+				{
+					"title": "Mbos Lead System",
+					"description": "Loyiha Kompaniyaning yangi mijozlarini ro'yhatga olish va qayta aloqa o'rnatishni taminlaydi.",
+					"tags": ["ReactJS", "CRM", "Private"],
+					"img": "/mbos-lead.png"
+				},
+				{
+					"title": "Mbos Landing Page",
+					"description": "Loyiha Kompaniya haqida to'liq ma'lumot berish va loyihalar bilan tashish uchun yaratilgan",
+					"tags": ["NextJS", "Landing", "Beta"],
+					"img": "/mbos-lead.png",
+					"link": "mbos.uz"
 				}
 			]
 		}

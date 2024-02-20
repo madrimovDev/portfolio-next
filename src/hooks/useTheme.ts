@@ -21,17 +21,27 @@ const themes: Theme[] = [
 	"night",
 ];
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>("coffee");
-  
-  const changeTheme = (theme: Theme) => setTheme(theme) 
+	const [theme, setTheme] = useState<Theme>();
+	const changeTheme = (theme: Theme) => setTheme(theme);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-  }, [theme])
+	useEffect(() => {
+		const def = localStorage.getItem("theme");
+		if (def) {
+			setTheme(def as Theme);
+		}
+	}, []);
 
-  return {
-    theme,
-    changeTheme,
-    themes
-  } as const
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			window.localStorage.setItem("theme", theme ?? '');
+			document.documentElement.setAttribute("data-theme", theme ?? '');
+		}
+	}, [theme]);
+
+	return {
+		theme,
+		changeTheme,
+		themes,
+	} as const;
 };
+
