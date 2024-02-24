@@ -3,25 +3,25 @@ import Experience from "~/components/experience/experience";
 import Header from "~/components/header/header";
 import MyWork from "~/components/my-work/my-work";
 import { getDict } from "~/dict";
-import { PropsWithLang, PropsWithParams } from "~/types";
+import { PropsWithParams } from "~/types";
 
+export async function generateMetadata({
+	params,
+}: PropsWithParams): Promise<Metadata> {
+	const { header, work } = await getDict(params.lang);
 
-export async function generateMetadata(
-  { params }: PropsWithParams,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
- 
-	const {header, work} = await getDict(params.lang)
- 
-  return {
+	return {
 		title: `${header.name} - ${header.jobTitle}`,
 		description: work.desc,
-		authors: {
-			name: header.name,
-			url: work.links[0]
-		},
 		creator: header.name,
-		keywords: ['Frontend', 'Javascript', 'Typescript', 'NextJS', 'Madrimov', 'Xudoshukur Madrimov'],
+		keywords: [
+			"Frontend",
+			"Javascript",
+			"Typescript",
+			"NextJS",
+			"Madrimov",
+			"Xudoshukur Madrimov",
+		],
 		manifest: "site.webmanifest",
 		openGraph: {
 			type: "website",
@@ -41,16 +41,13 @@ export async function generateMetadata(
 			card: "summary_large_image",
 		},
 		robots: {
-			index: false,
+			index: true,
 			follow: true,
-			nocache: true,
+			nocache: false,
 			googleBot: {
 				index: true,
-				follow: false,
+				follow: true,
 				noimageindex: true,
-				"max-video-preview": -1,
-				"max-image-preview": "large",
-				"max-snippet": -1,
 			},
 		},
 	};
