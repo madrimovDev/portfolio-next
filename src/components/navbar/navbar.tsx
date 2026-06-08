@@ -2,27 +2,81 @@
 import Link from "next/link";
 import { MenuItem } from "./menu-items";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { Theme, useTheme } from "~/hooks/useTheme";
+import { useEffect, useState } from "react";
+
+const LANGS = ["uz", "ru", "en"];
 
 export default function Navbar({ items }: { items: MenuItem[] }) {
 	const { lang } = useParams();
 	const router = useRouter();
-	const { theme, themes, changeTheme } = useTheme();
 	const pathname = usePathname();
+	const [open, setOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+
 	const locale = pathname
 		.split("/")
 		.filter((path) => path !== lang)
 		.join("/");
 
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 24);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+
 	return (
-		<div className="fixed top-0 inset-x-0 flex justify-center px-2 lg:px-0 z-10">
-			<div className="navbar glass max-w-screen-md rounded-box mt-4">
-				<div className="navbar-start">
-					<div className="dropdown">
-						<div
-							tabIndex={0}
-							role="button"
-							className="btn btn-ghost btn-sm lg:hidden"
+		<div className="fixed top-0 inset-x-0 z-50 flex justify-center px-3 lg:px-0">
+			<nav
+				className={`mt-4 w-full max-w-3xl rounded-2xl glass transition-all duration-300 ${
+					scrolled ? "shadow-[0_10px_40px_-18px_rgba(139,92,246,0.5)]" : ""
+				}`}
+			>
+				<div className="flex items-center justify-between gap-2 px-3 py-2">
+					{/* Logo */}
+					<Link
+						href={`/${lang}`}
+						className="font-display font-bold text-lg px-2 select-none"
+					>
+						<span className="gradient-text">{`</>`}</span>
+					</Link>
+
+					{/* Desktop menu */}
+					<ul className="hidden md:flex items-center gap-1 text-sm font-medium">
+						{items.map((item) => (
+							<li key={item.href}>
+								<Link
+									href={`/${lang}${item.href}`}
+									className="px-3 py-2 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-colors"
+								>
+									{item.title}
+								</Link>
+							</li>
+						))}
+					</ul>
+
+					{/* Right: language + mobile toggle */}
+					<div className="flex items-center gap-1">
+						<div className="flex items-center rounded-lg border border-white/10 p-0.5">
+							{LANGS.map((l) => (
+								<button
+									key={l}
+									onClick={() => router.push(`/${l}${locale ? `/${locale.replace(/^\//, "")}` : ""}`)}
+									className={`px-2 py-1 rounded-md text-xs font-semibold uppercase transition-colors ${
+										lang === l
+											? "bg-accent/90 text-white"
+											: "text-soft hover:text-white"
+									}`}
+								>
+									{l}
+								</button>
+							))}
+						</div>
+
+						<button
+							aria-label="Menu"
+							onClick={() => setOpen((v) => !v)}
+							className="md:hidden p-2 rounded-lg text-muted hover:text-white hover:bg-white/5"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -35,94 +89,30 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 									strokeLinecap="round"
 									strokeLinejoin="round"
 									strokeWidth="2"
-									d="M4 6h16M4 12h8m-8 6h16"
+									d={open ? "M6 18L18 6M6 6l12 12" : "M4 7h16M4 12h16M4 17h16"}
 								/>
 							</svg>
-						</div>
-						<ul
-							className="menu dropdown-content bg-base-100 shadow-xl min-w-max mt-2 rounded-box px-4"
-							tabIndex={0}
-						>
-							{items.map((item) => {
-								return (
-									<li key={item.href}>
-										<Link href={`/${lang}${item.href}`}>{item.title}</Link>
-									</li>
-								);
-							})}
-						</ul>
+						</button>
 					</div>
-					<a className="btn btn-ghost btn-sm lg:text-xl">{`</>`}</a>
 				</div>
-				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-xs menu-horizontal px-1 font-semibold">
-						{items.map((item) => {
-							return (
-								<li key={item.href}>
-									<Link href={`/${lang}${item.href}`}>{item.title}</Link>
-								</li>
-							);
-						})}
+
+				{/* Mobile menu */}
+				{open && (
+					<ul className="md:hidden border-t border-white/10 px-2 py-2 flex flex-col">
+						{items.map((item) => (
+							<li key={item.href}>
+								<Link
+									href={`/${lang}${item.href}`}
+									onClick={() => setOpen(false)}
+									className="block px-3 py-2.5 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-colors"
+								>
+									{item.title}
+								</Link>
+							</li>
+						))}
 					</ul>
-				</div>
-				<div className="navbar-end">
-					<div className="dropdown">
-						<div
-							role="button"
-							className="btn btn-ghost btn-sm capitalize text-xs"
-							tabIndex={0}
-						>
-							Theme {theme}
-						</div>
-						<ul
-							className="dropdown-content menu bg-base-200"
-							tabIndex={0}
-						>
-							{themes.map((th) => {
-								return (
-									<li
-										onClick={() => changeTheme(th)}
-										key={th}
-										className={`btn btn-sm${
-											theme === th ? "btn-primary" : "btn-ghost"
-										}`}
-									>
-										{th}
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-					<div className="dropdown">
-						<div
-							role="button"
-							className="btn btn-ghost btn-sm capitalize text-xs"
-							tabIndex={0}
-						>
-							{lang}
-						</div>
-						<ul
-							className="dropdown-content menu bg-base-200"
-							tabIndex={0}
-						>
-							{["uz", "ru", "en"].map((l) => {
-								return (
-									<li
-										className="btn btn-ghost btn-xs min-w-10 capitalize"
-										onClick={() => {
-											router.push(`/${l}/${locale.substring(1)}`);
-										}}
-										key={l}
-									>
-										{l}
-									</li>
-								);
-							})}
-						</ul>
-					</div>
-				</div>
-			</div>
+				)}
+			</nav>
 		</div>
 	);
 }
-

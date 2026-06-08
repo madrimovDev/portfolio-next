@@ -1,9 +1,18 @@
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Beta from "~/components/beta/beta";
 import { Analytics } from "@vercel/analytics/react";
+
 const inter = Inter({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-sans",
+	display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
 	subsets: ["latin"],
+	weight: ["500", "600", "700"],
+	variable: "--font-display",
+	display: "swap",
 });
 
 export default async function RootLayout({
@@ -17,14 +26,12 @@ export default async function RootLayout({
 	return (
 		<html
 			lang="en"
-			className="h-full"
+			className={`h-full ${inter.variable} ${spaceGrotesk.variable}`}
 		>
-			<body className={`${inter.className} h-full flex flex-col`}>
+			<body className="font-sans h-full flex flex-col bg-ink text-[#e7e8f0] antialiased">
 				{children}
-				<Beta />
 				<Analytics />
 			</body>
 		</html>
 	);
 }
-

@@ -8,4 +8,4 @@ export type PropsWithLang = {
   lang: Lang
 }
 
-export type Lang = 'en' | 'uz'
+export type Lang = 'en' | 'uz' | 'ru'

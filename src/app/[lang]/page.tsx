@@ -1,7 +1,10 @@
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
+import Link from "next/link";
 import Experience from "~/components/experience/experience";
 import Header from "~/components/header/header";
 import MyWork from "~/components/my-work/my-work";
+import Skills from "~/components/skills/skills";
+import Portfolio from "~/components/portfolio/portfolio";
 import { getDict } from "~/dict";
 import { PropsWithParams } from "~/types";
 
@@ -11,14 +14,18 @@ export async function generateMetadata({
 	const { header, work } = await getDict(params.lang);
 
 	return {
-		title: `${header.name} - ${header.jobTitle}`,
+		title: `${header.name} — ${header.jobTitle}`,
 		description: work.desc,
 		creator: header.name,
 		keywords: [
+			"Fullstack",
+			"Team Lead",
 			"Frontend",
-			"Javascript",
-			"Typescript",
-			"NextJS",
+			"Backend",
+			"React",
+			"Next.js",
+			"Node.js",
+			"TypeScript",
 			"Madrimov",
 			"Xudoshukur Madrimov",
 		],
@@ -43,25 +50,25 @@ export async function generateMetadata({
 		robots: {
 			index: true,
 			follow: true,
-			nocache: false,
-			googleBot: {
-				index: true,
-				follow: true,
-				noimageindex: true,
-			},
 		},
 	};
 }
 
-export default function Home({ params }: PropsWithParams) {
+export default async function Home({ params }: PropsWithParams) {
+	const { portfolio } = await getDict(params.lang);
 	return (
-		<main className="">
+		<>
 			<Header lang={params.lang} />
-			<hr className="border-base-content/50 my-10" />
 			<MyWork lang={params.lang} />
-			<hr className="border-base-content/50 my-10" />
+			<Skills lang={params.lang} />
 			<Experience lang={params.lang} />
-		</main>
+			<Portfolio lang={params.lang} limit={6} />
+			<div className="mx-auto -mt-8 max-w-5xl px-5 pb-12 text-center sm:text-left">
+				<Link href={`/${params.lang}/portfolio`} className="btn-ghost-line">
+					{portfolio.viewAll}
+					<span aria-hidden>→</span>
+				</Link>
+			</div>
+		</>
 	);
 }
-

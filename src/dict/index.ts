@@ -1,58 +1,89 @@
 import { MenuItem } from "~/components/navbar/menu-items";
 
-
 type IndexHeader = {
-  subtitle: string;
-  name: string;
-  jobTitle: string;
+	greeting: string;
+	subtitle: string;
+	name: string;
+	jobTitle: string;
+	location: string;
+	ctaContact: string;
+	ctaCv: string;
+	ctaProjects: string;
 };
 
 type Work = {
-  title: string;
-  quote: string;
-  desc: string;
-  links: {
-    [key: string]: string;
-  };
+	title: string;
+	eyebrow: string;
+	quote: string;
+	desc: string;
+	links: {
+		[key: string]: string;
+	};
+};
+
+type SkillGroup = {
+	category: string;
+	items: string[];
+};
+
+type Skills = {
+	title: string;
+	eyebrow: string;
+	groups: SkillGroup[];
 };
 
 type ExperienceItem = {
-  year: string;
-  jobTitle: string;
-  organization: string;
-  link: string;
-  desc: string;
+	year: string;
+	jobTitle: string;
+	organization: string;
+	link: string;
+	desc: string;
+	stack?: string[];
+	projects?: string[];
 };
 
 type Experience = {
-  title: string;
-  organizations: ExperienceItem[];
+	title: string;
+	eyebrow: string;
+	organizations: ExperienceItem[];
 };
 
 type Project = {
-  title: string;
-  description: string;
-  tags: string[];
-  img: string;
-  link?: string;
+	title: string;
+	description: string;
+	tags: string[];
+	gradient: string;
+	link?: string;
+	private?: boolean;
+	img?: string;
 };
 
 type Portfolio = {
-  title: string;
-  projects: Project[];
+	title: string;
+	eyebrow: string;
+	subtitle: string;
+	viewAll: string;
+	projects: Project[];
+};
+
+type Ui = {
+	private: string;
+	visit: string;
 };
 
 type Index = {
-  menu: MenuItem[];
-  header: IndexHeader;
-  work: Work;
-  experience: Experience;
-  portfolio: Portfolio;
+	menu: MenuItem[];
+	header: IndexHeader;
+	work: Work;
+	skills: Skills;
+	experience: Experience;
+	portfolio: Portfolio;
+	ui: Ui;
 };
 
 export type Dict = {
-	Index: Index
-}
+	Index: Index;
+};
 
 const dicts = {
 	uz: import("./uz.json").then((module) => module.default.Index),
@@ -60,7 +91,6 @@ const dicts = {
 	ru: import("./ru.json").then((module) => module.default.Index),
 };
 
-export const getDict = async (lang: "uz" | "en" | 'ru') => {
-	return (await dicts[lang]) as Dict['Index'];
+export const getDict = async (lang: "uz" | "en" | "ru") => {
+	return (await dicts[lang]) as Dict["Index"];
 };
-

@@ -1,77 +1,146 @@
 {
   "Index": {
     "menu": [
-      {
-        "href": "/",
-        "title": "Home"
-      },
-      {
-        "href": "/#about",
-        "title": "About"
-      },
-      {
-        "href": "/portfolio",
-        "title": "Portfolio"
-      }
+      { "href": "/", "title": "Home" },
+      { "href": "/#about", "title": "About" },
+      { "href": "/#skills", "title": "Skills" },
+      { "href": "/#experience", "title": "Experience" },
+      { "href": "/portfolio", "title": "Projects" }
     ],
     "header": {
-      "subtitle": "Hello, I'm a frontend developer based in Uzbekistan!",
-      "name": "Khodushukur Madrimov",
-      "jobTitle": "Frontend Engineer"
+      "greeting": "Hi, I'm",
+      "name": "Madrimov Xudoshukur",
+      "jobTitle": "Team Lead / Fullstack Developer",
+      "subtitle": "I build production products with TypeScript: React / Next.js on the frontend, Bun / Hono / Node.js on the backend. From idea to release.",
+      "location": "Khiva, Uzbekistan",
+      "ctaContact": "Get in touch",
+      "ctaCv": "Download CV",
+      "ctaProjects": "Projects"
     },
     "work": {
-      "title": "Work",
-      "quote": "If you work, It will work",
-      "desc": "I started my programming career as a mentor at an educational center in 2021. I'm deeply committed to learning web development thoroughly. I constantly utilize technologies like ReactJS, NextJS, and Typescript. Besides, I also work with backend APIs. Overall, I might refer to myself as a full-stack developer. You can get detailed information about me through this website.",
+      "title": "About me",
+      "eyebrow": "Who I am",
+      "quote": "If you work, it will work.",
+      "desc": "I started my journey in development back in 2021 as a frontend mentor, and today I lead a team as a Team Lead. Along the way I grew from building interfaces to designing architecture and shipping full production platforms. I work across the whole stack: React / Next.js on the frontend and Bun / Hono / Node.js on the backend. I'm a self-taught developer and I keep learning every day.",
       "links": {
-        "Github": "https://github.com/madrimovdev",
-        "Instagram": "https://instagram.com/xudish.madrimov",
-        "Telegram": "https://t.me/madrimov"
+        "GitHub": "https://github.com/madrimovDev",
+        "Telegram": "https://t.me/madrimov",
+        "Email": "mailto:madrimov5014@gmail.com"
       }
+    },
+    "skills": {
+      "title": "Skills & technologies",
+      "eyebrow": "Stack",
+      "groups": [
+        {
+          "category": "Frontend",
+          "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Chakra UI", "Redux Toolkit", "Zustand", "TanStack Query"]
+        },
+        {
+          "category": "Backend",
+          "items": ["Node.js", "Bun", "Hono", "Express", "NestJS", "REST API", "Drizzle ORM", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Zod", "JWT"]
+        },
+        {
+          "category": "Desktop",
+          "items": ["Electron", "Tauri", "ESC/POS"]
+        },
+        {
+          "category": "Tools",
+          "items": ["Git", "Docker", "Turborepo", "Linear", "Biome", "Playwright"]
+        }
+      ]
     },
     "experience": {
       "title": "Experience",
+      "eyebrow": "Career",
       "organizations": [
         {
-          "year": "2024 - current",
-          "jobTitle": "Frontend Developer",
-          "organization": "Mbos - Multibranch Online Service",
+          "year": "2023 — present",
+          "jobTitle": "Team Lead / Fullstack Developer",
+          "organization": "MBOS Union",
           "link": "mbos.uz",
-          "desc": "The company is engaged in developing startup projects. I work as a frontend developer in this company. My main tasks include supporting projects, brainstorming new solutions, and developing new projects."
+          "desc": "I lead the development team: assigning tasks, running code reviews, managing workflows in Linear. I design architecture and build a range of production platforms as a fullstack developer.",
+          "stack": ["TypeScript", "React", "Next.js", "Bun", "Hono", "NestJS", "Drizzle ORM", "PostgreSQL", "Redis", "Electron"],
+          "projects": ["MNazorat", "M-Smart School", "M-Smart Kids", "e-Jarima maydon", "Monro Delivery", "Soliq integration"]
         },
         {
-          "year": "2023 - current",
+          "year": "2022 — 2023",
           "jobTitle": "Frontend Developer",
-          "organization": "Youcode - Online Education",
-          "link": "youcode.uz",
-          "desc": "The company works with an online IT education platform. My position in the company is a senior frontend developer. My main task is to develop CRM and Landing page sections of the platform. In the development of this platform, I use ReactJS, Redux, React Query, Ant Design."
+          "organization": "Technolab",
+          "link": "",
+          "desc": "Single-handedly built the entire frontend of the Online Education platform (LMS): user dashboards, video lessons, a learning content editor, PDF certificate generation and analytics dashboards (backend in Django).",
+          "stack": ["React", "TypeScript", "Redux Toolkit", "TanStack Query", "Chakra UI", "React Hook Form"]
         },
         {
-          "year": "2021 - 2023",
-          "jobTitle": "Frontend Developer / Mentor",
-          "organization": "Data Education Station",
+          "year": "2021 — 2023",
+          "jobTitle": "Frontend Mentor / Instructor",
+          "organization": "Data Talim",
           "link": "datamarkaz.uz",
-          "desc": "I mainly served as a mentor in this company. Besides, I actively participated in software development in the company. Throughout my activity, I worked on various web applications for the company using ReactJS and NextJS."
+          "desc": "Taught frontend development to kids and adults: HTML, CSS, JavaScript, React. 6-month courses, 2–3 groups daily. Brought students from zero to a junior level.",
+          "stack": ["JavaScript", "React", "Next.js", "HTML", "CSS"]
         }
       ]
     },
     "portfolio": {
-      "title": "Portfolio",
+      "title": "Selected projects",
+      "eyebrow": "Work",
+      "subtitle": "Production products I worked on as a fullstack developer and team lead.",
+      "viewAll": "All projects",
       "projects": [
         {
-          "title": "Mbos Lead System",
-          "description": "The project provides registration and re-engagement of the company's new customers.",
-          "tags": ["ReactJS", "CRM", "Private"],
-          "img": "/mbos-lead.png"
+          "title": "MNazorat",
+          "description": "A platform for monitoring and controlling organizations' business processes, with a mobile app and a face-recognition module.",
+          "tags": ["NestJS", "Prisma", "PostgreSQL", "Redis", "Docker"],
+          "gradient": "aurora",
+          "private": true
         },
         {
-          "title": "Mbos Landing Page",
-          "description": "The project is created to provide complete information about the company and share projects.",
-          "tags": ["NextJS", "Landing", "Beta"],
-          "img": "/mbos-lead.png",
-          "link": "mbos.uz"
+          "title": "M-Smart School",
+          "description": "A school management platform: students, attendance, payments and reports. Monorepo with shared types.",
+          "tags": ["Bun", "Hono", "React", "Drizzle ORM", "JWT"],
+          "gradient": "ocean",
+          "link": "https://msmartschool.uz"
+        },
+        {
+          "title": "M-Smart Kids",
+          "description": "A system for kindergartens: face recognition (FaceID) for attendance and an online payment module.",
+          "tags": ["React", "FaceID", "Node.js", "Payments"],
+          "gradient": "candy",
+          "private": true
+        },
+        {
+          "title": "e-Jarima maydon",
+          "description": "A parking violation system: license-plate recognition from cameras (RTSP / FFmpeg), thermal receipt printing, Electron desktop app.",
+          "tags": ["Electron", "RTSP / FFmpeg", "ANPR", "Thermal printer"],
+          "gradient": "ember",
+          "private": true
+        },
+        {
+          "title": "Monro Delivery",
+          "description": "Cafe digitization: backend, admin panel and a mobile API for customer and courier, with job queues.",
+          "tags": ["Bun", "Hono", "Drizzle ORM", "BullMQ", "Mobile API"],
+          "gradient": "sunset",
+          "private": true
+        },
+        {
+          "title": "Online Education",
+          "description": "The frontend of an online education platform (LMS): courses, video lessons, PDF certificates and dashboards. Built entirely solo.",
+          "tags": ["React", "TypeScript", "Redux Toolkit", "Chakra UI"],
+          "gradient": "forest",
+          "private": true
+        },
+        {
+          "title": "Electron Toolkit",
+          "description": "A set of 3 open-source npm packages for Electron apps: POS thermal printer, type-safe storage and window-state management.",
+          "tags": ["Electron", "TypeScript", "npm", "Open Source"],
+          "gradient": "steel",
+          "link": "https://www.npmjs.com/~madrimov"
         }
       ]
+    },
+    "ui": {
+      "private": "Private",
+      "visit": "Open"
     }
   }
 }

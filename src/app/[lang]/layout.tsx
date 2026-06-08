@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Footer from "~/components/footer/footer";
 import Navbar from "~/components/navbar/navbar";
 import { getDict } from "~/dict";
+import { Lang } from "~/types";
 
 export const metadata: Metadata = {
-	title: "Madrimov Xudoshukur - Frontend Developer",
+	metadataBase: new URL("https://www.madrimov.uz"),
+	title: "Madrimov Xudoshukur — Team Lead / Fullstack Developer",
 	description:
-		"Welcome to the portfolio of Madrimov Xudoshukur, a skilled frontend developer with expertise in React, Next.js, and more.",
+		"Portfolio of Madrimov Xudoshukur — Team Lead and Fullstack developer building production products with React, Next.js, Node.js, Bun and TypeScript.",
 	manifest: "site.webmanifest",
 	openGraph: {
 		type: "website",
@@ -26,14 +28,11 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 	},
 	robots: {
-		index: false,
+		index: true,
 		follow: true,
-		nocache: true,
 		googleBot: {
 			index: true,
-			follow: false,
-			noimageindex: true,
-			"max-video-preview": -1,
+			follow: true,
 			"max-image-preview": "large",
 			"max-snippet": -1,
 		},
@@ -49,17 +48,12 @@ export default async function RootLayout({
 	};
 	children: React.ReactNode;
 }>) {
-	const dict = await getDict(params.lang as "uz" | "en");
+	const dict = await getDict(params.lang as Lang);
 	return (
-		<div className="flex flex-col h-full">
-			<div className="min-h-[4rem] mt-2">
-				<Navbar items={dict.menu} />
-			</div>
-			<div className="flex-grow w-full max-w-screen-sm mx-auto px-4">
-				{children}
-			</div>
+		<div className="flex min-h-full flex-col">
+			<Navbar items={dict.menu} />
+			<main className="flex-grow w-full">{children}</main>
 			<Footer />
 		</div>
 	);
 }
-

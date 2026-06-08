@@ -2,21 +2,21 @@ import { Metadata } from "next";
 import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
-	title: "Madrimov Xudoshukur - Portfolio",
+	title: "Madrimov Xudoshukur — Projects",
 	description:
-		"Explore the portfolio of Madrimov Xudoshukur, a talented frontend developer showcasing projects in React, Next.js, and more.",
+		"Selected production projects by Madrimov Xudoshukur — fullstack platforms built with React, Next.js, Node.js, Bun, Electron and TypeScript.",
 	openGraph: {
 		type: "website",
-		url: "https://www.example.com/portfolio",
-		title: "Madrimov Xudoshukur - Portfolio",
+		url: "https://www.madrimov.uz/portfolio",
+		title: "Madrimov Xudoshukur — Projects",
 		description:
-			"Explore the portfolio of Madrimov Xudoshukur, a talented frontend developer showcasing projects in React, Next.js, and more.",
+			"Selected production projects by Madrimov Xudoshukur — fullstack platforms built with React, Next.js, Node.js, Bun, Electron and TypeScript.",
 		images: [
 			{
-				url: "https://www.madrimov.uz/mbos-lead.png",
+				url: "https://www.madrimov.uz/avatar.jpg",
 				width: 800,
 				height: 600,
-				alt: "Madrimov Xudoshukur - Portfolio Preview",
+				alt: "Madrimov Xudoshukur — Projects",
 			},
 		],
 		siteName: "Madrimov Xudoshukur Portfolio",
@@ -26,4 +26,3 @@ export const metadata: Metadata = {
 export default function Layout({ children }: PropsWithChildren) {
 	return <>{children}</>;
 }
-

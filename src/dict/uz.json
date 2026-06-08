@@ -1,78 +1,146 @@
 {
-	"Index": {
-		"menu": [
-			{
-				"href": "/",
-				"title": "Bosh sahifa"
-			},
-			{
-				"href": "/#about",
-				"title": "Biz haqimizda"
-			},
-			{
-				"href": "/portfolio",
-				"title": "Portfel"
-			}
-		],
-		"header": {
-			"subtitle": "Salom, men O'zbekistonlik frontend dasturchiman!",
-			"name": "Xodushukur Madrimov",
-			"jobTitle": "Frontend Dasturchi"
-		},
-		"work": {
-			"title": "Ish",
-			"quote": "Ishlasangiz, ishlaydi",
-			"desc": "Men dasturchilik faoliyatimni 2021 yilda o'quv markazda ustozlikdan boshlaganman. Web Dasturlashni chuqur o'rganishga harakat qilayapman. ReactJS, NextJS, Typescript texnologiyalaridan doimiy foydalanib kelaman. Undan tashqari Backedn API lar bilan ham ishlayman. Umuman olganda men o'zimni fullstack dasturchi deb atashim mumkin. Bu sayt orqali men haqimda to'liq malumot olishingiz mumkin bo'ladi",
-			"links": {
-				"Github": "https://github.com/madrimovdev",
-				"Instagram": "https://instagram.com/xudish.madrimov",
-				"Telegram": "https://t.me/madrimov"
-			}
-		},
-		"experience": {
-			"title": "Faoliyat",
-			"organizations": [
-				{
-					"year": "2024 - hozirgacha",
-					"jobTitle": "Frontend Dasturchi",
-					"organization": "Mbos - Multibranch Online Service",
-					"link": "mbos.uz",
-					"desc": "Kompaniya Startup loyihalarni ishlab chiqish bilan shug'ullanadi. Bu kompaniyada men Frontend dasturchi sifatida faoliyat olib boraman. Asosiy vazifam Loyihalarni qo'llab quvatlash yangi yechimlar o'ylab topish va yangi loyihalar ishlab chiqishdan iborat"
-				},
-				{
-					"year": "2023 - hozirgacha",
-					"jobTitle": "Frontend Dasturchi",
-					"organization": "Youcode - Online Education",
-					"link": "youcode.uz",
-					"desc": "Kompaniya online IT o'quv platformasi bilan shug'ullanadi. Kompaniyadagi lavozimim katta frontend dasturchi. Mening asosiy vazifam platformaning CRM va Landing page qisimlarini ishlab chiqish. Bu platformani ishlab chiqishda men ReactJS, Redux, React Query, Ant Design larni qo'llab kelaman."
-				},
-				{
-					"year": "2021 - 2023",
-					"jobTitle": "Frontend Dasturchi / Mentor",
-					"organization": "Data Ta'lim Stansiyasi",
-					"link": "datamarkaz.uz",
-					"desc": "Bu kompaniyada men asosan mentorlik qildim. Undan tashqari kompaniyada dastur ishlab chiqishda ham faol qatnashdim. Faoliyatim davimda ReactJS, NextJS yordamida kompaniya uchun turli web dasturlar ishladim"
-				}
-			]
-		},
-		"portfolio": {
-			"title": "Partfel",
-			"projects": [
-				{
-					"title": "Mbos Lead System",
-					"description": "Loyiha Kompaniyaning yangi mijozlarini ro'yhatga olish va qayta aloqa o'rnatishni taminlaydi.",
-					"tags": ["ReactJS", "CRM", "Private"],
-					"img": "/mbos-lead.png"
-				},
-				{
-					"title": "Mbos Landing Page",
-					"description": "Loyiha Kompaniya haqida to'liq ma'lumot berish va loyihalar bilan tashish uchun yaratilgan",
-					"tags": ["NextJS", "Landing", "Beta"],
-					"img": "/mbos-lead.png",
-					"link": "mbos.uz"
-				}
-			]
-		}
-	}
+  "Index": {
+    "menu": [
+      { "href": "/", "title": "Bosh sahifa" },
+      { "href": "/#about", "title": "Men haqimda" },
+      { "href": "/#skills", "title": "Ko'nikmalar" },
+      { "href": "/#experience", "title": "Tajriba" },
+      { "href": "/portfolio", "title": "Loyihalar" }
+    ],
+    "header": {
+      "greeting": "Salom, men",
+      "name": "Madrimov Xudoshukur",
+      "jobTitle": "Team Lead / Fullstack dasturchi",
+      "subtitle": "TypeScript'da production mahsulotlar yarataman: frontendda React / Next.js, backendda Bun / Hono / Node.js. G'oyadan relizgacha.",
+      "location": "Xiva, O'zbekiston",
+      "ctaContact": "Bog'lanish",
+      "ctaCv": "CV yuklab olish",
+      "ctaProjects": "Loyihalar"
+    },
+    "work": {
+      "title": "Men haqimda",
+      "eyebrow": "Men kim",
+      "quote": "Ishlasangiz — ishlaydi.",
+      "desc": "Dasturchilik yo'limni 2021-yilda frontend ustozi sifatida boshladim, bugun esa jamoaga Team Lead bo'lib rahbarlik qilaman. Shu davrda interfeys verstkasidan to arxitektura loyihalash va to'liq production-platformalarni yetkazib berishgacha yo'lni bosib o'tdim. Butun stek bilan ishlayman: frontendda React / Next.js, backendda Bun / Hono / Node.js. Dasturlashni mustaqil o'rgandim va har kuni o'rganishda davom etaman.",
+      "links": {
+        "GitHub": "https://github.com/madrimovDev",
+        "Telegram": "https://t.me/madrimov",
+        "Email": "mailto:madrimov5014@gmail.com"
+      }
+    },
+    "skills": {
+      "title": "Ko'nikma va texnologiyalar",
+      "eyebrow": "Stek",
+      "groups": [
+        {
+          "category": "Frontend",
+          "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Chakra UI", "Redux Toolkit", "Zustand", "TanStack Query"]
+        },
+        {
+          "category": "Backend",
+          "items": ["Node.js", "Bun", "Hono", "Express", "NestJS", "REST API", "Drizzle ORM", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Zod", "JWT"]
+        },
+        {
+          "category": "Desktop",
+          "items": ["Electron", "Tauri", "ESC/POS"]
+        },
+        {
+          "category": "Vositalar",
+          "items": ["Git", "Docker", "Turborepo", "Linear", "Biome", "Playwright"]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Ish tajribasi",
+      "eyebrow": "Faoliyat",
+      "organizations": [
+        {
+          "year": "2023 — hozirgacha",
+          "jobTitle": "Team Lead / Fullstack dasturchi",
+          "organization": "MBOS Union",
+          "link": "mbos.uz",
+          "desc": "Dasturchilar jamoasiga rahbarlik qilaman: vazifalar qo'yish, kod-revyu, jarayonlarni Linear orqali boshqarish. Arxitekturani loyihalab, bir qator production-platformalarni fullstack ishlab chiqaman.",
+          "stack": ["TypeScript", "React", "Next.js", "Bun", "Hono", "NestJS", "Drizzle ORM", "PostgreSQL", "Redis", "Electron"],
+          "projects": ["MNazorat", "M-Smart School", "M-Smart Kids", "e-Jarima maydon", "Monro Delivery", "Soliq integration"]
+        },
+        {
+          "year": "2022 — 2023",
+          "jobTitle": "Frontend dasturchi",
+          "organization": "Technolab",
+          "link": "",
+          "desc": "Online Education onlayn ta'lim platformasi (LMS) frontendini to'liq yakka o'zim ishlab chiqdim: shaxsiy kabinetlar, video-darslar, kontent muharriri, PDF sertifikatlar va dashboardlar (backend — Django).",
+          "stack": ["React", "TypeScript", "Redux Toolkit", "TanStack Query", "Chakra UI", "React Hook Form"]
+        },
+        {
+          "year": "2021 — 2023",
+          "jobTitle": "Frontend ustoz / o'qituvchi",
+          "organization": "Data Talim",
+          "link": "datamarkaz.uz",
+          "desc": "Bolalar va kattalarga frontend dasturlashni o'rgatdim: HTML, CSS, JavaScript, React. 6 oylik kurslar, kuniga 2–3 guruh. O'quvchilarni noldan junior darajasigacha tayyorladim.",
+          "stack": ["JavaScript", "React", "Next.js", "HTML", "CSS"]
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Tanlangan loyihalar",
+      "eyebrow": "Ishlar",
+      "subtitle": "Fullstack dasturchi va timlid sifatida ishlagan production mahsulotlarim.",
+      "viewAll": "Barcha loyihalar",
+      "projects": [
+        {
+          "title": "MNazorat",
+          "description": "Tashkilotlarning biznes-jarayonlarini monitoring va nazorat qilish platformasi; mobil ilova va yuzni aniqlash moduli bilan.",
+          "tags": ["NestJS", "Prisma", "PostgreSQL", "Redis", "Docker"],
+          "gradient": "aurora",
+          "private": true
+        },
+        {
+          "title": "M-Smart School",
+          "description": "Maktab boshqaruvi platformasi: o'quvchilar, davomat, to'lovlar va hisobotlar. Umumiy tiplar bilan monorepozitoriy.",
+          "tags": ["Bun", "Hono", "React", "Drizzle ORM", "JWT"],
+          "gradient": "ocean",
+          "link": "https://msmartschool.uz"
+        },
+        {
+          "title": "M-Smart Kids",
+          "description": "Bog'chalar uchun tizim: davomatni belgilash uchun yuzni aniqlash (FaceID) va onlayn to'lov moduli.",
+          "tags": ["React", "FaceID", "Node.js", "To'lovlar"],
+          "gradient": "candy",
+          "private": true
+        },
+        {
+          "title": "e-Jarima maydon",
+          "description": "Parkovkadagi qoidabuzarliklarni qayd etish tizimi: kameralardan avto-raqamni aniqlash (RTSP / FFmpeg), termoprinterda chek chop etish, Electron desktop.",
+          "tags": ["Electron", "RTSP / FFmpeg", "ANPR", "Termoprinter"],
+          "gradient": "ember",
+          "private": true
+        },
+        {
+          "title": "Monro Delivery",
+          "description": "Kafeni raqamlashtirish: backend, admin-panel va mijoz hamda kuryer uchun mobil API, navbatlar bilan.",
+          "tags": ["Bun", "Hono", "Drizzle ORM", "BullMQ", "Mobile API"],
+          "gradient": "sunset",
+          "private": true
+        },
+        {
+          "title": "Online Education",
+          "description": "Onlayn ta'lim platformasi (LMS) frontendi: kurslar, video-darslar, PDF sertifikatlar va dashboardlar. To'liq yakka ishlab chiqilgan.",
+          "tags": ["React", "TypeScript", "Redux Toolkit", "Chakra UI"],
+          "gradient": "forest",
+          "private": true
+        },
+        {
+          "title": "Electron Toolkit",
+          "description": "Electron ilovalari uchun 3 ta open-source npm paket: POS termoprinter, tip-xavfsiz xotira va oyna holatini boshqarish.",
+          "tags": ["Electron", "TypeScript", "npm", "Open Source"],
+          "gradient": "steel",
+          "link": "https://www.npmjs.com/~madrimov"
+        }
+      ]
+    },
+    "ui": {
+      "private": "Maxfiy",
+      "visit": "Ochish"
+    }
+  }
 }
-
