@@ -5,6 +5,7 @@
       { "href": "/#about", "title": "Men haqimda" },
       { "href": "/#skills", "title": "Ko'nikmalar" },
       { "href": "/#experience", "title": "Tajriba" },
+      { "href": "/case-studies", "title": "Case Studies" },
       { "href": "/portfolio", "title": "Loyihalar" }
     ],
     "header": {

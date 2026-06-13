@@ -5,6 +5,7 @@
       { "href": "/#about", "title": "Обо мне" },
       { "href": "/#skills", "title": "Навыки" },
       { "href": "/#experience", "title": "Опыт" },
+      { "href": "/case-studies", "title": "Кейсы" },
       { "href": "/portfolio", "title": "Проекты" }
     ],
     "header": {
