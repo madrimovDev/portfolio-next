@@ -15,7 +15,12 @@
       "location": "Хива, Узбекистан",
       "ctaContact": "Связаться",
       "ctaCv": "Скачать CV",
-      "ctaProjects": "Проекты"
+      "ctaProjects": "Проекты",
+      "stats": [
+        { "value": "4+", "label": "лет опыта" },
+        { "value": "6", "label": "production-систем" },
+        { "value": "3", "label": "OSS npm-пакета" }
+      ]
     },
     "work": {
       "title": "Обо мне",
@@ -89,20 +94,46 @@
       "projects": [
         {
           "title": "MNazorat",
+          "slug": "mnazorat",
           "description": "Платформа мониторинга и контроля бизнес-процессов организаций с мобильным приложением и модулем распознавания лиц.",
           "tags": ["NestJS", "Prisma", "PostgreSQL", "Redis", "Docker"],
+          "caseStudy": {
+            "category": "GOV / MONITORING",
+            "problem": "В организациях не было единой системы для мониторинга и контроля бизнес-процессов в реальном времени.",
+            "role": "Backend-архитектура и проектирование системы; интеграция мобильного приложения и модуля распознавания лиц.",
+            "solution": "Платформа мониторинга на NestJS + Prisma + PostgreSQL, кэш/очереди на Redis, деплой в Docker. Добавлены мобильное приложение и модуль распознавания лиц.",
+            "results": [
+              { "value": "Real-time", "label": "мониторинг процессов" },
+              { "value": "Мобильное", "label": "приложение + распознавание лиц" }
+            ],
+            "lessons": "Разбиение сложного домена на чёткие модули и ясные интерфейсы между сервисами делает систему управляемой."
+          },
           "gradient": "aurora",
           "private": true
         },
         {
           "title": "M-Smart School",
+          "slug": "m-smart-school",
           "description": "Платформа управления школой: ученики, посещаемость, оплаты и отчёты. Монорепозиторий с общими типами.",
           "tags": ["Bun", "Hono", "React", "Drizzle ORM", "JWT"],
+          "caseStudy": {
+            "category": "GOV / EDTECH",
+            "problem": "В школах посещаемость, оплаты и отчёты вели вручную — терялось время, было много ошибок, а для родителей не было прозрачности.",
+            "role": "Тимлид и ведущий разработчик: архитектура, монорепо, бэкенд и self-hosted инфраструктура.",
+            "solution": "Type-safe API (Bun + Hono), монорепо, JWT-аутентификация и модульная система. Посещаемость, оплаты и отчёты на одной платформе. Self-hosted инфраструктура и интеграция с GPU-сервисами (распознавание лиц).",
+            "results": [
+              { "value": "336+", "label": "учеников (пилот, 10-я школа Гулистана)" },
+              { "value": "Live", "label": "работает в production" },
+              { "value": "0", "label": "ручных отчётов" }
+            ],
+            "lessons": "Я понял, что работа с реальными пользователями, управление инфраструктурой и координация команды важнее самих технологий."
+          },
           "gradient": "ocean",
           "link": "https://msmartschool.uz"
         },
         {
           "title": "M-Smart Kids",
+          "slug": "m-smart-kids",
           "description": "Система для детских садов: распознавание лиц (FaceID) для отметки посещаемости и модуль онлайн-оплаты.",
           "tags": ["React", "FaceID", "Node.js", "Платежи"],
           "gradient": "candy",
@@ -110,20 +141,45 @@
         },
         {
           "title": "e-Jarima maydon",
+          "slug": "e-jarima-maydon",
           "description": "Система фиксации правонарушений на парковке: распознавание автономеров с камер (RTSP / FFmpeg), печать чеков на термопринтере, десктоп на Electron.",
           "tags": ["Electron", "RTSP / FFmpeg", "ANPR", "Термопринтер"],
+          "caseStudy": {
+            "category": "GOV / FINTECH",
+            "problem": "Ручная фиксация нарушений на парковке была медленной и подверженной ошибкам.",
+            "role": "Ведущий разработчик десктоп-приложения и интеграции камер/принтера.",
+            "solution": "Распознавание автономеров с камер (ANPR, RTSP/FFmpeg), печать чеков на термопринтере, десктоп-клиент на Electron. Процесс выписки штрафов автоматизирован.",
+            "results": [
+              { "value": "ANPR", "label": "автоматическое распознавание номеров с камеры" },
+              { "value": "Термо", "label": "печать чека на месте" }
+            ],
+            "lessons": "При работе с оборудованием (камеры, принтеры) надёжность и обработка ошибок оказались самой большой частью программы."
+          },
           "gradient": "ember",
           "private": true
         },
         {
           "title": "Monro Delivery",
+          "slug": "monro-delivery",
           "description": "Цифровизация кафе: backend, админ-панель и мобильный API для клиента и курьера с очередями задач.",
           "tags": ["Bun", "Hono", "Drizzle ORM", "BullMQ", "Mobile API"],
+          "caseStudy": {
+            "category": "PRODUCT / HORECA",
+            "problem": "Процессы заказов, администрирования и доставки кафе «Monro» не были оцифрованы.",
+            "role": "Fullstack: бэкенд, админ-панель и мобильный API.",
+            "solution": "Бэкенд на Bun + Hono + Drizzle ORM, система очередей на BullMQ, админ-панель и мобильный API. Управление через Linear.",
+            "results": [
+              { "value": "3-in-1", "label": "бэкенд + админка + мобильный API" },
+              { "value": "Active", "label": "в активной разработке" }
+            ],
+            "lessons": "Даже для малого бизнеса правильная архитектура очередей необходима для надёжной работы."
+          },
           "gradient": "sunset",
           "private": true
         },
         {
           "title": "Online Education",
+          "slug": "online-education",
           "description": "Фронтенд платформы онлайн-образования (LMS): курсы, видео-уроки, сертификаты в PDF и дашборды. Разработан полностью в одиночку.",
           "tags": ["React", "TypeScript", "Redux Toolkit", "Chakra UI"],
           "gradient": "forest",
@@ -131,6 +187,7 @@
         },
         {
           "title": "Electron Toolkit",
+          "slug": "electron-toolkit",
           "description": "Набор из 3 open-source npm-пакетов для Electron-приложений: термопринтер POS, типобезопасное хранилище и управление состоянием окна.",
           "tags": ["Electron", "TypeScript", "npm", "Open Source"],
           "gradient": "steel",
@@ -140,7 +197,14 @@
     },
     "ui": {
       "private": "Приватный",
-      "visit": "Открыть"
+      "visit": "Открыть",
+      "caseStudy": "Подробнее",
+      "csProblem": "Проблема",
+      "csRole": "Моя роль",
+      "csSolution": "Решение и архитектура",
+      "csResults": "Результат",
+      "csLessons": "Чему я научился",
+      "caseStudiesTitle": "Кейсы"
     }
   }
 }
