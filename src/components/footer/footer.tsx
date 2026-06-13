@@ -30,7 +30,7 @@ export default function Footer() {
 				</div>
 
 				<p className="text-xs text-soft">
-					Telegram kanal:{" "}
+					Telegram:{" "}
 					<Link
 						href="https://t.me/madrimov"
 						target="_blank"
