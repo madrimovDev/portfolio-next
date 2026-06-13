@@ -31,7 +31,7 @@ export default async function Portfolio({
 				<div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{projects.map((project, i) => (
 						<Reveal key={project.title} delay={(i % 3) * 90}>
-							<PortfolioCard project={project} ui={ui} />
+							<PortfolioCard project={project} ui={ui} lang={lang} />
 						</Reveal>
 					))}
 				</div>
