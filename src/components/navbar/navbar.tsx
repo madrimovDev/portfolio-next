@@ -34,12 +34,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 					href={`/${lang}`}
 					className="flex items-center gap-[11px] select-none"
 				>
-					<span className="flex h-[34px] w-[34px] items-center justify-center rounded-[9px] border-[1.5px] border-accent font-display text-sm font-bold text-accent">
-						MX
-					</span>
-					<span className="font-display text-base font-medium tracking-[-.01em] text-fg">
-						madrimov<span className="text-accent">.uz</span>
-					</span>
+					<span className="font-mono text-2xl font-bold text-accent">{`</>`}</span>
 				</Link>
 
 				{/* Desktop menu */}
@@ -71,7 +66,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 										`/${l}${locale ? `/${locale.replace(/^\//, "")}` : ""}`
 									)
 								}
-								className={`rounded-full px-3 py-1 text-xs uppercase tracking-[.04em] transition-colors ${
+								className={`rounded-full px-2 py-1 text-[11px] uppercase tracking-[.04em] transition-colors sm:px-3 sm:text-xs ${
 									lang === l
 										? "bg-accent font-semibold text-surface"
 										: "text-[#888E96] hover:text-fg"
