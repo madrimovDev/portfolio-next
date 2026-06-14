@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Fragment, ReactNode } from "react";
 
 function renderRich(rt: any[]): ReactNode {
@@ -53,6 +54,27 @@ export function renderBlocks(blocks: any[]): ReactNode {
 			case "divider":
 				out.push(<hr key={b.id} />);
 				break;
+			case "image": {
+				const img = b.image;
+				const url = img?.type === "external" ? img.external?.url : img.file?.url;
+				const caption = (img?.caption ?? []).map((t: any) => t.plain_text).join("");
+				if (!url) break;
+				out.push(
+					<figure key={b.id} className="my-6">
+						<Image
+							src={url}
+							alt={caption || "rasm"}
+							width={1200}
+							height={800}
+							className="w-full h-auto rounded-xl border border-line"
+						/>
+						{caption && (
+							<figcaption className="mt-2 text-center text-sm text-soft">{caption}</figcaption>
+						)}
+					</figure>
+				);
+				break;
+			}
 			default:
 				break;
 		}
