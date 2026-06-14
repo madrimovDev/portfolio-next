@@ -28,22 +28,29 @@ function toMeta(page: any): BlogPostMeta {
 
 export async function getPublishedPosts(): Promise<BlogPostMeta[]> {
 	if (!TOKEN || !DB_ID) return [];
+	const posts: BlogPostMeta[] = [];
+	let cursor: string | undefined;
 	try {
-		const res = await fetch(`${NOTION_API}/databases/${DB_ID}/query`, {
-			method: "POST",
-			headers: headers(),
-			body: JSON.stringify({
-				filter: { property: "Published", checkbox: { equals: true } },
-				sorts: [{ property: "Date", direction: "descending" }],
-			}),
-			next: { revalidate: 300 },
-		});
-		if (!res.ok) return [];
-		const data = await res.json();
-		return (data.results ?? []).map(toMeta);
+		do {
+			const res = await fetch(`${NOTION_API}/databases/${DB_ID}/query`, {
+				method: "POST",
+				headers: headers(),
+				body: JSON.stringify({
+					filter: { property: "Published", checkbox: { equals: true } },
+					sorts: [{ property: "Date", direction: "descending" }],
+					...(cursor ? { start_cursor: cursor } : {}),
+				}),
+				next: { revalidate: 300 },
+			});
+			if (!res.ok) break;
+			const data = await res.json();
+			posts.push(...(data.results ?? []).map(toMeta));
+			cursor = data.has_more ? data.next_cursor : undefined;
+		} while (cursor);
 	} catch {
-		return [];
+		/* bo'sh/qisman qaytadi */
 	}
+	return posts;
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPostMeta | null> {
