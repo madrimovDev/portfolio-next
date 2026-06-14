@@ -2,23 +2,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "~/components/reveal/reveal";
 import { getDict } from "~/dict";
-import { getPostBySlug, getAllPostSlugs } from "~/lib/blog";
+import { getPublishedPosts, getPostBySlug, getBlocks } from "~/lib/notion";
+import { renderBlocks } from "~/lib/notion-render";
 import { formatDate } from "~/lib/format-date";
 import { Lang } from "~/types";
 
-export function generateStaticParams() {
+export const revalidate = 300;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+	const posts = await getPublishedPosts();
 	const langs: Lang[] = ["uz", "ru", "en"];
 	const out: { lang: string; slug: string }[] = [];
-	for (const lang of langs) {
-		for (const slug of getAllPostSlugs()) out.push({ lang, slug });
-	}
+	for (const lang of langs) for (const p of posts) out.push({ lang, slug: p.slug });
 	return out;
 }
 
-export const dynamicParams = false;
-
-export function generateMetadata({ params }: { params: { slug: string } }) {
-	const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+	const post = await getPostBySlug(params.slug);
 	if (!post) return {};
 	return {
 		title: `${post.title} | Madrimov Xudoshukur`,
@@ -32,9 +33,10 @@ export default async function PostPage({
 	params: { lang: string; slug: string };
 }) {
 	const lang = params.lang as Lang;
-	const post = getPostBySlug(params.slug);
+	const post = await getPostBySlug(params.slug);
 	if (!post) notFound();
 	const { ui } = await getDict(lang);
+	const blocks = await getBlocks(post.id);
 
 	return (
 		<article className="relative mx-auto max-w-2xl px-5 pt-36 pb-24">
@@ -52,15 +54,13 @@ export default async function PostPage({
 				</h1>
 				<div className="mt-4 flex flex-wrap gap-1.5">
 					{post.tags.map((t) => (
-						<span key={t} className="tech-badge">
-							{t}
-						</span>
+						<span key={t} className="tech-badge">{t}</span>
 					))}
 				</div>
 			</Reveal>
 			<Reveal delay={160}>
 				<div className="prose prose-neutral mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-accent prose-strong:text-ink prose-code:text-accent prose-code:before:content-none prose-code:after:content-none">
-					{post.body}
+					{renderBlocks(blocks)}
 				</div>
 			</Reveal>
 		</article>
