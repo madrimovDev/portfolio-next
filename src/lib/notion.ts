@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { BlogPostMeta } from "~/types";
 
 const NOTION_API = "https://api.notion.com/v1";
@@ -95,7 +96,7 @@ function toProject(page: any): ProjectMeta {
 	};
 }
 
-export async function getProjects(): Promise<ProjectMeta[]> {
+export const getProjects = cache(async (): Promise<ProjectMeta[]> => {
 	if (!TOKEN || !PROJECTS_DB_ID) return [];
 	const projects: ProjectMeta[] = [];
 	let cursor: string | undefined;
@@ -120,7 +121,7 @@ export async function getProjects(): Promise<ProjectMeta[]> {
 		/* empty */
 	}
 	return projects;
-}
+});
 
 export async function getProjectBySlug(slug: string): Promise<ProjectMeta | null> {
 	const projects = await getProjects();

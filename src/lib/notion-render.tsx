@@ -64,8 +64,9 @@ export function renderBlocks(blocks: any[]): ReactNode {
 						<Image
 							src={url}
 							alt={caption || "rasm"}
-							width={1200}
-							height={800}
+							width={0}
+							height={0}
+							sizes="(max-width: 768px) 100vw, 768px"
 							className="w-full h-auto rounded-xl border border-line"
 						/>
 						{caption && (
