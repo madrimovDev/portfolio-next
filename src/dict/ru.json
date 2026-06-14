@@ -6,6 +6,7 @@
       { "href": "/#skills", "title": "Навыки" },
       { "href": "/#experience", "title": "Опыт" },
       { "href": "/case-studies", "title": "Кейсы" },
+      { "href": "/blog", "title": "Блог" },
       { "href": "/portfolio", "title": "Проекты" }
     ],
     "header": {
@@ -205,7 +206,8 @@
       "csSolution": "Решение и архитектура",
       "csResults": "Результат",
       "csLessons": "Чему я научился",
-      "caseStudiesTitle": "Кейсы"
+      "caseStudiesTitle": "Кейсы",
+      "blogTitle": "Блог"
     }
   }
 }

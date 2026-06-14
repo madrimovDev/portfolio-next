@@ -88,6 +88,7 @@ type Ui = {
 	csResults: string;
 	csLessons: string;
 	caseStudiesTitle: string;
+	blogTitle: string;
 };
 
 type Index = {
