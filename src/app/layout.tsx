@@ -36,7 +36,7 @@ export default async function RootLayout({
 			lang="en"
 			className={`h-full ${display.variable} ${sans.variable} ${mono.variable}`}
 		>
-			<body className="font-sans bg-base text-fg antialiased">
+			<body className="font-sans bg-night text-fg antialiased">
 				{children}
 				<Analytics />
 			</body>

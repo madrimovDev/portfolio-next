@@ -52,9 +52,7 @@ export default function Footer() {
 
 				<div className="flex flex-wrap items-center justify-between gap-6 pt-8">
 					<div className="flex items-center gap-[11px]">
-						<span className="flex h-[30px] w-[30px] items-center justify-center rounded-lg border-[1.5px] border-accent font-display text-xs font-bold text-accent">
-							MX
-						</span>
+						<span className="font-mono text-xl font-bold text-accent">{`</>`}</span>
 						<span className="font-mono text-[13px] text-[#888E96]">
 							© 2026 Madrimov Xudoshukur
 						</span>

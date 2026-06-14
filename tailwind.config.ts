@@ -15,7 +15,9 @@ const config: Config = {
 			},
 			colors: {
 				// === Signal dark palette ===
-				base: "#070611",
+				// NOTE: do NOT name a color "base" — it collides with Tailwind's
+				// `text-base` font-size utility and turns 16px text black.
+				night: "#070611",
 				surface: "#0B0C0E",
 				surface2: "#0E1013",
 				surface3: "#141619",
