@@ -1,51 +1,42 @@
 import { getDict } from "~/dict";
 import { PropsWithLang } from "~/types";
-import Reveal from "~/components/reveal/reveal";
 
-const GROUP_ACCENT = [
-	"from-accent-cyan/20 to-accent-cyan/0 text-accent-cyan",
-	"from-accent/20 to-accent/0 text-accent",
-	"from-accent-fuchsia/20 to-accent-fuchsia/0 text-accent-fuchsia",
-	"from-accent-indigo/20 to-accent-indigo/0 text-accent-indigo",
-];
-
+/**
+ * Skills — Signal section (signal.dc.html 170-213).
+ *
+ * Server component. `id="skills"` is wired to the scroll-reveal
+ * IntersectionObserver in signal-effects. A responsive grid of glass panels,
+ * one per `skills.groups` entry: a mono uppercase category label and the items
+ * rendered as mono tag-pills.
+ */
 export default async function Skills({ lang }: PropsWithLang) {
 	const { skills } = await getDict(lang);
-	return (
-		<section id="skills" className="relative py-20 sm:py-28">
-			<div className="mx-auto max-w-5xl px-5">
-				<Reveal>
-					<span className="section-eyebrow">{skills.eyebrow}</span>
-					<h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight">
-						{skills.title}
-					</h2>
-				</Reveal>
 
-				<div className="mt-10 grid gap-5 sm:grid-cols-2">
-					{skills.groups.map((group, i) => (
-						<Reveal key={group.category} delay={i * 90}>
-							<div className="card-surface h-full rounded-2xl p-6">
-								<div className="flex items-center gap-3">
-									<span
-										className={`inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${
-											GROUP_ACCENT[i % GROUP_ACCENT.length]
-										} font-display font-bold`}
-									>
-										{group.category.charAt(0)}
-									</span>
-									<h3 className="font-display text-lg font-semibold text-ink">
-										{group.category}
-									</h3>
-								</div>
-								<div className="mt-5 flex flex-wrap gap-2">
-									{group.items.map((item) => (
-										<span key={item} className="tech-badge">
-											{item}
-										</span>
-									))}
-								</div>
+	return (
+		<section id="skills" className="relative border-t border-white/[0.06]">
+			<div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 sm:py-[88px]">
+				<div className="eyebrow mb-5">02 — KO&apos;NIKMALAR</div>
+				<h2 className="m-0 mb-11 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+					Texnologiyalar steki
+				</h2>
+
+				<div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
+					{skills.groups.map((group) => (
+						<div
+							key={group.category}
+							className="glass rounded-[18px] px-[22px] pb-6 pt-[22px]"
+						>
+							<div className="mb-4 font-mono text-xs uppercase tracking-[.1em] text-[#888E96]">
+								{group.category}
 							</div>
-						</Reveal>
+							<div className="flex flex-wrap gap-2">
+								{group.items.map((item) => (
+									<span key={item} className="tag-pill">
+										{item}
+									</span>
+								))}
+							</div>
+						</div>
 					))}
 				</div>
 			</div>
