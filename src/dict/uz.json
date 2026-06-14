@@ -6,6 +6,7 @@
       { "href": "/#skills", "title": "Ko'nikmalar" },
       { "href": "/#experience", "title": "Tajriba" },
       { "href": "/case-studies", "title": "Case Studies" },
+      { "href": "/blog", "title": "Maqolalar" },
       { "href": "/portfolio", "title": "Loyihalar" }
     ],
     "header": {
@@ -205,7 +206,8 @@
       "csSolution": "Yechim va arxitektura",
       "csResults": "Natija",
       "csLessons": "Nimani o'rgandim",
-      "caseStudiesTitle": "Case Studies"
+      "caseStudiesTitle": "Case Studies",
+      "blogTitle": "Maqolalar"
     }
   }
 }
