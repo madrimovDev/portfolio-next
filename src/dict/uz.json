@@ -18,6 +18,9 @@
       "ctaContact": "Bog'lanish",
       "ctaCv": "CV yuklab olish",
       "ctaProjects": "Loyihalar",
+      "kicker": "LIVE · 4 tizim ishlab turibdi",
+      "tagline": "Murakkab tizimlarni ishonchli qilib quraman.",
+      "desc": "Davlat va korporativ sektor uchun ishlab chiqarish tizimlarini quraman — arxitekturadan relizgacha — va jamoani yetaklayman.",
       "stats": [
         { "value": "4+", "label": "yil tajriba" },
         { "value": "6", "label": "production tizim" },

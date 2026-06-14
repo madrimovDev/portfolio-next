@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Aurora from "~/components/aurora/aurora";
 import Footer from "~/components/footer/footer";
 import Navbar from "~/components/navbar/navbar";
 import { getDict } from "~/dict";
@@ -51,6 +52,7 @@ export default async function RootLayout({
 	const dict = await getDict(params.lang as Lang);
 	return (
 		<div className="flex min-h-full flex-col">
+			<Aurora />
 			<Navbar items={dict.menu} />
 			<main className="flex-grow w-full">{children}</main>
 			<Footer />

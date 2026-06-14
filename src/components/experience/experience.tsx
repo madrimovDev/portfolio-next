@@ -1,87 +1,106 @@
 import Link from "next/link";
 import { getDict } from "~/dict";
 import { PropsWithLang } from "~/types";
-import Reveal from "~/components/reveal/reveal";
 
+/**
+ * Experience — Signal timeline (signal.dc.html 215-241).
+ *
+ * Server component. `id="experience"` is wired to the scroll-reveal
+ * IntersectionObserver in signal-effects. A left-border timeline of glass
+ * cards; each card carries a node dot — amber for the first (current) role,
+ * slate for the rest — the role (Unbounded), the year (mono, amber on the
+ * first card only), the organization and a description.
+ *
+ * Deviation from the reference: the reference cards show only role/year/org/
+ * desc. The dict provides `stack` / `projects` per organization, so those are
+ * rendered as mono tag-pills under the description rather than dropped.
+ */
 export default async function Experience({ lang }: PropsWithLang) {
 	const { experience } = await getDict(lang);
+
 	return (
-		<section id="experience" className="relative py-20 sm:py-28">
-			<div className="mx-auto max-w-5xl px-5">
-				<Reveal>
-					<span className="section-eyebrow">{experience.eyebrow}</span>
-					<h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight">
-						{experience.title}
-					</h2>
-				</Reveal>
+		<section
+			id="experience"
+			className="relative border-t border-white/[0.06] bg-white/[0.014]"
+		>
+			<div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 sm:py-[88px]">
+				<div className="eyebrow mb-5">03 — TAJRIBA</div>
+				<h2 className="m-0 mb-[52px] font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+					Yo&apos;l xaritasi
+				</h2>
 
-				<div className="mt-12 relative">
-					{/* vertical line */}
-					<div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-accent-cyan/60 via-accent/40 to-transparent sm:left-[9px]" />
+				<div className="ml-1.5 flex flex-col border-l border-line2">
+					{experience.organizations.map((org, i) => {
+						const isFirst = i === 0;
+						const isLast = i === experience.organizations.length - 1;
+						return (
+							<div
+								key={org.organization}
+								className={`glass relative ml-[22px] rounded-[18px] px-[26px] py-[22px] ${
+									isLast ? "" : "mb-[18px]"
+								}`}
+							>
+								{/* node dot */}
+								<span
+									className={`absolute -left-[29px] top-[26px] h-[13px] w-[13px] rounded-full shadow-[0_0_0_4px_#0E1013] ${
+										isFirst ? "bg-accent" : "bg-line3"
+									}`}
+								/>
 
-					<div className="flex flex-col gap-8">
-						{experience.organizations.map((org, i) => (
-							<Reveal key={org.organization} delay={i * 100}>
-								<div className="relative pl-8 sm:pl-12">
-									{/* dot */}
-									<span className="absolute left-0 top-2 h-[15px] w-[15px] rounded-full bg-ink border-2 border-accent shadow-[0_0_0_4px_rgba(225,29,72,0.14)] sm:left-[2px]" />
-
-									<div className="card-surface rounded-2xl p-6">
-										<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-											<h3 className="font-display text-xl font-bold text-ink">
-												{org.organization}
-											</h3>
-											<span className="text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-												{org.year}
-											</span>
-										</div>
-
-										<p className="mt-1 text-sm font-semibold text-accent">
-											{org.jobTitle}
-										</p>
-										{org.link ? (
-											<Link
-												href={`https://${org.link}`}
-												target="_blank"
-												rel="noopener"
-												className="mt-0.5 inline-block text-xs text-soft hover:text-ink transition-colors"
-											>
-												{org.link} ↗
-											</Link>
-										) : null}
-
-										<p className="mt-3 text-muted text-sm sm:text-base leading-relaxed">
-											{org.desc}
-										</p>
-
-										{org.projects && org.projects.length > 0 ? (
-											<div className="mt-4 flex flex-wrap gap-2">
-												{org.projects.map((p) => (
-													<span
-														key={p}
-														className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-black/[0.02] px-2.5 py-1 text-xs font-medium text-muted"
-													>
-														<span className="h-1.5 w-1.5 rounded-full bg-accent-fuchsia" />
-														{p}
-													</span>
-												))}
-											</div>
-										) : null}
-
-										{org.stack && org.stack.length > 0 ? (
-											<div className="mt-4 flex flex-wrap gap-2">
-												{org.stack.map((s) => (
-													<span key={s} className="tech-badge">
-														{s}
-													</span>
-												))}
-											</div>
-										) : null}
-									</div>
+								<div className="mb-2 flex flex-wrap justify-between gap-2">
+									<span className="font-display text-xl font-medium">
+										{org.jobTitle}
+									</span>
+									<span
+										className={`font-mono text-[13px] ${
+											isFirst ? "text-accent" : "text-[#888E96]"
+										}`}
+									>
+										{org.year}
+									</span>
 								</div>
-							</Reveal>
-						))}
-					</div>
+
+								<div className="mb-3 text-sm text-[#888E96]">
+									{org.link ? (
+										<Link
+											href={`https://${org.link}`}
+											target="_blank"
+											rel="noopener"
+											className="transition-colors hover:text-fg"
+										>
+											{org.organization} ↗
+										</Link>
+									) : (
+										org.organization
+									)}
+								</div>
+
+								<p className="m-0 max-w-[70ch] text-base leading-[1.7] text-[#c2c6cb]">
+									{org.desc}
+								</p>
+
+								{org.projects && org.projects.length > 0 ? (
+									<div className="mt-4 flex flex-wrap gap-2">
+										{org.projects.map((p) => (
+											<span key={p} className="tag-pill">
+												{p}
+											</span>
+										))}
+									</div>
+								) : null}
+
+								{org.stack && org.stack.length > 0 ? (
+									<div className="mt-2.5 flex flex-wrap gap-2">
+										{org.stack.map((s) => (
+											<span key={s} className="tag-pill">
+												{s}
+											</span>
+										))}
+									</div>
+								) : null}
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</section>

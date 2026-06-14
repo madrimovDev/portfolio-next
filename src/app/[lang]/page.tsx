@@ -1,8 +1,10 @@
 import { Metadata } from "next";
-import Link from "next/link";
+import SignalEffects from "~/components/signal-effects/signal-effects";
+import StatusTicker from "~/components/status-ticker/status-ticker";
 import Experience from "~/components/experience/experience";
 import Header from "~/components/header/header";
 import MyWork from "~/components/my-work/my-work";
+import Sectors from "~/components/sectors/sectors";
 import Skills from "~/components/skills/skills";
 import Portfolio from "~/components/portfolio/portfolio";
 import LatestPosts from "~/components/latest-posts/latest-posts";
@@ -58,20 +60,16 @@ export async function generateMetadata({
 }
 
 export default async function Home({ params }: PropsWithParams) {
-	const { portfolio } = await getDict(params.lang);
 	return (
 		<>
+			<SignalEffects />
+			<StatusTicker />
 			<Header lang={params.lang} />
+			<Sectors />
 			<MyWork lang={params.lang} />
 			<Skills lang={params.lang} />
 			<Experience lang={params.lang} />
 			<Portfolio lang={params.lang} limit={6} />
-			<div className="mx-auto -mt-8 max-w-5xl px-5 text-center sm:text-left">
-				<Link href={`/${params.lang}/portfolio`} className="btn-ghost-line">
-					{portfolio.viewAll}
-					<span aria-hidden>→</span>
-				</Link>
-			</div>
 			<LatestPosts lang={params.lang} limit={3} />
 		</>
 	);

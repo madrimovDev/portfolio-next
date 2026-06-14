@@ -8,136 +8,230 @@
 		-webkit-text-size-adjust: 100%;
 	}
 	body {
-		background-color: #f7f5f0;
-		color: #0a0a0a;
+		background-color: #070611;
+		color: #e8e9ea;
 		overflow-x: hidden;
 	}
 	::selection {
-		background: #e11d48;
-		color: #fff;
+		background: #ffc24b;
+		color: #0b0c0e;
 	}
 	::-webkit-scrollbar {
 		width: 10px;
 	}
 	::-webkit-scrollbar-track {
-		background: #f7f5f0;
+		background: #070611;
 	}
 	::-webkit-scrollbar-thumb {
-		background: #d8d3c8;
+		background: #2c2f34;
 		border-radius: 999px;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: #e11d48;
+		background: #ffc24b;
 	}
 }
 
 @layer components {
-	/* Headline accent — was a gradient, now solid ink (Bold Editorial).
-	   Pair with .text-accent for the red highlight word. */
-	.gradient-text {
-		color: #0a0a0a;
-	}
+	/* ===================== Signal core classes ===================== */
 
-	/* Glass card → frosted paper */
+	/* Frosted glass surface (skills/cards) */
 	.glass {
-		background: rgba(255, 255, 255, 0.72);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border: 1px solid #e4e0d8;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.06),
+			rgba(255, 255, 255, 0.025)
+		);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(14px) saturate(130%);
+		-webkit-backdrop-filter: blur(14px) saturate(130%);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14),
+			0 14px 34px -30px rgba(0, 0, 0, 0.5);
 	}
 
+	/* Stronger glass for prominent cards/panels */
+	.glass-strong {
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.06),
+			rgba(255, 255, 255, 0.025)
+		);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(16px) saturate(135%);
+		-webkit-backdrop-filter: blur(16px) saturate(135%);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16),
+			0 16px 40px -30px rgba(0, 0, 0, 0.55);
+	}
+
+	/* Amber monospace eyebrow / section label */
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-family: var(--font-mono), ui-monospace, monospace;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: #ffc24b;
+	}
+
+	/* Monospace tag / skill pill */
+	.tag-pill {
+		display: inline-flex;
+		align-items: center;
+		font-family: var(--font-mono), ui-monospace, monospace;
+		font-size: 13px;
+		font-weight: 400;
+		color: #cfd2d6;
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 999px;
+		padding: 6px 13px;
+		white-space: nowrap;
+	}
+
+	/* Primary amber button */
+	.btn-amber {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.56rem;
+		font-weight: 600;
+		font-size: 15px;
+		color: #0b0c0e;
+		background: #ffc24b;
+		border-radius: 11px;
+		padding: 15px 26px;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	.btn-amber:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 34px -16px rgba(255, 194, 75, 0.6);
+	}
+
+	/* Secondary ghost button */
+	.btn-ghost {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.56rem;
+		font-weight: 500;
+		font-size: 15px;
+		color: #e8e9ea;
+		border: 1px solid #2c2f34;
+		background: transparent;
+		border-radius: 11px;
+		padding: 15px 26px;
+		transition: border-color 0.2s ease, transform 0.2s ease;
+	}
+	.btn-ghost:hover {
+		border-color: rgba(255, 194, 75, 0.5);
+		transform: translateY(-2px);
+	}
+
+	/* ===================== Legacy class remaps =====================
+	   Old editorial class names re-pointed to Signal dark equivalents so
+	   existing components auto-reskin to dark. Refined per-component later. */
+
+	/* gradient-text → solid light fg (pair with .text-accent for amber word) */
+	.gradient-text {
+		color: #e8e9ea;
+	}
+
+	/* card-surface → dark glass card with lift on hover */
 	.card-surface {
-		background: #ffffff;
-		border: 1px solid #e4e0d8;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.06),
+			rgba(255, 255, 255, 0.025)
+		);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(16px) saturate(135%);
+		-webkit-backdrop-filter: blur(16px) saturate(135%);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16),
+			0 16px 40px -30px rgba(0, 0, 0, 0.55);
 		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
 			border-color 0.35s ease, box-shadow 0.35s ease;
 	}
 	.card-surface:hover {
-		transform: translateY(-6px);
-		border-color: #e11d48;
-		box-shadow: 0 18px 44px -22px rgba(225, 29, 72, 0.45);
+		transform: translateY(-3px);
+		border-color: rgba(255, 194, 75, 0.5);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16),
+			0 22px 50px -28px rgba(0, 0, 0, 0.7);
 	}
 
-	/* Dotted grid background (subtle ink dots on paper) */
+	/* bg-grid → dark line grid */
 	.bg-grid {
-		background-image: radial-gradient(
-			rgba(10, 10, 10, 0.07) 1px,
-			transparent 1px
-		);
-		background-size: 26px 26px;
+		background-image: linear-gradient(#141619 1px, transparent 1px),
+			linear-gradient(90deg, #141619 1px, transparent 1px);
+		background-size: 62px 62px;
 	}
 
-	/* Pill / badge — monospace, ink on paper, red border */
+	/* tech-badge → tag-pill */
 	.tech-badge {
 		display: inline-flex;
 		align-items: center;
 		font-family: var(--font-mono), ui-monospace, monospace;
-		font-size: 0.72rem;
-		font-weight: 500;
-		letter-spacing: 0.01em;
-		padding: 0.28rem 0.66rem;
+		font-size: 13px;
+		font-weight: 400;
+		color: #cfd2d6;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.16);
 		border-radius: 999px;
-		color: #44403c;
-		background: #ffffff;
-		border: 1px solid #e4e0d8;
+		padding: 6px 13px;
 		white-space: nowrap;
 	}
 
-	/* Primary button — solid ink, paper text (editorial) */
+	/* btn-grad → btn-amber */
 	.btn-grad {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: 700;
-		padding: 0.7rem 1.3rem;
-		border-radius: 0.4rem;
-		color: #f7f5f0;
-		background: #0a0a0a;
-		transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
-		box-shadow: 0 10px 26px -14px rgba(10, 10, 10, 0.6);
-	}
-	.btn-grad:hover {
-		background: #e11d48;
-		transform: translateY(-2px);
-		box-shadow: 0 12px 30px -14px rgba(225, 29, 72, 0.6);
-	}
-
-	/* Secondary button — outline */
-	.btn-ghost-line {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 		font-weight: 600;
 		padding: 0.7rem 1.3rem;
-		border-radius: 0.4rem;
-		color: #0a0a0a;
-		border: 1px solid #d8d3c8;
+		border-radius: 11px;
+		color: #0b0c0e;
+		background: #ffc24b;
+		transition: transform 0.2s ease, box-shadow 0.3s ease;
+		box-shadow: 0 10px 26px -14px rgba(255, 194, 75, 0.5);
+	}
+	.btn-grad:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 34px -16px rgba(255, 194, 75, 0.6);
+	}
+
+	/* btn-ghost-line → btn-ghost */
+	.btn-ghost-line {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 500;
+		padding: 0.7rem 1.3rem;
+		border-radius: 11px;
+		color: #e8e9ea;
+		border: 1px solid #2c2f34;
 		background: transparent;
-		transition: border-color 0.3s ease, background 0.3s ease,
-			transform 0.2s ease;
+		transition: border-color 0.3s ease, transform 0.2s ease;
 	}
 	.btn-ghost-line:hover {
-		border-color: #e11d48;
-		color: #e11d48;
+		border-color: rgba(255, 194, 75, 0.5);
 		transform: translateY(-2px);
 	}
 
-	/* Section label — monospace red eyebrow (terminal bridge) */
+	/* section-eyebrow → amber eyebrow */
 	.section-eyebrow {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 		font-family: var(--font-mono), ui-monospace, monospace;
-		font-size: 0.72rem;
-		font-weight: 600;
-		letter-spacing: 0.14em;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.16em;
 		text-transform: uppercase;
-		color: #e11d48;
+		color: #ffc24b;
 	}
 
-	/* Red highlight word inside a headline */
+	/* Amber highlight word inside a headline */
 	.text-accent {
-		color: #e11d48;
+		color: #ffc24b;
 	}
 }
 

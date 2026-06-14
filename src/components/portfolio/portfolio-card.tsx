@@ -4,6 +4,19 @@ import { ProjectMeta } from "~/lib/notion";
 import { Dict } from "~/dict";
 import { Lang } from "~/types";
 
+/**
+ * PortfolioCard — Signal glass project card (signal.dc.html 255-307).
+ *
+ * Cover area (Notion `cover` image via next/image fill, OR amber Unbounded
+ * initials on a faint glass gradient when there is no cover) carrying a mono
+ * PRIVATE pill when `project.private`. Below: h3 (Unbounded), description and
+ * mono tag-pills. Hover lifts the card (-3px) and warms the border.
+ *
+ * Deviation from the reference: the reference's "metrics strip" (p95 84ms,
+ * 336+ users …) is omitted — there is no Notion property backing it. The
+ * reference's unconditional LIVE badge is also dropped: only PRIVATE is data-
+ * backed (`project.private`). The case-study / external link logic is kept.
+ */
 export default function PortfolioCard({
 	project,
 	ui,
@@ -22,9 +35,9 @@ export default function PortfolioCard({
 		.toUpperCase();
 
 	return (
-		<div className="card-surface group flex h-full flex-col overflow-hidden rounded-2xl">
-			{/* Cover image, or ink cover with big initials; red accent bar on hover */}
-			<div className="relative h-36 overflow-hidden bg-ink">
+		<div className="glass-strong group flex h-full flex-col overflow-hidden rounded-[20px] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-[3px] hover:border-white/20">
+			{/* cover area: Notion image OR amber initials on faint glass */}
+			<div className="relative flex h-[168px] items-center justify-center overflow-hidden border-b border-white/[0.08] bg-[linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.02))]">
 				{project.cover ? (
 					<Image
 						src={project.cover}
@@ -34,40 +47,28 @@ export default function PortfolioCard({
 						sizes="(max-width:768px) 100vw, 33vw"
 					/>
 				) : (
-					<>
-						<div className="absolute inset-0 bg-grid opacity-20" />
-						<span className="absolute left-5 top-4 font-display text-4xl font-extrabold text-paper">
-							{initials}
-						</span>
-					</>
+					<span className="font-display text-[52px] font-bold text-accent">
+						{initials}
+					</span>
 				)}
-				<div className="absolute bottom-0 left-0 h-1 w-12 bg-accent transition-all duration-300 group-hover:w-full" />
 				{project.private ? (
-					<span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-semibold text-ink">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							className="h-3 w-3"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-						>
-							<path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm3 8H9V6a3 3 0 016 0v3z" />
-						</svg>
+					<span className="absolute right-3.5 top-3.5 rounded-full border border-line3 px-[9px] py-1 font-mono text-[10px] uppercase tracking-[.1em] text-muted">
 						{ui.private}
 					</span>
 				) : null}
 			</div>
 
-			<div className="flex flex-1 flex-col p-5">
-				<h3 className="font-display text-lg font-bold text-ink">
+			<div className="flex flex-1 flex-col px-[22px] pb-6 pt-[22px]">
+				<h3 className="m-0 mb-2 font-display text-xl font-medium">
 					{project.title}
 				</h3>
-				<p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+				<p className="m-0 mb-3.5 flex-1 text-sm leading-[1.6] text-muted">
 					{project.description}
 				</p>
 
-				<div className="mt-4 flex flex-wrap gap-1.5">
+				<div className="flex flex-wrap gap-[7px]">
 					{project.tags.map((tag) => (
-						<span key={tag} className="tech-badge">
+						<span key={tag} className="tag-pill">
 							{tag}
 						</span>
 					))}
@@ -76,16 +77,17 @@ export default function PortfolioCard({
 				{project.hasCaseStudy ? (
 					<Link
 						href={`/${lang}/case-studies/${project.slug}`}
-						className="mt-3 inline-block text-sm font-medium text-accent"
+						className="mt-4 inline-flex items-center gap-1.5 font-mono text-sm text-accent transition-colors hover:text-fg"
 					>
-						{ui.caseStudy} →
+						{ui.caseStudy}
+						<span aria-hidden>→</span>
 					</Link>
 				) : project.link ? (
 					<Link
 						href={project.link}
 						target="_blank"
 						rel="noopener"
-						className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-ink transition-colors"
+						className="mt-4 inline-flex items-center gap-1.5 font-mono text-sm text-accent transition-colors hover:text-fg"
 					>
 						{ui.visit}
 						<span aria-hidden>↗</span>
