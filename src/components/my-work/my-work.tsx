@@ -45,7 +45,7 @@ export default async function MyWork({ lang }: PropsWithLang) {
 										href={work.links[key]}
 										target={work.links[key].startsWith("mailto") ? undefined : "_blank"}
 										rel="noopener"
-										className="group inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-2.5 text-sm font-medium text-muted hover:text-white hover:border-accent/50 hover:bg-accent/10 transition-colors"
+										className="group inline-flex items-center gap-2 rounded-xl border border-line bg-black/[0.02] px-4 py-2.5 text-sm font-medium text-muted hover:text-ink hover:border-accent/50 hover:bg-accent/10 transition-colors"
 									>
 										<svg
 											xmlns="http://www.w3.org/2000/svg"

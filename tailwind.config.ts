@@ -11,19 +11,24 @@ const config: Config = {
 			fontFamily: {
 				sans: ["var(--font-sans)", "system-ui", "sans-serif"],
 				display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+				mono: ["var(--font-mono)", "ui-monospace", "monospace"],
 			},
 			colors: {
-				ink: "#0a0a0f",
-				surface: "#12121a",
-				card: "#16161f",
-				line: "#262633",
-				muted: "#9aa0b4",
-				soft: "#6b7088",
+				// Bold Editorial — warm paper + ink + a single red accent.
+				paper: "#f7f5f0",
+				ink: "#0a0a0a",
+				surface: "#ffffff",
+				card: "#ffffff",
+				line: "#e4e0d8",
+				muted: "#57534e",
+				soft: "#8a857d",
 				accent: {
-					DEFAULT: "#8b5cf6",
-					cyan: "#22d3ee",
-					fuchsia: "#e879f9",
-					indigo: "#6366f1",
+					// One red family. cyan/fuchsia/indigo kept as keys so existing
+					// components (text-accent-cyan etc.) re-skin automatically.
+					DEFAULT: "#e11d48",
+					cyan: "#e11d48",
+					fuchsia: "#be123c",
+					indigo: "#e11d48",
 				},
 			},
 			keyframes: {

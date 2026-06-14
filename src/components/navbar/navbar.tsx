@@ -29,7 +29,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 		<div className="fixed top-0 inset-x-0 z-50 flex justify-center px-3 lg:px-0">
 			<nav
 				className={`mt-4 w-full max-w-3xl rounded-2xl glass transition-all duration-300 ${
-					scrolled ? "shadow-[0_10px_40px_-18px_rgba(139,92,246,0.5)]" : ""
+					scrolled ? "shadow-[0_10px_40px_-18px_rgba(225,29,72,0.28)]" : ""
 				}`}
 			>
 				<div className="flex items-center justify-between gap-2 px-3 py-2">
@@ -47,7 +47,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 							<li key={item.href}>
 								<Link
 									href={`/${lang}${item.href}`}
-									className="px-3 py-2 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-colors"
+									className="px-3 py-2 rounded-lg text-muted hover:text-ink hover:bg-black/[0.03] transition-colors"
 								>
 									{item.title}
 								</Link>
@@ -57,15 +57,15 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 
 					{/* Right: language + mobile toggle */}
 					<div className="flex items-center gap-1">
-						<div className="flex items-center rounded-lg border border-white/10 p-0.5">
+						<div className="flex items-center rounded-lg border border-line p-0.5">
 							{LANGS.map((l) => (
 								<button
 									key={l}
 									onClick={() => router.push(`/${l}${locale ? `/${locale.replace(/^\//, "")}` : ""}`)}
 									className={`px-2 py-1 rounded-md text-xs font-semibold uppercase transition-colors ${
 										lang === l
-											? "bg-accent/90 text-white"
-											: "text-soft hover:text-white"
+											? "bg-accent text-paper"
+											: "text-soft hover:text-ink"
 									}`}
 								>
 									{l}
@@ -76,7 +76,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 						<button
 							aria-label="Menu"
 							onClick={() => setOpen((v) => !v)}
-							className="md:hidden p-2 rounded-lg text-muted hover:text-white hover:bg-white/5"
+							className="md:hidden p-2 rounded-lg text-muted hover:text-ink hover:bg-black/[0.03]"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -98,13 +98,13 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 
 				{/* Mobile menu */}
 				{open && (
-					<ul className="md:hidden border-t border-white/10 px-2 py-2 flex flex-col">
+					<ul className="md:hidden border-t border-line px-2 py-2 flex flex-col">
 						{items.map((item) => (
 							<li key={item.href}>
 								<Link
 									href={`/${lang}${item.href}`}
 									onClick={() => setOpen(false)}
-									className="block px-3 py-2.5 rounded-lg text-muted hover:text-white hover:bg-white/5 transition-colors"
+									className="block px-3 py-2.5 rounded-lg text-muted hover:text-ink hover:bg-black/[0.03] transition-colors"
 								>
 									{item.title}
 								</Link>
