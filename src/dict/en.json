@@ -18,6 +18,9 @@
       "ctaContact": "Get in touch",
       "ctaCv": "Download CV",
       "ctaProjects": "Projects",
+      "kicker": "LIVE · 4 systems in production",
+      "tagline": "I build complex systems you can rely on.",
+      "desc": "I design and run production systems for government and enterprise — from architecture to release — and lead the team.",
       "stats": [
         { "value": "4+", "label": "years experience" },
         { "value": "6", "label": "production systems" },

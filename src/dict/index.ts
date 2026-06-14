@@ -9,6 +9,10 @@ type IndexHeader = {
 	ctaContact: string;
 	ctaCv: string;
 	ctaProjects: string;
+	// Signal hero copy
+	kicker: string;
+	tagline: string;
+	desc: string;
 	stats?: { value: string; label: string }[];
 };
 
