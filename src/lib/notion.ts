@@ -72,6 +72,8 @@ export type ProjectMeta = {
 	private: boolean;
 	cover?: string;
 	hasCaseStudy: boolean;
+	lang: string;
+	order: number;
 };
 
 function fileUrl(filesProp: any): string | undefined {
@@ -93,10 +95,12 @@ function toProject(page: any): ProjectMeta {
 		private: p.Private?.checkbox ?? false,
 		cover: fileUrl(p.Cover),
 		hasCaseStudy: p.HasCaseStudy?.checkbox ?? false,
+		lang: p.Lang?.select?.name || "uz",
+		order: p.Order?.number ?? 0,
 	};
 }
 
-export const getProjects = cache(async (): Promise<ProjectMeta[]> => {
+const getRawProjects = cache(async (): Promise<ProjectMeta[]> => {
 	if (!TOKEN || !PROJECTS_DB_ID) return [];
 	const projects: ProjectMeta[] = [];
 	let cursor: string | undefined;
@@ -107,7 +111,6 @@ export const getProjects = cache(async (): Promise<ProjectMeta[]> => {
 				headers: headers(),
 				body: JSON.stringify({
 					filter: { property: "Published", checkbox: { equals: true } },
-					sorts: [{ property: "Order", direction: "ascending" }],
 					...(cursor ? { start_cursor: cursor } : {}),
 				}),
 				next: { revalidate: 300 },
@@ -123,9 +126,27 @@ export const getProjects = cache(async (): Promise<ProjectMeta[]> => {
 	return projects;
 });
 
-export async function getProjectBySlug(slug: string): Promise<ProjectMeta | null> {
-	const projects = await getProjects();
-	return projects.find((p) => p.slug === slug) ?? null;
+function pickLang(rows: ProjectMeta[], lang: string): ProjectMeta {
+	return rows.find((r) => r.lang === lang) ?? rows.find((r) => r.lang === "uz") ?? rows[0];
+}
+
+export async function getProjects(lang: string): Promise<ProjectMeta[]> {
+	const raw = await getRawProjects();
+	const bySlug = new Map<string, ProjectMeta[]>();
+	for (const p of raw) {
+		const arr = bySlug.get(p.slug) ?? [];
+		arr.push(p);
+		bySlug.set(p.slug, arr);
+	}
+	return Array.from(bySlug.values())
+		.map((rows) => pickLang(rows, lang))
+		.sort((a, b) => a.order - b.order);
+}
+
+export async function getProjectBySlug(lang: string, slug: string): Promise<ProjectMeta | null> {
+	const raw = (await getRawProjects()).filter((p) => p.slug === slug);
+	if (raw.length === 0) return null;
+	return pickLang(raw, lang);
 }
 
 /** Case study body bloklari — mavjud getBlocks qayta ishlatiladi */

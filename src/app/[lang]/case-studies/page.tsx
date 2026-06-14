@@ -9,7 +9,7 @@ export const revalidate = 300;
 export default async function CaseStudiesPage({ params }: PropsWithParams) {
 	const lang = params.lang as Lang;
 	const { ui } = await getDict(lang);
-	const items = (await getProjects()).filter((p) => p.hasCaseStudy);
+	const items = (await getProjects(lang)).filter((p) => p.hasCaseStudy);
 	return (
 		<section className="relative mx-auto max-w-5xl px-5 pt-36 pb-24">
 			<Reveal><span className="section-eyebrow">{ui.caseStudiesTitle}</span></Reveal>
