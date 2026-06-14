@@ -57,7 +57,7 @@ export default async function Header({ lang }: PropsWithLang) {
 						{header.kicker}
 					</div>
 
-					<h1 className="m-0 font-display font-extrabold leading-[.88] tracking-[-.04em] text-[clamp(54px,7.6vw,108px)]">
+					<h1 className="m-0 font-display font-extrabold leading-[.88] tracking-[-.04em] text-[clamp(34px,11vw,108px)] break-words">
 						MADRIMOV
 					</h1>
 					<h1 className="mt-1.5 font-display font-light leading-none tracking-[-.01em] text-[#7e848c] text-[clamp(26px,3.6vw,52px)]">
