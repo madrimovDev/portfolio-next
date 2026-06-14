@@ -10,7 +10,7 @@ export const revalidate = 300;
 export default async function BlogPage({ params }: PropsWithParams) {
 	const lang = params.lang as Lang;
 	const { ui } = await getDict(lang);
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts(lang);
 	return (
 		<section className="relative mx-auto max-w-3xl px-5 pt-36 pb-24">
 			<Reveal>
