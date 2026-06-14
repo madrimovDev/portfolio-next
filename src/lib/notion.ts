@@ -24,10 +24,11 @@ function toMeta(page: any): BlogPostMeta {
 		description: plain(p.Description?.rich_text),
 		date: p.Date?.date?.start ?? "",
 		tags: (p.Tags?.multi_select ?? []).map((t: any) => t.name),
+		lang: p.Lang?.select?.name || "uz",
 	};
 }
 
-export async function getPublishedPosts(): Promise<BlogPostMeta[]> {
+const getRawPosts = cache(async (): Promise<BlogPostMeta[]> => {
 	if (!TOKEN || !DB_ID) return [];
 	const posts: BlogPostMeta[] = [];
 	let cursor: string | undefined;
@@ -52,11 +53,26 @@ export async function getPublishedPosts(): Promise<BlogPostMeta[]> {
 		/* bo'sh/qisman qaytadi */
 	}
 	return posts;
+});
+
+/** lang qatori, yo'q bo'lsa uz fallback; Date desc tartibida */
+export async function getPublishedPosts(lang: string): Promise<BlogPostMeta[]> {
+	const raw = await getRawPosts();
+	const bySlug = new Map<string, BlogPostMeta[]>();
+	for (const p of raw) {
+		const arr = bySlug.get(p.slug) ?? [];
+		arr.push(p);
+		bySlug.set(p.slug, arr);
+	}
+	return Array.from(bySlug.values())
+		.map((rows) => pickLang(rows, lang))
+		.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export async function getPostBySlug(slug: string): Promise<BlogPostMeta | null> {
-	const posts = await getPublishedPosts();
-	return posts.find((p) => p.slug === slug) ?? null;
+export async function getPostBySlug(lang: string, slug: string): Promise<BlogPostMeta | null> {
+	const raw = (await getRawPosts()).filter((p) => p.slug === slug);
+	if (raw.length === 0) return null;
+	return pickLang(raw, lang);
 }
 
 const PROJECTS_DB_ID = process.env.NOTION_PROJECTS_DB_ID;
@@ -126,7 +142,7 @@ const getRawProjects = cache(async (): Promise<ProjectMeta[]> => {
 	return projects;
 });
 
-function pickLang(rows: ProjectMeta[], lang: string): ProjectMeta {
+function pickLang<T extends { lang: string }>(rows: T[], lang: string): T {
 	return rows.find((r) => r.lang === lang) ?? rows.find((r) => r.lang === "uz") ?? rows[0];
 }
 

@@ -11,15 +11,15 @@ export const revalidate = 300;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-	const posts = await getPublishedPosts();
+	const posts = await getPublishedPosts("uz");
 	const langs: Lang[] = ["uz", "ru", "en"];
 	const out: { lang: string; slug: string }[] = [];
 	for (const lang of langs) for (const p of posts) out.push({ lang, slug: p.slug });
 	return out;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-	const post = await getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
+	const post = await getPostBySlug(params.lang as Lang, params.slug);
 	if (!post) return {};
 	return {
 		title: `${post.title} | Madrimov Xudoshukur`,
@@ -33,7 +33,7 @@ export default async function PostPage({
 	params: { lang: string; slug: string };
 }) {
 	const lang = params.lang as Lang;
-	const post = await getPostBySlug(params.slug);
+	const post = await getPostBySlug(lang, params.slug);
 	if (!post) notFound();
 	const { ui } = await getDict(lang);
 	const blocks = await getBlocks(post.id);

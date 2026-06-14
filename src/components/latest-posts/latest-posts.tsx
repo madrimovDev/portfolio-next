@@ -14,7 +14,7 @@ export default async function LatestPosts({
 	limit?: number;
 }) {
 	const { ui } = await getDict(lang);
-	const posts = (await getPublishedPosts()).slice(0, limit);
+	const posts = (await getPublishedPosts(lang)).slice(0, limit);
 	if (posts.length === 0) return null;
 
 	return (

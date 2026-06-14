@@ -17,4 +17,5 @@ export type BlogPostMeta = {
 	description: string;
 	date: string;
 	tags: string[];
+	lang: string;
 };
