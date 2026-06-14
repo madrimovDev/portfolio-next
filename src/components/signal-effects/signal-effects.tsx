@@ -19,7 +19,8 @@ import { useEffect, useState } from "react";
  *   - hero cursor spotlight (#hero / #hero-spot);
  *   - scroll-reveal for the main sections (IntersectionObserver), respecting
  *     prefers-reduced-motion;
- *   - architecture network canvas (#hero-canvas), 36 nodes / 150px links.
+ *   - architecture network canvas (#hero-canvas), 22 nodes / 140px links,
+ *     capped at 30fps and paused when off-screen / tab hidden / reduced-motion.
  *
  * Everything is torn down in the effect cleanup.
  */
@@ -163,9 +164,9 @@ export default function SignalEffects() {
 		) as HTMLCanvasElement | null;
 		const host = document.getElementById("hero");
 		const ctx = canvas?.getContext("2d") ?? null;
-		if (canvas && host && ctx) {
-			const COUNT = 36;
-			const LINK = 150;
+		if (canvas && host && ctx && !reduceMotion) {
+			const COUNT = 22;
+			const LINK = 140;
 			type Node = {
 				x: number;
 				y: number;
@@ -178,6 +179,9 @@ export default function SignalEffects() {
 			let nodes: Node[] = [];
 			let wh = { w: 0, h: 0 };
 			let raf = 0;
+			let last = 0;
+			let visible = true;
+			const FRAME = 1000 / 30; // cap at 30fps to halve GPU/CPU load
 
 			const init = () => {
 				const w = host.clientWidth;
@@ -199,6 +203,11 @@ export default function SignalEffects() {
 			};
 
 			const draw = (t: number) => {
+				raf = requestAnimationFrame(draw);
+				// skip work when off-screen / tab hidden, and throttle to ~30fps
+				if (!visible) return;
+				if (t - last < FRAME) return;
+				last = t;
 				const w = wh.w;
 				const h = wh.h;
 				ctx.clearRect(0, 0, w, h);
@@ -235,16 +244,38 @@ export default function SignalEffects() {
 						: "rgba(155,165,175," + (0.22 * pulse + 0.12).toFixed(3) + ")";
 					ctx.fill();
 				}
-				raf = requestAnimationFrame(draw);
+			};
+
+			let heroVisible = true;
+			const syncVisible = () => {
+				visible = !document.hidden && heroVisible;
 			};
 
 			init();
 			raf = requestAnimationFrame(draw);
 			const onResize = () => init();
 			window.addEventListener("resize", onResize);
+			document.addEventListener("visibilitychange", syncVisible);
+
+			// Pause the loop when the hero scrolls off-screen — no point burning
+			// GPU on a network the user can't see.
+			let heroIo: IntersectionObserver | null = null;
+			if ("IntersectionObserver" in window) {
+				heroIo = new IntersectionObserver(
+					(entries) => {
+						heroVisible = entries[0]?.isIntersecting ?? true;
+						syncVisible();
+					},
+					{ threshold: 0 }
+				);
+				heroIo.observe(host);
+			}
+
 			cleanups.push(() => {
 				cancelAnimationFrame(raf);
 				window.removeEventListener("resize", onResize);
+				document.removeEventListener("visibilitychange", syncVisible);
+				heroIo?.disconnect();
 			});
 		}
 

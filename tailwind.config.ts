@@ -84,21 +84,6 @@ const config: Config = {
 					"0%": { transform: "translateX(-120%) skewX(-18deg)" },
 					"100%": { transform: "translateX(320%) skewX(-18deg)" },
 				},
-				sgAuroraA: {
-					"0%": { transform: "translate(0,0) scale(1)" },
-					"50%": { transform: "translate(6vw,4vh) scale(1.18)" },
-					"100%": { transform: "translate(0,0) scale(1)" },
-				},
-				sgAuroraB: {
-					"0%": { transform: "translate(0,0) scale(1.1)" },
-					"50%": { transform: "translate(-7vw,-5vh) scale(1)" },
-					"100%": { transform: "translate(0,0) scale(1.1)" },
-				},
-				sgAuroraC: {
-					"0%": { transform: "translate(0,0) scale(1)" },
-					"50%": { transform: "translate(5vw,-6vh) scale(1.22)" },
-					"100%": { transform: "translate(0,0) scale(1)" },
-				},
 
 				// === Legacy keyframes kept so existing animate-* usages keep working ===
 				"fade-up": {
@@ -126,9 +111,6 @@ const config: Config = {
 				sgIntroOut: "sgIntroOut 1.9s cubic-bezier(.7,0,.2,1) forwards",
 				sgIntroBar: "sgIntroBar 1.2s ease forwards",
 				sgSheen: "sgSheen 1.1s ease forwards",
-				sgAuroraA: "sgAuroraA 40s ease-in-out infinite",
-				sgAuroraB: "sgAuroraB 46s ease-in-out infinite",
-				sgAuroraC: "sgAuroraC 52s ease-in-out infinite",
 
 				// === Legacy animations kept ===
 				"fade-up": "fade-up 0.7s cubic-bezier(0.22,1,0.36,1) both",
