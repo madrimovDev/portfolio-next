@@ -10,7 +10,7 @@ export default async function Portfolio({
 	standalone = false,
 }: PropsWithLang & { limit?: number; standalone?: boolean }) {
 	const { portfolio, ui } = await getDict(lang);
-	let projects = await getProjects();
+	let projects = await getProjects(lang);
 	if (typeof limit === "number") projects = projects.slice(0, limit);
 
 	return (

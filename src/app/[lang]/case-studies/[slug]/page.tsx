@@ -10,22 +10,22 @@ export const revalidate = 300;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-	const items = (await getProjects()).filter((p) => p.hasCaseStudy);
+	const items = (await getProjects("uz")).filter((p) => p.hasCaseStudy);
 	const langs: Lang[] = ["uz", "ru", "en"];
 	const out: { lang: string; slug: string }[] = [];
 	for (const lang of langs) for (const p of items) out.push({ lang, slug: p.slug });
 	return out;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-	const project = await getProjectBySlug(params.slug);
+export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
+	const project = await getProjectBySlug(params.lang as Lang, params.slug);
 	if (!project || !project.hasCaseStudy) return {};
 	return { title: `${project.title} — Case Study | Madrimov Xudoshukur`, description: project.description };
 }
 
 export default async function Page({ params }: { params: { lang: string; slug: string } }) {
 	const lang = params.lang as Lang;
-	const project = await getProjectBySlug(params.slug);
+	const project = await getProjectBySlug(lang, params.slug);
 	if (!project || !project.hasCaseStudy) notFound();
 	const { ui } = await getDict(lang);
 	const blocks = await getProjectBlocks(project.id);
