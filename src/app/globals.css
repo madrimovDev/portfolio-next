@@ -8,140 +8,136 @@
 		-webkit-text-size-adjust: 100%;
 	}
 	body {
-		background-color: #0a0a0f;
-		color: #e7e8f0;
+		background-color: #f7f5f0;
+		color: #0a0a0a;
 		overflow-x: hidden;
 	}
 	::selection {
-		background: rgba(139, 92, 246, 0.35);
+		background: #e11d48;
 		color: #fff;
 	}
 	::-webkit-scrollbar {
 		width: 10px;
 	}
 	::-webkit-scrollbar-track {
-		background: #0a0a0f;
+		background: #f7f5f0;
 	}
 	::-webkit-scrollbar-thumb {
-		background: #2a2a3a;
+		background: #d8d3c8;
 		border-radius: 999px;
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: #3a3a50;
+		background: #e11d48;
 	}
 }
 
 @layer components {
-	/* Gradient text */
+	/* Headline accent — was a gradient, now solid ink (Bold Editorial).
+	   Pair with .text-accent for the red highlight word. */
 	.gradient-text {
-		background-image: linear-gradient(
-			110deg,
-			#22d3ee 0%,
-			#8b5cf6 45%,
-			#e879f9 100%
-		);
-		background-size: 200% auto;
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-		animation: gradient-shift 6s ease infinite;
+		color: #0a0a0a;
 	}
 
-	/* Glass card */
+	/* Glass card → frosted paper */
 	.glass {
-		background: rgba(22, 22, 31, 0.6);
+		background: rgba(255, 255, 255, 0.72);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
-		border: 1px solid rgba(255, 255, 255, 0.07);
+		border: 1px solid #e4e0d8;
 	}
 
 	.card-surface {
-		background: linear-gradient(
-			180deg,
-			rgba(28, 28, 40, 0.7),
-			rgba(18, 18, 26, 0.7)
-		);
-		border: 1px solid rgba(255, 255, 255, 0.07);
+		background: #ffffff;
+		border: 1px solid #e4e0d8;
 		transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
 			border-color 0.35s ease, box-shadow 0.35s ease;
 	}
 	.card-surface:hover {
 		transform: translateY(-6px);
-		border-color: rgba(139, 92, 246, 0.45);
-		box-shadow: 0 18px 50px -20px rgba(139, 92, 246, 0.45);
+		border-color: #e11d48;
+		box-shadow: 0 18px 44px -22px rgba(225, 29, 72, 0.45);
 	}
 
-	/* Grid / dotted background */
+	/* Dotted grid background (subtle ink dots on paper) */
 	.bg-grid {
 		background-image: radial-gradient(
-			rgba(255, 255, 255, 0.05) 1px,
+			rgba(10, 10, 10, 0.07) 1px,
 			transparent 1px
 		);
 		background-size: 26px 26px;
 	}
 
-	/* Pill / badge */
+	/* Pill / badge — monospace, ink on paper, red border */
 	.tech-badge {
 		display: inline-flex;
 		align-items: center;
+		font-family: var(--font-mono), ui-monospace, monospace;
 		font-size: 0.72rem;
-		font-weight: 600;
+		font-weight: 500;
 		letter-spacing: 0.01em;
 		padding: 0.28rem 0.66rem;
 		border-radius: 999px;
-		color: #c9cce0;
-		background: rgba(139, 92, 246, 0.1);
-		border: 1px solid rgba(139, 92, 246, 0.25);
+		color: #44403c;
+		background: #ffffff;
+		border: 1px solid #e4e0d8;
 		white-space: nowrap;
 	}
 
-	/* Buttons */
+	/* Primary button — solid ink, paper text (editorial) */
 	.btn-grad {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
-		font-weight: 600;
+		font-weight: 700;
 		padding: 0.7rem 1.3rem;
-		border-radius: 0.85rem;
-		color: #0a0a0f;
-		background: linear-gradient(110deg, #22d3ee, #8b5cf6, #e879f9);
-		background-size: 180% auto;
-		transition: background-position 0.5s ease, transform 0.2s ease,
-			box-shadow 0.3s ease;
-		box-shadow: 0 10px 30px -12px rgba(139, 92, 246, 0.7);
+		border-radius: 0.4rem;
+		color: #f7f5f0;
+		background: #0a0a0a;
+		transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+		box-shadow: 0 10px 26px -14px rgba(10, 10, 10, 0.6);
 	}
 	.btn-grad:hover {
-		background-position: right center;
+		background: #e11d48;
 		transform: translateY(-2px);
+		box-shadow: 0 12px 30px -14px rgba(225, 29, 72, 0.6);
 	}
+
+	/* Secondary button — outline */
 	.btn-ghost-line {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
 		font-weight: 600;
 		padding: 0.7rem 1.3rem;
-		border-radius: 0.85rem;
-		color: #e7e8f0;
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		background: rgba(255, 255, 255, 0.02);
+		border-radius: 0.4rem;
+		color: #0a0a0a;
+		border: 1px solid #d8d3c8;
+		background: transparent;
 		transition: border-color 0.3s ease, background 0.3s ease,
 			transform 0.2s ease;
 	}
 	.btn-ghost-line:hover {
-		border-color: rgba(139, 92, 246, 0.6);
-		background: rgba(139, 92, 246, 0.1);
+		border-color: #e11d48;
+		color: #e11d48;
 		transform: translateY(-2px);
 	}
 
+	/* Section label — monospace red eyebrow (terminal bridge) */
 	.section-eyebrow {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5rem;
+		font-family: var(--font-mono), ui-monospace, monospace;
 		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.18em;
+		font-weight: 600;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: #8b5cf6;
+		color: #e11d48;
+	}
+
+	/* Red highlight word inside a headline */
+	.text-accent {
+		color: #e11d48;
 	}
 }
 

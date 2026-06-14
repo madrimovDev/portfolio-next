@@ -1,17 +1,25 @@
-import { Inter, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({
-	subsets: ["latin", "cyrillic"],
+const plexSans = IBM_Plex_Sans({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
 	variable: "--font-sans",
 	display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const bricolage = Bricolage_Grotesque({
 	subsets: ["latin"],
-	weight: ["500", "600", "700"],
+	weight: ["600", "700", "800"],
 	variable: "--font-display",
+	display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+	subsets: ["latin"],
+	weight: ["400", "500", "700"],
+	variable: "--font-mono",
 	display: "swap",
 });
 
@@ -26,9 +34,9 @@ export default async function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={`h-full ${inter.variable} ${spaceGrotesk.variable}`}
+			className={`h-full ${plexSans.variable} ${bricolage.variable} ${jetbrainsMono.variable}`}
 		>
-			<body className="font-sans h-full flex flex-col bg-ink text-[#e7e8f0] antialiased">
+			<body className="font-sans h-full flex flex-col bg-paper text-ink antialiased">
 				{children}
 				<Analytics />
 			</body>
