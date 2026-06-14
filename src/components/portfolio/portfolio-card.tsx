@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { ProjectMeta } from "~/lib/notion";
 import { Dict } from "~/dict";
 import { Lang } from "~/types";
 
@@ -7,7 +9,7 @@ export default function PortfolioCard({
 	ui,
 	lang,
 }: {
-	project: Dict["Index"]["portfolio"]["projects"][number];
+	project: ProjectMeta;
 	ui: Dict["Index"]["ui"];
 	lang: Lang;
 }) {
@@ -21,12 +23,24 @@ export default function PortfolioCard({
 
 	return (
 		<div className="card-surface group flex h-full flex-col overflow-hidden rounded-2xl">
-			{/* Ink cover — big initials, red accent bar on hover */}
+			{/* Cover image, or ink cover with big initials; red accent bar on hover */}
 			<div className="relative h-36 overflow-hidden bg-ink">
-				<div className="absolute inset-0 bg-grid opacity-20" />
-				<span className="absolute left-5 top-4 font-display text-4xl font-extrabold text-paper">
-					{initials}
-				</span>
+				{project.cover ? (
+					<Image
+						src={project.cover}
+						alt={project.title}
+						fill
+						className="object-cover"
+						sizes="(max-width:768px) 100vw, 33vw"
+					/>
+				) : (
+					<>
+						<div className="absolute inset-0 bg-grid opacity-20" />
+						<span className="absolute left-5 top-4 font-display text-4xl font-extrabold text-paper">
+							{initials}
+						</span>
+					</>
+				)}
 				<div className="absolute bottom-0 left-0 h-1 w-12 bg-accent transition-all duration-300 group-hover:w-full" />
 				{project.private ? (
 					<span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-semibold text-ink">
@@ -59,7 +73,14 @@ export default function PortfolioCard({
 					))}
 				</div>
 
-				{project.link ? (
+				{project.hasCaseStudy ? (
+					<Link
+						href={`/${lang}/case-studies/${project.slug}`}
+						className="mt-3 inline-block text-sm font-medium text-accent"
+					>
+						{ui.caseStudy} →
+					</Link>
+				) : project.link ? (
 					<Link
 						href={project.link}
 						target="_blank"
@@ -70,15 +91,6 @@ export default function PortfolioCard({
 						<span aria-hidden>↗</span>
 					</Link>
 				) : null}
-
-				{project.caseStudy && (
-					<Link
-						href={`/${lang}/case-studies/${project.slug}`}
-						className="mt-3 inline-block text-sm font-medium text-accent"
-					>
-						{ui.caseStudy} →
-					</Link>
-				)}
 			</div>
 		</div>
 	);
