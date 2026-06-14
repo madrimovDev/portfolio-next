@@ -5,8 +5,11 @@ import Header from "~/components/header/header";
 import MyWork from "~/components/my-work/my-work";
 import Skills from "~/components/skills/skills";
 import Portfolio from "~/components/portfolio/portfolio";
+import LatestPosts from "~/components/latest-posts/latest-posts";
 import { getDict } from "~/dict";
 import { PropsWithParams } from "~/types";
+
+export const revalidate = 300;
 
 export async function generateMetadata({
 	params,
@@ -63,12 +66,13 @@ export default async function Home({ params }: PropsWithParams) {
 			<Skills lang={params.lang} />
 			<Experience lang={params.lang} />
 			<Portfolio lang={params.lang} limit={6} />
-			<div className="mx-auto -mt-8 max-w-5xl px-5 pb-12 text-center sm:text-left">
+			<div className="mx-auto -mt-8 max-w-5xl px-5 text-center sm:text-left">
 				<Link href={`/${params.lang}/portfolio`} className="btn-ghost-line">
 					{portfolio.viewAll}
 					<span aria-hidden>→</span>
 				</Link>
 			</div>
+			<LatestPosts lang={params.lang} limit={3} />
 		</>
 	);
 }

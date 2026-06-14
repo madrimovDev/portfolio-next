@@ -28,7 +28,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 	return (
 		<div className="fixed top-0 inset-x-0 z-50 flex justify-center px-3 lg:px-0">
 			<nav
-				className={`mt-4 w-full max-w-3xl rounded-2xl glass transition-all duration-300 ${
+				className={`mt-4 w-full max-w-5xl rounded-2xl glass transition-all duration-300 ${
 					scrolled ? "shadow-[0_10px_40px_-18px_rgba(225,29,72,0.28)]" : ""
 				}`}
 			>
@@ -42,12 +42,12 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 					</Link>
 
 					{/* Desktop menu */}
-					<ul className="hidden md:flex items-center gap-1 text-sm font-medium">
+					<ul className="hidden md:flex items-center gap-0.5 text-sm font-medium">
 						{items.map((item) => (
 							<li key={item.href}>
 								<Link
 									href={`/${lang}${item.href}`}
-									className="px-3 py-2 rounded-lg text-muted hover:text-ink hover:bg-black/[0.03] transition-colors"
+									className="block whitespace-nowrap px-2.5 py-2 rounded-lg text-muted hover:text-ink hover:bg-black/[0.03] transition-colors"
 								>
 									{item.title}
 								</Link>
