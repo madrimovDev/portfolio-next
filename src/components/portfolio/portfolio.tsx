@@ -1,6 +1,7 @@
 import { PropsWithLang } from "~/types";
 import PortfolioCard from "./portfolio-card";
 import { getDict } from "~/dict";
+import { getProjects } from "~/lib/notion";
 import Reveal from "~/components/reveal/reveal";
 
 export default async function Portfolio({
@@ -9,10 +10,8 @@ export default async function Portfolio({
 	standalone = false,
 }: PropsWithLang & { limit?: number; standalone?: boolean }) {
 	const { portfolio, ui } = await getDict(lang);
-	const projects =
-		typeof limit === "number"
-			? portfolio.projects.slice(0, limit)
-			: portfolio.projects;
+	let projects = await getProjects();
+	if (typeof limit === "number") projects = projects.slice(0, limit);
 
 	return (
 		<section
@@ -30,7 +29,7 @@ export default async function Portfolio({
 
 				<div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{projects.map((project, i) => (
-						<Reveal key={project.title} delay={(i % 3) * 90}>
+						<Reveal key={project.slug} delay={(i % 3) * 90}>
 							<PortfolioCard project={project} ui={ui} lang={lang} />
 						</Reveal>
 					))}

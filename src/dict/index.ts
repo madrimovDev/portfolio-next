@@ -49,44 +49,17 @@ type Experience = {
 	organizations: ExperienceItem[];
 };
 
-type CaseStudy = {
-	category: string;
-	problem: string;
-	role: string;
-	solution: string;
-	results: { value: string; label: string }[];
-	lessons: string;
-};
-
-type Project = {
-	title: string;
-	description: string;
-	tags: string[];
-	gradient: string;
-	link?: string;
-	private?: boolean;
-	img?: string;
-	slug: string;
-	caseStudy?: CaseStudy;
-};
-
 type Portfolio = {
 	title: string;
 	eyebrow: string;
 	subtitle: string;
 	viewAll: string;
-	projects: Project[];
 };
 
 type Ui = {
 	private: string;
 	visit: string;
 	caseStudy: string;
-	csProblem: string;
-	csRole: string;
-	csSolution: string;
-	csResults: string;
-	csLessons: string;
 	caseStudiesTitle: string;
 	blogTitle: string;
 };
