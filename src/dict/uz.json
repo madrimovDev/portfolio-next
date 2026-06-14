@@ -5,6 +5,7 @@
       { "href": "/#about", "title": "Men haqimda" },
       { "href": "/#skills", "title": "Ko'nikmalar" },
       { "href": "/#experience", "title": "Tajriba" },
+      { "href": "/case-studies", "title": "Case Studies" },
       { "href": "/portfolio", "title": "Loyihalar" }
     ],
     "header": {
@@ -15,7 +16,12 @@
       "location": "Xiva, O'zbekiston",
       "ctaContact": "Bog'lanish",
       "ctaCv": "CV yuklab olish",
-      "ctaProjects": "Loyihalar"
+      "ctaProjects": "Loyihalar",
+      "stats": [
+        { "value": "4+", "label": "yil tajriba" },
+        { "value": "6", "label": "production tizim" },
+        { "value": "3", "label": "OSS npm paket" }
+      ]
     },
     "work": {
       "title": "Men haqimda",
@@ -89,20 +95,46 @@
       "projects": [
         {
           "title": "MNazorat",
+          "slug": "mnazorat",
           "description": "Tashkilotlarning biznes-jarayonlarini monitoring va nazorat qilish platformasi; mobil ilova va yuzni aniqlash moduli bilan.",
           "tags": ["NestJS", "Prisma", "PostgreSQL", "Redis", "Docker"],
+          "caseStudy": {
+            "category": "GOV / MONITORING",
+            "problem": "Tashkilotlarda biznes-jarayonlarni real vaqtda kuzatish va nazorat qilish uchun yagona tizim yo'q edi.",
+            "role": "Backend arxitektura va tizim dizayni; mobil app va yuz tanish modulini integratsiya.",
+            "solution": "NestJS + Prisma + PostgreSQL asosida monitoring platformasi, Redis bilan kesh/navbat, Docker'da deploy. Mobil ilova va yuz tanish moduli qo'shildi.",
+            "results": [
+              { "value": "Real-time", "label": "jarayon monitoringi" },
+              { "value": "Mobil", "label": "ilova + yuz tanish" }
+            ],
+            "lessons": "Murakkab domenni aniq modullarga ajratish va xizmatlararo aniq interfeyslar tizimni boshqariladigan qiladi."
+          },
           "gradient": "aurora",
           "private": true
         },
         {
           "title": "M-Smart School",
+          "slug": "m-smart-school",
           "description": "Maktab boshqaruvi platformasi: o'quvchilar, davomat, to'lovlar va hisobotlar. Umumiy tiplar bilan monorepozitoriy.",
           "tags": ["Bun", "Hono", "React", "Drizzle ORM", "JWT"],
+          "caseStudy": {
+            "category": "GOV / EDTECH",
+            "problem": "Maktablarda davomat, to'lov va hisobotlar qo'lda yuritilardi — vaqt yo'qoladi, xatolar ko'p, ota-onalar uchun shaffoflik yo'q edi.",
+            "role": "Tim lead va asosiy dasturchi: arxitektura, monorepo, backend va self-hosted infratuzilma.",
+            "solution": "Type-safe API (Bun + Hono), monorepo, JWT autentifikatsiya va modulli tizim. Davomat, to'lov, hisobotlar bitta platformada. Self-hosted infra va GPU xizmatlar (yuz tanish) bilan integratsiya.",
+            "results": [
+              { "value": "336+", "label": "o'quvchi (Guliston 10-maktab pilot)" },
+              { "value": "Live", "label": "production'da ishlamoqda" },
+              { "value": "0", "label": "qo'lda hisobot" }
+            ],
+            "lessons": "Real foydalanuvchilar bilan ishlash, infra boshqaruvi va jamoani muvofiqlashtirish — texnologiyadan ko'ra muhimroq ekanini o'rgandim."
+          },
           "gradient": "ocean",
           "link": "https://msmartschool.uz"
         },
         {
           "title": "M-Smart Kids",
+          "slug": "m-smart-kids",
           "description": "Bog'chalar uchun tizim: davomatni belgilash uchun yuzni aniqlash (FaceID) va onlayn to'lov moduli.",
           "tags": ["React", "FaceID", "Node.js", "To'lovlar"],
           "gradient": "candy",
@@ -110,20 +142,45 @@
         },
         {
           "title": "e-Jarima maydon",
+          "slug": "e-jarima-maydon",
           "description": "Parkovkadagi qoidabuzarliklarni qayd etish tizimi: kameralardan avto-raqamni aniqlash (RTSP / FFmpeg), termoprinterda chek chop etish, Electron desktop.",
           "tags": ["Electron", "RTSP / FFmpeg", "ANPR", "Termoprinter"],
+          "caseStudy": {
+            "category": "GOV / FINTECH",
+            "problem": "Parkovkadagi qoidabuzarliklarni qo'lda qayd etish sekin va xatoga moyil edi.",
+            "role": "Desktop ilova va kamera/printer integratsiyasi bo'yicha asosiy dasturchi.",
+            "solution": "Kameralardan avtomobil raqamini tanish (ANPR, RTSP/FFmpeg), termoprinterda chek chop etish, Electron'da desktop mijoz. Jarima jarayoni avtomatlashtirildi.",
+            "results": [
+              { "value": "ANPR", "label": "kameradan avtomatik raqam tanish" },
+              { "value": "Termo", "label": "joyida chek chop etish" }
+            ],
+            "lessons": "Apparat (kamera, printer) bilan ishlashda ishonchlilik va xatolarni bartaraf etish dasturning eng katta qismi ekan."
+          },
           "gradient": "ember",
           "private": true
         },
         {
           "title": "Monro Delivery",
+          "slug": "monro-delivery",
           "description": "Kafeni raqamlashtirish: backend, admin-panel va mijoz hamda kuryer uchun mobil API, navbatlar bilan.",
           "tags": ["Bun", "Hono", "Drizzle ORM", "BullMQ", "Mobile API"],
+          "caseStudy": {
+            "category": "PRODUCT / HORECA",
+            "problem": "«Monro» kafesining buyurtma, admin va yetkazib berish jarayonlari raqamlashtirilmagan edi.",
+            "role": "Fullstack: backend, admin panel va mobil API.",
+            "solution": "Bun + Hono + Drizzle ORM backend, BullMQ bilan navbat tizimi, admin panel va mobil API. Linear orqali boshqariladi.",
+            "results": [
+              { "value": "3-in-1", "label": "backend + admin + mobil API" },
+              { "value": "Active", "label": "ishlab chiqilmoqda" }
+            ],
+            "lessons": "Kichik biznes uchun ham to'g'ri navbat/queue arxitekturasi ishonchli ish faoliyati uchun zarur."
+          },
           "gradient": "sunset",
           "private": true
         },
         {
           "title": "Online Education",
+          "slug": "online-education",
           "description": "Onlayn ta'lim platformasi (LMS) frontendi: kurslar, video-darslar, PDF sertifikatlar va dashboardlar. To'liq yakka ishlab chiqilgan.",
           "tags": ["React", "TypeScript", "Redux Toolkit", "Chakra UI"],
           "gradient": "forest",
@@ -131,6 +188,7 @@
         },
         {
           "title": "Electron Toolkit",
+          "slug": "electron-toolkit",
           "description": "Electron ilovalari uchun 3 ta open-source npm paket: POS termoprinter, tip-xavfsiz xotira va oyna holatini boshqarish.",
           "tags": ["Electron", "TypeScript", "npm", "Open Source"],
           "gradient": "steel",
@@ -140,7 +198,14 @@
     },
     "ui": {
       "private": "Maxfiy",
-      "visit": "Ochish"
+      "visit": "Ochish",
+      "caseStudy": "Batafsil",
+      "csProblem": "Muammo",
+      "csRole": "Mening rolim",
+      "csSolution": "Yechim va arxitektura",
+      "csResults": "Natija",
+      "csLessons": "Nimani o'rgandim",
+      "caseStudiesTitle": "Case Studies"
     }
   }
 }

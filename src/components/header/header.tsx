@@ -101,6 +101,18 @@ export default async function Header({ lang }: PropsWithLang) {
 								</Link>
 							</div>
 						</Reveal>
+						{header.stats && (
+							<Reveal delay={480}>
+								<div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+									{header.stats.map((s) => (
+										<div key={s.label}>
+											<div className="gradient-text text-2xl font-bold">{s.value}</div>
+											<div className="text-xs text-muted">{s.label}</div>
+										</div>
+									))}
+								</div>
+							</Reveal>
+						)}
 					</div>
 
 					{/* Avatar */}

@@ -9,6 +9,7 @@ type IndexHeader = {
 	ctaContact: string;
 	ctaCv: string;
 	ctaProjects: string;
+	stats?: { value: string; label: string }[];
 };
 
 type Work = {
@@ -48,6 +49,15 @@ type Experience = {
 	organizations: ExperienceItem[];
 };
 
+type CaseStudy = {
+	category: string;
+	problem: string;
+	role: string;
+	solution: string;
+	results: { value: string; label: string }[];
+	lessons: string;
+};
+
 type Project = {
 	title: string;
 	description: string;
@@ -56,6 +66,8 @@ type Project = {
 	link?: string;
 	private?: boolean;
 	img?: string;
+	slug: string;
+	caseStudy?: CaseStudy;
 };
 
 type Portfolio = {
@@ -69,6 +81,13 @@ type Portfolio = {
 type Ui = {
 	private: string;
 	visit: string;
+	caseStudy: string;
+	csProblem: string;
+	csRole: string;
+	csSolution: string;
+	csResults: string;
+	csLessons: string;
+	caseStudiesTitle: string;
 };
 
 type Index = {

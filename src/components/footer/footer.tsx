@@ -30,6 +30,18 @@ export default function Footer() {
 				</div>
 
 				<p className="text-xs text-soft">
+					Telegram:{" "}
+					<Link
+						href="https://t.me/madrimov"
+						target="_blank"
+						rel="noopener"
+						className="text-muted hover:text-white transition-colors"
+					>
+						@madrimov
+					</Link>
+				</p>
+
+				<p className="text-xs text-soft">
 					© {new Date().getFullYear()} Madrimov Xudoshukur
 				</p>
 			</div>

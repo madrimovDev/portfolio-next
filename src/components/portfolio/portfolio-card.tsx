@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Dict } from "~/dict";
+import { Lang } from "~/types";
 
 const GRADIENTS: Record<string, string> = {
 	aurora: "from-[#22d3ee] via-[#6366f1] to-[#8b5cf6]",
@@ -14,9 +15,11 @@ const GRADIENTS: Record<string, string> = {
 export default function PortfolioCard({
 	project,
 	ui,
+	lang,
 }: {
 	project: Dict["Index"]["portfolio"]["projects"][number];
 	ui: Dict["Index"]["ui"];
+	lang: Lang;
 }) {
 	const grad = GRADIENTS[project.gradient] ?? GRADIENTS.aurora;
 	const initials = project.title
@@ -78,6 +81,15 @@ export default function PortfolioCard({
 						<span aria-hidden>↗</span>
 					</Link>
 				) : null}
+
+				{project.caseStudy && (
+					<Link
+						href={`/${lang}/case-studies/${project.slug}`}
+						className="mt-3 inline-block text-sm font-medium text-accent-fuchsia"
+					>
+						{ui.caseStudy} →
+					</Link>
+				)}
 			</div>
 		</div>
 	);

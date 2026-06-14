@@ -5,6 +5,7 @@
       { "href": "/#about", "title": "About" },
       { "href": "/#skills", "title": "Skills" },
       { "href": "/#experience", "title": "Experience" },
+      { "href": "/case-studies", "title": "Case Studies" },
       { "href": "/portfolio", "title": "Projects" }
     ],
     "header": {
@@ -15,7 +16,12 @@
       "location": "Khiva, Uzbekistan",
       "ctaContact": "Get in touch",
       "ctaCv": "Download CV",
-      "ctaProjects": "Projects"
+      "ctaProjects": "Projects",
+      "stats": [
+        { "value": "4+", "label": "years experience" },
+        { "value": "6", "label": "production systems" },
+        { "value": "3", "label": "OSS npm packages" }
+      ]
     },
     "work": {
       "title": "About me",
@@ -89,20 +95,46 @@
       "projects": [
         {
           "title": "MNazorat",
+          "slug": "mnazorat",
           "description": "A platform for monitoring and controlling organizations' business processes, with a mobile app and a face-recognition module.",
           "tags": ["NestJS", "Prisma", "PostgreSQL", "Redis", "Docker"],
+          "caseStudy": {
+            "category": "GOV / MONITORING",
+            "problem": "Organizations had no single system to monitor and control business processes in real time.",
+            "role": "Backend architecture and system design; integration of the mobile app and face-recognition module.",
+            "solution": "A monitoring platform built on NestJS + Prisma + PostgreSQL, with Redis for caching/queues and Docker deployment. A mobile app and face-recognition module were added.",
+            "results": [
+              { "value": "Real-time", "label": "process monitoring" },
+              { "value": "Mobile", "label": "app + face recognition" }
+            ],
+            "lessons": "Breaking a complex domain into clear modules with well-defined interfaces between services keeps the system maintainable."
+          },
           "gradient": "aurora",
           "private": true
         },
         {
           "title": "M-Smart School",
+          "slug": "m-smart-school",
           "description": "A school management platform: students, attendance, payments and reports. Monorepo with shared types.",
           "tags": ["Bun", "Hono", "React", "Drizzle ORM", "JWT"],
+          "caseStudy": {
+            "category": "GOV / EDTECH",
+            "problem": "Schools tracked attendance, payments and reports manually — time was wasted, errors were common, and there was no transparency for parents.",
+            "role": "Team lead and lead developer: architecture, monorepo, backend and self-hosted infrastructure.",
+            "solution": "A type-safe API (Bun + Hono), monorepo, JWT authentication and a modular system. Attendance, payments and reports on one platform. Self-hosted infrastructure and integration with GPU services (face recognition).",
+            "results": [
+              { "value": "336+", "label": "students (Guliston School #10 pilot)" },
+              { "value": "Live", "label": "running in production" },
+              { "value": "0", "label": "manual reports" }
+            ],
+            "lessons": "I learned that working with real users, managing infrastructure and coordinating a team matters more than the technology itself."
+          },
           "gradient": "ocean",
           "link": "https://msmartschool.uz"
         },
         {
           "title": "M-Smart Kids",
+          "slug": "m-smart-kids",
           "description": "A system for kindergartens: face recognition (FaceID) for attendance and an online payment module.",
           "tags": ["React", "FaceID", "Node.js", "Payments"],
           "gradient": "candy",
@@ -110,20 +142,45 @@
         },
         {
           "title": "e-Jarima maydon",
+          "slug": "e-jarima-maydon",
           "description": "A parking violation system: license-plate recognition from cameras (RTSP / FFmpeg), thermal receipt printing, Electron desktop app.",
           "tags": ["Electron", "RTSP / FFmpeg", "ANPR", "Thermal printer"],
+          "caseStudy": {
+            "category": "GOV / FINTECH",
+            "problem": "Recording parking violations manually was slow and error-prone.",
+            "role": "Lead developer for the desktop app and camera/printer integration.",
+            "solution": "License-plate recognition from cameras (ANPR, RTSP/FFmpeg), thermal receipt printing, and an Electron desktop client. The fine-issuing process was automated.",
+            "results": [
+              { "value": "ANPR", "label": "automatic plate recognition from camera" },
+              { "value": "Thermal", "label": "on-site receipt printing" }
+            ],
+            "lessons": "When working with hardware (cameras, printers), reliability and error handling turned out to be the biggest part of the software."
+          },
           "gradient": "ember",
           "private": true
         },
         {
           "title": "Monro Delivery",
+          "slug": "monro-delivery",
           "description": "Cafe digitization: backend, admin panel and a mobile API for customer and courier, with job queues.",
           "tags": ["Bun", "Hono", "Drizzle ORM", "BullMQ", "Mobile API"],
+          "caseStudy": {
+            "category": "PRODUCT / HORECA",
+            "problem": "The ordering, admin and delivery processes of the \"Monro\" cafe were not digitized.",
+            "role": "Fullstack: backend, admin panel and mobile API.",
+            "solution": "A Bun + Hono + Drizzle ORM backend, a queue system with BullMQ, an admin panel and a mobile API. Managed via Linear.",
+            "results": [
+              { "value": "3-in-1", "label": "backend + admin + mobile API" },
+              { "value": "Active", "label": "in active development" }
+            ],
+            "lessons": "Even for a small business, the right queue architecture is essential for reliable operation."
+          },
           "gradient": "sunset",
           "private": true
         },
         {
           "title": "Online Education",
+          "slug": "online-education",
           "description": "The frontend of an online education platform (LMS): courses, video lessons, PDF certificates and dashboards. Built entirely solo.",
           "tags": ["React", "TypeScript", "Redux Toolkit", "Chakra UI"],
           "gradient": "forest",
@@ -131,6 +188,7 @@
         },
         {
           "title": "Electron Toolkit",
+          "slug": "electron-toolkit",
           "description": "A set of 3 open-source npm packages for Electron apps: POS thermal printer, type-safe storage and window-state management.",
           "tags": ["Electron", "TypeScript", "npm", "Open Source"],
           "gradient": "steel",
@@ -140,7 +198,14 @@
     },
     "ui": {
       "private": "Private",
-      "visit": "Open"
+      "visit": "Open",
+      "caseStudy": "Read case study",
+      "csProblem": "Problem",
+      "csRole": "My role",
+      "csSolution": "Solution & architecture",
+      "csResults": "Results",
+      "csLessons": "What I learned",
+      "caseStudiesTitle": "Case Studies"
     }
   }
 }
