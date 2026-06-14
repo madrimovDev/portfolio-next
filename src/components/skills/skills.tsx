@@ -33,7 +33,7 @@ export default async function Skills({ lang }: PropsWithLang) {
 									>
 										{group.category.charAt(0)}
 									</span>
-									<h3 className="font-display text-lg font-semibold text-white">
+									<h3 className="font-display text-lg font-semibold text-ink">
 										{group.category}
 									</h3>
 								</div>

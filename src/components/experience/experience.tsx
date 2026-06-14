@@ -24,11 +24,11 @@ export default async function Experience({ lang }: PropsWithLang) {
 							<Reveal key={org.organization} delay={i * 100}>
 								<div className="relative pl-8 sm:pl-12">
 									{/* dot */}
-									<span className="absolute left-0 top-2 h-[15px] w-[15px] rounded-full bg-ink border-2 border-accent shadow-[0_0_0_4px_rgba(139,92,246,0.15)] sm:left-[2px]" />
+									<span className="absolute left-0 top-2 h-[15px] w-[15px] rounded-full bg-ink border-2 border-accent shadow-[0_0_0_4px_rgba(225,29,72,0.14)] sm:left-[2px]" />
 
 									<div className="card-surface rounded-2xl p-6">
 										<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-											<h3 className="font-display text-xl font-bold text-white">
+											<h3 className="font-display text-xl font-bold text-ink">
 												{org.organization}
 											</h3>
 											<span className="text-xs font-semibold uppercase tracking-wider text-accent-cyan">
@@ -44,7 +44,7 @@ export default async function Experience({ lang }: PropsWithLang) {
 												href={`https://${org.link}`}
 												target="_blank"
 												rel="noopener"
-												className="mt-0.5 inline-block text-xs text-soft hover:text-white transition-colors"
+												className="mt-0.5 inline-block text-xs text-soft hover:text-ink transition-colors"
 											>
 												{org.link} ↗
 											</Link>
@@ -59,7 +59,7 @@ export default async function Experience({ lang }: PropsWithLang) {
 												{org.projects.map((p) => (
 													<span
 														key={p}
-														className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1 text-xs font-medium text-[#c9cce0]"
+														className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-black/[0.02] px-2.5 py-1 text-xs font-medium text-muted"
 													>
 														<span className="h-1.5 w-1.5 rounded-full bg-accent-fuchsia" />
 														{p}

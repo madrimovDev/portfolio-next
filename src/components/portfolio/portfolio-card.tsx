@@ -2,16 +2,6 @@ import Link from "next/link";
 import { Dict } from "~/dict";
 import { Lang } from "~/types";
 
-const GRADIENTS: Record<string, string> = {
-	aurora: "from-[#22d3ee] via-[#6366f1] to-[#8b5cf6]",
-	ocean: "from-[#0ea5e9] via-[#2563eb] to-[#4f46e5]",
-	candy: "from-[#f472b6] via-[#e879f9] to-[#a855f7]",
-	ember: "from-[#fb7185] via-[#f97316] to-[#f59e0b]",
-	sunset: "from-[#f59e0b] via-[#ec4899] to-[#8b5cf6]",
-	forest: "from-[#34d399] via-[#10b981] to-[#0891b2]",
-	steel: "from-[#94a3b8] via-[#64748b] to-[#475569]",
-};
-
 export default function PortfolioCard({
 	project,
 	ui,
@@ -21,7 +11,6 @@ export default function PortfolioCard({
 	ui: Dict["Index"]["ui"];
 	lang: Lang;
 }) {
-	const grad = GRADIENTS[project.gradient] ?? GRADIENTS.aurora;
 	const initials = project.title
 		.replace(/[^A-Za-zА-Яа-я0-9 ]/g, "")
 		.split(" ")
@@ -32,15 +21,15 @@ export default function PortfolioCard({
 
 	return (
 		<div className="card-surface group flex h-full flex-col overflow-hidden rounded-2xl">
-			{/* Gradient cover */}
-			<div className={`relative h-36 overflow-hidden bg-gradient-to-br ${grad}`}>
-				<div className="absolute inset-0 bg-grid opacity-30 mix-blend-overlay" />
-				<div className="absolute inset-0 bg-black/10 transition-opacity duration-300 group-hover:opacity-0" />
-				<span className="absolute left-4 top-4 font-display text-3xl font-bold text-white/90 drop-shadow">
+			{/* Ink cover — big initials, red accent bar on hover */}
+			<div className="relative h-36 overflow-hidden bg-ink">
+				<div className="absolute inset-0 bg-grid opacity-20" />
+				<span className="absolute left-5 top-4 font-display text-4xl font-extrabold text-paper">
 					{initials}
 				</span>
+				<div className="absolute bottom-0 left-0 h-1 w-12 bg-accent transition-all duration-300 group-hover:w-full" />
 				{project.private ? (
-					<span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/40 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur">
+					<span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-paper/95 px-2.5 py-1 text-[11px] font-semibold text-ink">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-3 w-3"
@@ -55,7 +44,7 @@ export default function PortfolioCard({
 			</div>
 
 			<div className="flex flex-1 flex-col p-5">
-				<h3 className="font-display text-lg font-bold text-white">
+				<h3 className="font-display text-lg font-bold text-ink">
 					{project.title}
 				</h3>
 				<p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
@@ -75,7 +64,7 @@ export default function PortfolioCard({
 						href={project.link}
 						target="_blank"
 						rel="noopener"
-						className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-cyan hover:text-white transition-colors"
+						className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-ink transition-colors"
 					>
 						{ui.visit}
 						<span aria-hidden>↗</span>
@@ -85,7 +74,7 @@ export default function PortfolioCard({
 				{project.caseStudy && (
 					<Link
 						href={`/${lang}/case-studies/${project.slug}`}
-						className="mt-3 inline-block text-sm font-medium text-accent-fuchsia"
+						className="mt-3 inline-block text-sm font-medium text-accent"
 					>
 						{ui.caseStudy} →
 					</Link>

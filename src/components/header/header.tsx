@@ -11,11 +11,9 @@ export default async function Header({ lang }: PropsWithLang) {
 			id="top"
 			className="relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-28"
 		>
-			{/* Background */}
-			<div className="pointer-events-none absolute inset-0 bg-grid opacity-60" />
-			<div className="pointer-events-none absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-accent-indigo/30 blur-[120px]" />
-			<div className="pointer-events-none absolute -top-24 right-0 h-[26rem] w-[26rem] rounded-full bg-accent-fuchsia/20 blur-[120px]" />
-			<div className="pointer-events-none absolute bottom-0 left-1/3 h-[22rem] w-[22rem] rounded-full bg-accent-cyan/15 blur-[120px]" />
+			{/* Background — paper with subtle ink dots + one soft red wash */}
+			<div className="pointer-events-none absolute inset-0 bg-grid opacity-70" />
+			<div className="pointer-events-none absolute -top-32 right-0 h-[26rem] w-[26rem] rounded-full bg-accent/5 blur-[120px]" />
 
 			<div className="relative mx-auto max-w-5xl px-5">
 				<div className="flex flex-col-reverse items-center gap-10 sm:flex-row sm:items-center sm:justify-between">
@@ -27,12 +25,12 @@ export default async function Header({ lang }: PropsWithLang) {
 							</span>
 						</Reveal>
 						<Reveal delay={80}>
-							<h1 className="mt-4 font-display text-[2rem] sm:text-6xl font-bold tracking-tight leading-[1.08] break-words">
+							<h1 className="mt-4 font-display text-[2.25rem] sm:text-7xl font-extrabold tracking-tight leading-[1.02] break-words text-ink">
 								{header.name}
 							</h1>
 						</Reveal>
 						<Reveal delay={160}>
-							<p className="mt-3 font-display text-lg sm:text-3xl font-semibold gradient-text break-words">
+							<p className="mt-3 font-display text-lg sm:text-3xl font-bold text-accent break-words">
 								{header.jobTitle}
 							</p>
 						</Reveal>

@@ -50,7 +50,7 @@ function CsBlock({ title, body, delay }: { title: string; body: string; delay: n
   return (
     <Reveal delay={delay}>
       <h2 className="mt-10 section-eyebrow">{title}</h2>
-      <p className="mt-3 leading-relaxed text-[#d3d5e3]">{body}</p>
+      <p className="mt-3 leading-relaxed text-[#1c1917]">{body}</p>
     </Reveal>
   );
 }
