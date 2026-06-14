@@ -2,8 +2,14 @@
  * Aurora backdrop — fixed full-screen, behind all content.
  *
  * Serious, muted Signal palette: a deep graphite radial base plus three large
- * blurred slate/graphite circles that slowly drift (sgAuroraA/B/C). Strictly
- * decorative — pointer-events:none, no interactivity. Server component.
+ * blurred slate/graphite circles. Strictly decorative — pointer-events:none,
+ * no interactivity. Server component.
+ *
+ * Performance: the circles are STATIC (no drift animation). Animating
+ * `transform` on a blur(90px) layer forces a full-screen re-rasterisation every
+ * frame — the dominant GPU cost on this page. Static blurred gradients are
+ * rasterised once and composited cheaply. Blur is also reduced to 60px (cheaper
+ * to rasterise) with no perceptible visual change at this opacity.
  *
  * Ported from signal.dc.html lines 34-38.
  */
@@ -18,7 +24,7 @@ export default function Aurora() {
 			}}
 		>
 			<div
-				className="absolute rounded-full animate-sgAuroraA"
+				className="absolute rounded-full"
 				style={{
 					top: "-16%",
 					left: "-12%",
@@ -26,11 +32,11 @@ export default function Aurora() {
 					height: "66vw",
 					background:
 						"radial-gradient(circle,rgba(48,60,78,.34),transparent 64%)",
-					filter: "blur(90px)",
+					filter: "blur(60px)",
 				}}
 			/>
 			<div
-				className="absolute rounded-full animate-sgAuroraB"
+				className="absolute rounded-full"
 				style={{
 					top: "10%",
 					right: "-18%",
@@ -38,11 +44,11 @@ export default function Aurora() {
 					height: "62vw",
 					background:
 						"radial-gradient(circle,rgba(40,50,64,.3),transparent 65%)",
-					filter: "blur(92px)",
+					filter: "blur(60px)",
 				}}
 			/>
 			<div
-				className="absolute rounded-full animate-sgAuroraC"
+				className="absolute rounded-full"
 				style={{
 					bottom: "-22%",
 					left: "28%",
@@ -50,7 +56,7 @@ export default function Aurora() {
 					height: "60vw",
 					background:
 						"radial-gradient(circle,rgba(34,42,54,.34),transparent 64%)",
-					filter: "blur(96px)",
+					filter: "blur(60px)",
 				}}
 			/>
 		</div>
