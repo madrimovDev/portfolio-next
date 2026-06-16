@@ -1,10 +1,19 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "~/components/reveal/reveal";
+import JsonLd from "~/components/json-ld/json-ld";
 import { getDict } from "~/dict";
 import { getProjects, getProjectBySlug, getProjectBlocks } from "~/lib/notion";
 import { renderBlocks } from "~/lib/notion-render";
 import { Lang } from "~/types";
+import {
+	SITE_URL,
+	SITE_NAME,
+	OG_LOCALE,
+	PERSON_ID,
+	alternates,
+	pageUrl,
+} from "~/lib/seo";
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -18,9 +27,25 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-	const project = await getProjectBySlug(params.lang as Lang, params.slug);
+	const lang = params.lang as Lang;
+	const project = await getProjectBySlug(lang, params.slug);
 	if (!project || !project.hasCaseStudy) return {};
-	return { title: `${project.title} — Case Study | Madrimov Xudoshukur`, description: project.description };
+	const suffix = `/case-studies/${project.slug}`;
+	return {
+		title: `${project.title} — Case Study`,
+		description: project.description,
+		keywords: project.tags,
+		alternates: alternates(lang, suffix),
+		openGraph: {
+			type: "article",
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, suffix),
+			title: `${project.title} — Case Study`,
+			description: project.description,
+			siteName: `${SITE_NAME} Portfolio`,
+			images: [{ url: project.cover || "/avatar.jpg", alt: project.title }],
+		},
+	};
 }
 
 export default async function Page({ params }: { params: { lang: string; slug: string } }) {
@@ -29,8 +54,28 @@ export default async function Page({ params }: { params: { lang: string; slug: s
 	if (!project || !project.hasCaseStudy) notFound();
 	const { ui } = await getDict(lang);
 	const blocks = await getProjectBlocks(project.id);
+	const suffix = `/case-studies/${project.slug}`;
+	const url = pageUrl(lang, suffix);
+	const articleLd = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"@id": `${url}#article`,
+		mainEntityOfPage: url,
+		headline: `${project.title} — Case Study`,
+		description: project.description,
+		inLanguage: lang,
+		image: project.cover || `${SITE_URL}/avatar.jpg`,
+		keywords: project.tags.join(", "),
+		author: { "@type": "Person", "@id": PERSON_ID, name: "Xudoshukur Madrimov" },
+		publisher: {
+			"@type": "Person",
+			"@id": PERSON_ID,
+			name: "Xudoshukur Madrimov",
+		},
+	};
 	return (
 		<article className="relative mx-auto max-w-3xl px-5 pt-36 pb-24">
+			<JsonLd data={articleLd} />
 			<Reveal>
 				<Link href={`/${lang}/case-studies`} className="section-eyebrow">← {ui.caseStudiesTitle}</Link>
 			</Reveal>

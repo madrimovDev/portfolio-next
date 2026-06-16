@@ -1,6 +1,6 @@
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 let headers = { "accept-language": "en-US,en;q=0.5" };
 let languages = new Negotiator({ headers }).languages();
@@ -36,11 +36,17 @@ function getLocale(request: NextRequest) {
 export function middleware(request: NextRequest) {
 	// Check if there is any supported locale in the pathname
 	const { pathname } = request.nextUrl;
-	const pathnameHasLocale = locales.some(
+	const activeLocale = locales.find(
 		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
 	);
 
-	if (pathnameHasLocale) return;
+	// Locale allaqachon bor — root layout <html lang> ni o'qishi uchun
+	// so'rov headeriga lokalni qo'shib o'tkazamiz.
+	if (activeLocale) {
+		const requestHeaders = new Headers(request.headers);
+		requestHeaders.set("x-locale", activeLocale);
+		return NextResponse.next({ request: { headers: requestHeaders } });
+	}
 
 	// Redirect if there is no locale
 	const locale = getLocale(request);

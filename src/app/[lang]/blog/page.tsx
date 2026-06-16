@@ -1,11 +1,37 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import Reveal from "~/components/reveal/reveal";
 import { getDict } from "~/dict";
 import { getPublishedPosts } from "~/lib/notion";
 import { PropsWithParams, Lang } from "~/types";
 import { formatDate } from "~/lib/format-date";
+import { SITE_NAME, OG_LOCALE, alternates, pageUrl } from "~/lib/seo";
 
 export const revalidate = 300;
+
+const BLOG_DESC: Record<Lang, string> = {
+	uz: "Backend, arxitektura, DevOps va production muhandisligi haqida Xudoshukur Madrimov bloglari.",
+	ru: "Блог Худошукура Мадримова о бэкенде, архитектуре, DevOps и продакшн-инженерии.",
+	en: "Articles by Xudoshukur Madrimov on backend, architecture, DevOps and production engineering.",
+};
+
+export async function generateMetadata({ params }: PropsWithParams): Promise<Metadata> {
+	const { ui } = await getDict(params.lang);
+	const suffix = "/blog";
+	return {
+		title: ui.blogTitle,
+		description: BLOG_DESC[params.lang],
+		alternates: alternates(params.lang, suffix),
+		openGraph: {
+			type: "website",
+			locale: OG_LOCALE[params.lang],
+			url: pageUrl(params.lang, suffix),
+			title: ui.blogTitle,
+			description: BLOG_DESC[params.lang],
+			siteName: `${SITE_NAME} Portfolio`,
+		},
+	};
+}
 
 export default async function BlogPage({ params }: PropsWithParams) {
 	const lang = params.lang as Lang;

@@ -1,4 +1,14 @@
 import { Metadata } from "next";
+import JsonLd from "~/components/json-ld/json-ld";
+import {
+	SITE_URL,
+	SITE_NAME,
+	OG_LOCALE,
+	PERSON_ID,
+	WEBSITE_ID,
+	alternates,
+	pageUrl,
+} from "~/lib/seo";
 import SignalEffects from "~/components/signal-effects/signal-effects";
 import StatusTicker from "~/components/status-ticker/status-ticker";
 import Experience from "~/components/experience/experience";
@@ -19,7 +29,7 @@ export async function generateMetadata({
 	const { header, work } = await getDict(params.lang);
 
 	return {
-		title: `${header.name} — ${header.jobTitle}`,
+		title: { absolute: `${header.name} — ${header.jobTitle}` },
 		description: work.desc,
 		creator: header.name,
 		keywords: [
@@ -34,34 +44,45 @@ export async function generateMetadata({
 			"Madrimov",
 			"Xudoshukur Madrimov",
 		],
-		manifest: "site.webmanifest",
+		alternates: alternates(params.lang, ""),
 		openGraph: {
 			type: "website",
-			locale: params.lang,
-			url: "https://www.madrimov.uz",
-			siteName: "Madrimov Xudoshukur Portfolio",
-			images: [
-				{
-					url: "https://www.madrimov.uz/avatar.jpg",
-					alt: "Madrimov Xudoshukur Portfolio",
-				},
-			],
-		},
-		twitter: {
-			creatorId: "@madrimov_x",
-			site: "@madrimov_x",
-			card: "summary_large_image",
-		},
-		robots: {
-			index: true,
-			follow: true,
+			locale: OG_LOCALE[params.lang],
+			url: pageUrl(params.lang, ""),
+			siteName: `${SITE_NAME} Portfolio`,
+			images: [{ url: "/avatar.jpg", alt: `${SITE_NAME} Portfolio` }],
 		},
 	};
 }
 
 export default async function Home({ params }: PropsWithParams) {
+	const { header } = await getDict(params.lang);
+	const personLd = {
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"@id": PERSON_ID,
+		name: "Xudoshukur Madrimov",
+		alternateName: "Madrimov Xudoshukur",
+		url: SITE_URL,
+		image: `${SITE_URL}/avatar.jpg`,
+		jobTitle: header.jobTitle,
+		sameAs: [
+			"https://github.com/madrimovDev",
+			"https://t.me/madrimov",
+		],
+	};
+	const websiteLd = {
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": WEBSITE_ID,
+		url: SITE_URL,
+		name: SITE_NAME,
+		inLanguage: params.lang,
+		publisher: { "@id": PERSON_ID },
+	};
 	return (
 		<>
+			<JsonLd data={[personLd, websiteLd]} />
 			<SignalEffects />
 			<StatusTicker />
 			<Header lang={params.lang} />

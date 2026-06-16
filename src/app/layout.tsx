@@ -1,6 +1,8 @@
 import { Unbounded, Golos_Text, JetBrains_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { DEFAULT_LOCALE, isLang } from "~/lib/seo";
 
 const display = Unbounded({
 	subsets: ["latin"],
@@ -31,9 +33,11 @@ export default async function RootLayout({
 	};
 	children: React.ReactNode;
 }>) {
+	const headerLocale = headers().get("x-locale");
+	const lang = headerLocale && isLang(headerLocale) ? headerLocale : DEFAULT_LOCALE;
 	return (
 		<html
-			lang="en"
+			lang={lang}
 			className={`h-full ${display.variable} ${sans.variable} ${mono.variable}`}
 		>
 			<body className="font-sans bg-night text-fg antialiased">
