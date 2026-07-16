@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TELEGRAM_CHANNEL_URL } from "~/lib/site";
 
 /**
  * Footer — Signal contact footer (signal.dc.html 335-355).
@@ -18,6 +19,7 @@ import Link from "next/link";
 const SOCIALS = [
 	{ label: "GitHub", href: "https://github.com/madrimovDev" },
 	{ label: "Telegram", href: "https://t.me/madrimov" },
+	{ label: "Kanal", href: TELEGRAM_CHANNEL_URL },
 	{ label: "Email", href: "mailto:madrimov5014@gmail.com" },
 ];
 

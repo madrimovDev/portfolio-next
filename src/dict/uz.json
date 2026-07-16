@@ -18,6 +18,7 @@
       "ctaContact": "Bog'lanish",
       "ctaCv": "CV yuklab olish",
       "ctaProjects": "Loyihalar",
+      "ctaTelegram": "TG kanal",
       "kicker": "LIVE · 4 tizim ishlab turibdi",
       "tagline": "Murakkab tizimlarni ishonchli qilib quraman.",
       "desc": "Davlat va korporativ sektor uchun ishlab chiqarish tizimlarini quraman — arxitekturadan relizgacha — va jamoani yetaklayman.",
@@ -102,7 +103,10 @@
       "visit": "Ochish",
       "caseStudy": "Batafsil",
       "caseStudiesTitle": "Case Studies",
-      "blogTitle": "Maqolalar"
+      "blogTitle": "Maqolalar",
+      "tgCtaTitle": "Bu kabi maqolalar har hafta",
+      "tgCtaDesc": "Yangi maqolalar, amaliy muhandislik tajribasi va loyihalar — Telegram kanalda.",
+      "tgCtaBtn": "Kanalga qo'shilish"
     }
   }
 }
