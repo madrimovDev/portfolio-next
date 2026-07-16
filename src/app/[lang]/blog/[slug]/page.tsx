@@ -47,7 +47,6 @@ export async function generateMetadata({ params }: { params: { lang: string; slu
 			publishedTime: post.date,
 			authors: ["Xudoshukur Madrimov"],
 			tags: post.tags,
-			images: [{ url: "/avatar.jpg", alt: post.title }],
 		},
 	};
 }
