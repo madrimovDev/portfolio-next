@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getDict } from "~/dict";
 import { TELEGRAM_CHANNEL_URL } from "~/lib/site";
@@ -136,7 +137,14 @@ export default async function Header({ lang }: PropsWithLang) {
 								"linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,.04))",
 						}}
 					>
-						<span className="font-mono text-xs text-[#4f545b]">portret · 4:5</span>
+						<Image
+							src="/portrait.jpg"
+							alt="Xudoshukur Madrimov portreti"
+							fill
+							priority
+							sizes="(max-width: 1024px) 100vw, 40vw"
+							className="object-cover"
+						/>
 						<span className="absolute left-4 top-4 h-9 w-9 border-l-2 border-t-2 border-accent" />
 						<span className="absolute bottom-4 right-4 h-9 w-9 border-b-2 border-r-2 border-accent" />
 					</div>
