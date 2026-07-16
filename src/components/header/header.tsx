@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDict } from "~/dict";
+import { TELEGRAM_CHANNEL_URL } from "~/lib/site";
 import { PropsWithLang } from "~/types";
 
 /**
@@ -77,6 +78,14 @@ export default async function Header({ lang }: PropsWithLang) {
 						</Link>
 						<Link href="#contact" className="btn-ghost">
 							{header.ctaContact}
+						</Link>
+						<Link
+							href={TELEGRAM_CHANNEL_URL}
+							target="_blank"
+							rel="noopener"
+							className="btn-ghost"
+						>
+							{header.ctaTelegram}
 						</Link>
 					</div>
 

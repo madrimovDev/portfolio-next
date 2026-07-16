@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "~/components/reveal/reveal";
 import JsonLd from "~/components/json-ld/json-ld";
+import TelegramCta from "~/components/telegram-cta/telegram-cta";
 import { getDict } from "~/dict";
 import { getPublishedPosts, getPostBySlug, getBlocks } from "~/lib/notion";
 import { renderBlocks } from "~/lib/notion-render";
@@ -109,6 +110,9 @@ export default async function PostPage({
 				<div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-accent prose-strong:text-fg prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-pre:bg-surface2 prose-pre:border prose-pre:border-line">
 					{renderBlocks(blocks)}
 				</div>
+			</Reveal>
+			<Reveal delay={220}>
+				<TelegramCta lang={lang} />
 			</Reveal>
 		</article>
 	);

@@ -9,6 +9,7 @@ type IndexHeader = {
 	ctaContact: string;
 	ctaCv: string;
 	ctaProjects: string;
+	ctaTelegram: string;
 	// Signal hero copy
 	kicker: string;
 	tagline: string;
@@ -66,6 +67,9 @@ type Ui = {
 	caseStudy: string;
 	caseStudiesTitle: string;
 	blogTitle: string;
+	tgCtaTitle: string;
+	tgCtaDesc: string;
+	tgCtaBtn: string;
 };
 
 type Index = {

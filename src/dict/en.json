@@ -18,6 +18,7 @@
       "ctaContact": "Get in touch",
       "ctaCv": "Download CV",
       "ctaProjects": "Projects",
+      "ctaTelegram": "TG channel",
       "kicker": "LIVE · 4 systems in production",
       "tagline": "I build complex systems you can rely on.",
       "desc": "I design and run production systems for government and enterprise — from architecture to release — and lead the team.",
@@ -102,7 +103,10 @@
       "visit": "Open",
       "caseStudy": "Read case study",
       "caseStudiesTitle": "Case Studies",
-      "blogTitle": "Blog"
+      "blogTitle": "Blog",
+      "tgCtaTitle": "Articles like this, every week",
+      "tgCtaDesc": "New articles, hands-on engineering experience and projects — on the Telegram channel.",
+      "tgCtaBtn": "Join the channel"
     }
   }
 }
