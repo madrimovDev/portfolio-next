@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Reveal from "~/components/reveal/reveal";
 import JsonLd from "~/components/json-ld/json-ld";
 import TelegramCta from "~/components/telegram-cta/telegram-cta";
+import RelatedPosts from "~/components/related-posts/related-posts";
 import { getDict } from "~/dict";
 import { getPublishedPosts, getPostBySlug, getBlocks } from "~/lib/notion";
 import { renderBlocks } from "~/lib/notion-render";
@@ -31,7 +32,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
 	const lang = params.lang as Lang;
 	const post = await getPostBySlug(lang, params.slug);
-	if (!post) return {};
+	// Yo'q slug metadata bosqichida 404 bo'lishi shart — aks holda streaming
+	// boshlanib, status 200 + layout'ning "index, follow" robots'i ketadi (soft-404).
+	if (!post) notFound();
 	const suffix = `/blog/${post.slug}`;
 	return {
 		title: post.title,
@@ -46,6 +49,7 @@ export async function generateMetadata({ params }: { params: { lang: string; slu
 			description: post.description,
 			siteName: `${SITE_NAME} Portfolio`,
 			publishedTime: post.date,
+			modifiedTime: post.lastEdited || post.date,
 			authors: ["Xudoshukur Madrimov"],
 			tags: post.tags,
 		},
@@ -65,6 +69,15 @@ export default async function PostPage({
 
 	const suffix = `/blog/${post.slug}`;
 	const url = pageUrl(lang, suffix);
+	const breadcrumbLd = {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{ "@type": "ListItem", position: 1, name: SITE_NAME, item: `${SITE_URL}/${lang}` },
+			{ "@type": "ListItem", position: 2, name: ui.blogTitle, item: `${SITE_URL}/${lang}/blog` },
+			{ "@type": "ListItem", position: 3, name: post.title, item: url },
+		],
+	};
 	const articleLd = {
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
@@ -74,8 +87,8 @@ export default async function PostPage({
 		description: post.description,
 		inLanguage: lang,
 		datePublished: post.date,
-		dateModified: post.date,
-		image: `${SITE_URL}/avatar.jpg`,
+		dateModified: post.lastEdited || post.date,
+		image: `${url}/opengraph-image`,
 		keywords: post.tags.join(", "),
 		author: { "@type": "Person", "@id": PERSON_ID, name: "Xudoshukur Madrimov" },
 		publisher: {
@@ -88,6 +101,7 @@ export default async function PostPage({
 	return (
 		<article className="relative mx-auto max-w-2xl px-5 pt-36 pb-24">
 			<JsonLd data={articleLd} />
+			<JsonLd data={breadcrumbLd} />
 			<Reveal>
 				<Link href={`/${lang}/blog`} className="section-eyebrow">
 					← {ui.blogTitle}
@@ -110,6 +124,9 @@ export default async function PostPage({
 				<div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-accent prose-strong:text-fg prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-pre:bg-surface2 prose-pre:border prose-pre:border-line">
 					{renderBlocks(blocks)}
 				</div>
+			</Reveal>
+			<Reveal delay={200}>
+				<RelatedPosts lang={lang} currentSlug={post.slug} tags={post.tags} />
 			</Reveal>
 			<Reveal delay={220}>
 				<TelegramCta lang={lang} />

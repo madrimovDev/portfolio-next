@@ -106,7 +106,8 @@
       "blogTitle": "Maqolalar",
       "tgCtaTitle": "Bu kabi maqolalar har hafta",
       "tgCtaDesc": "Yangi maqolalar, amaliy muhandislik tajribasi va loyihalar — Telegram kanalda.",
-      "tgCtaBtn": "Kanalga qo'shilish"
+      "tgCtaBtn": "Kanalga qo'shilish",
+      "relatedTitle": "O'xshash maqolalar"
     }
   }
 }

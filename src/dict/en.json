@@ -106,7 +106,8 @@
       "blogTitle": "Blog",
       "tgCtaTitle": "Articles like this, every week",
       "tgCtaDesc": "New articles, hands-on engineering experience and projects — on the Telegram channel.",
-      "tgCtaBtn": "Join the channel"
+      "tgCtaBtn": "Join the channel",
+      "relatedTitle": "Related articles"
     }
   }
 }

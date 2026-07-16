@@ -23,6 +23,7 @@ function toMeta(page: any): BlogPostMeta {
 		title: plain(p.Title?.title),
 		description: plain(p.Description?.rich_text),
 		date: p.Date?.date?.start ?? "",
+		lastEdited: page.last_edited_time ?? "",
 		tags: (p.Tags?.multi_select ?? []).map((t: any) => t.name),
 		lang: p.Lang?.select?.name || "uz",
 	};
