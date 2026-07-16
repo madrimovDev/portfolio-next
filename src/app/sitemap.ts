@@ -27,8 +27,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	// Statik sahifalar
 	for (const s of ["", "/blog", "/case-studies", "/portfolio"]) push(s);
 
-	// Bloglar
-	for (const p of posts) push(`/blog/${p.slug}`, p.date);
+	// Bloglar — lastmod sifatida Notion'dagi oxirgi tahrir vaqti aniqroq
+	for (const p of posts) push(`/blog/${p.slug}`, p.lastEdited || p.date);
 
 	// Case-study'lar
 	for (const c of caseStudies) push(`/case-studies/${c.slug}`);

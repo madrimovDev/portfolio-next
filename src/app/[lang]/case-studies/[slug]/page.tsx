@@ -29,7 +29,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
 	const lang = params.lang as Lang;
 	const project = await getProjectBySlug(lang, params.slug);
-	if (!project || !project.hasCaseStudy) return {};
+	// Yo'q slug metadata bosqichida 404 bo'lishi shart (soft-404 oldini olish).
+	if (!project || !project.hasCaseStudy) notFound();
 	const suffix = `/case-studies/${project.slug}`;
 	return {
 		title: `${project.title} — Case Study`,

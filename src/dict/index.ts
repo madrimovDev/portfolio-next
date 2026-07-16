@@ -70,6 +70,7 @@ type Ui = {
 	tgCtaTitle: string;
 	tgCtaDesc: string;
 	tgCtaBtn: string;
+	relatedTitle: string;
 };
 
 type Index = {
