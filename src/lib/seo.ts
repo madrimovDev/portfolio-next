@@ -27,11 +27,12 @@ export function altLanguages(suffix: string): Record<string, string> {
 	return languages;
 }
 
-/** Har sahifaning canonical + hreflang alternates obyekti. Layout'da EMAS, faqat sahifada. */
+/** Har sahifaning canonical + hreflang + RSS alternates obyekti. Layout'da EMAS, faqat sahifada. */
 export function alternates(lang: Lang, suffix: string) {
 	return {
 		canonical: `${SITE_URL}/${lang}${suffix}`,
 		languages: altLanguages(suffix),
+		types: { "application/rss+xml": `${SITE_URL}/${lang}/rss.xml` },
 	};
 }
 
