@@ -1,9 +1,3 @@
-export type PropsWithParams = {
-  params: {
-    lang: Lang
-  }
-}
-
 export type PropsWithLang = {
   lang: Lang
 }
