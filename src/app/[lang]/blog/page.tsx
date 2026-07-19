@@ -3,7 +3,7 @@ import Link from "next/link";
 import Reveal from "~/components/reveal/reveal";
 import { getDict } from "~/dict";
 import { getPublishedPosts } from "~/lib/notion";
-import { PropsWithParams, Lang } from "~/types";
+import { Lang } from "~/types";
 import { formatDate } from "~/lib/format-date";
 import { SITE_NAME, OG_LOCALE, alternates, pageUrl } from "~/lib/seo";
 
@@ -15,28 +15,35 @@ const BLOG_DESC: Record<Lang, string> = {
 	en: "Articles by Xudoshukur Madrimov on backend, architecture, DevOps and production engineering.",
 };
 
-export async function generateMetadata(props: PropsWithParams): Promise<Metadata> {
-    const params = await props.params;
-    const { ui } = await getDict(params.lang);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}): Promise<Metadata> {
+    const { lang } = await params;
+    const { ui } = await getDict(lang);
     const suffix = "/blog";
     return {
 		title: ui.blogTitle,
-		description: BLOG_DESC[params.lang],
-		alternates: alternates(params.lang, suffix),
+		description: BLOG_DESC[lang],
+		alternates: alternates(lang, suffix),
 		openGraph: {
 			type: "website",
-			locale: OG_LOCALE[params.lang],
-			url: pageUrl(params.lang, suffix),
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, suffix),
 			title: ui.blogTitle,
-			description: BLOG_DESC[params.lang],
+			description: BLOG_DESC[lang],
 			siteName: `${SITE_NAME} Portfolio`,
 		},
 	};
 }
 
-export default async function BlogPage(props: PropsWithParams) {
-    const params = await props.params;
-    const lang = params.lang as Lang;
+export default async function BlogPage({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}) {
+    const { lang } = await params;
     const { ui } = await getDict(lang);
     const posts = await getPublishedPosts(lang);
     return (

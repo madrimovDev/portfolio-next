@@ -2,10 +2,10 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { NextRequest, NextResponse } from "next/server";
 
-let headers = { "accept-language": "en-US,en;q=0.5" };
-let languages = new Negotiator({ headers }).languages();
-let locales = ["en", "uz", 'ru'];
-let defaultLocale = "uz";
+const headers = { "accept-language": "en-US,en;q=0.5" };
+const languages = new Negotiator({ headers }).languages();
+const locales = ["en", "uz", 'ru'];
+const defaultLocale = "uz";
 
 match(languages, locales, defaultLocale); // -> 'en-US'
 
@@ -33,7 +33,7 @@ function getLocale(request: NextRequest) {
 	return defaultLocale;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	// Check if there is any supported locale in the pathname
 	const { pathname } = request.nextUrl;
 	const activeLocale = locales.find(

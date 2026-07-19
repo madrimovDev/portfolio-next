@@ -56,9 +56,9 @@ export async function generateMetadata(
 
 export default async function RootLayout(
     props: Readonly<{
-        params: {
+        params: Promise<{
             lang: string;
-        };
+        }>;
         children: React.ReactNode;
     }>
 ) {

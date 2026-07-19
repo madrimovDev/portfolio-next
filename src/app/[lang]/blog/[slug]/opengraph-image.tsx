@@ -16,8 +16,9 @@ export const contentType = "image/png";
 export default async function OgImage({
 	params,
 }: {
-	params: { lang: string; slug: string };
+	params: Promise<{ lang: string; slug: string }>;
 }) {
+	const { lang, slug } = await params;
 	const unbounded = await readFile(
 		join(process.cwd(), "src/fonts/Unbounded-Bold.ttf")
 	);
@@ -26,7 +27,7 @@ export default async function OgImage({
 	let tag = "BLOG";
 	let date = "";
 	try {
-		const post = await getPostBySlug(params.lang as Lang, params.slug);
+		const post = await getPostBySlug(lang as Lang, slug);
 		if (post) {
 			title = post.title;
 			tag = (post.tags[0] ?? "BLOG").toUpperCase();

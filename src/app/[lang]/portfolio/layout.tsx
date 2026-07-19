@@ -10,24 +10,24 @@ const PORT_DESC: Record<Lang, string> = {
 	en: "Production projects by Madrimov Xudoshukur — built with React, Next.js, Node.js, Bun and Electron.",
 };
 
-export async function generateMetadata(
-    props: {
-        params: Promise<{ lang: Lang }>;
-    }
-): Promise<Metadata> {
-    const params = await props.params;
-    const { portfolio } = await getDict(params.lang);
-    const suffix = "/portfolio";
-    return {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}): Promise<Metadata> {
+	const { lang } = await params;
+	const { portfolio } = await getDict(lang);
+	const suffix = "/portfolio";
+	return {
 		title: portfolio.title,
-		description: PORT_DESC[params.lang],
-		alternates: alternates(params.lang, suffix),
+		description: PORT_DESC[lang],
+		alternates: alternates(lang, suffix),
 		openGraph: {
 			type: "website",
-			locale: OG_LOCALE[params.lang],
-			url: pageUrl(params.lang, suffix),
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, suffix),
 			title: portfolio.title,
-			description: PORT_DESC[params.lang],
+			description: PORT_DESC[lang],
 			siteName: `${SITE_NAME} Portfolio`,
 			images: [{ url: "/avatar.jpg", alt: portfolio.title }],
 		},
