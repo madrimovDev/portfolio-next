@@ -27,7 +27,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 	};
 
 	return (
-		<nav className="sticky top-0 z-50 glass border-b border-white/[0.12] backdrop-blur-[36px] shadow-[inset_0_1px_0_rgba(255,255,255,.3),0_10px_30px_-18px_rgba(0,0,0,.6)]">
+		<nav className="sticky top-0 z-50 glass border-b border-white/12 backdrop-blur-[36px] shadow-[inset_0_1px_0_rgba(255,255,255,.3),0_10px_30px_-18px_rgba(0,0,0,.6)]">
 			<div className="mx-auto flex h-[70px] max-w-[1200px] items-center justify-between gap-6 px-5 sm:px-8">
 				{/* Logo */}
 				<Link
@@ -57,7 +57,7 @@ export default function Navbar({ items }: { items: MenuItem[] }) {
 
 				{/* Right: language switcher + mobile toggle */}
 				<div className="flex items-center gap-2">
-					<div className="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.04] p-[3px] font-mono shadow-[inset_0_1px_0_rgba(255,255,255,.1)] backdrop-blur-[12px]">
+					<div className="flex items-center gap-0.5 rounded-full border border-white/10 bg-white/4 p-[3px] font-mono shadow-[inset_0_1px_0_rgba(255,255,255,.1)] backdrop-blur-md">
 						{LANGS.map((l) => (
 							<button
 								key={l}

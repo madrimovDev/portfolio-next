@@ -21,11 +21,11 @@ export default async function Experience({ lang }: PropsWithLang) {
 	return (
 		<section
 			id="experience"
-			className="relative border-t border-white/[0.06] bg-white/[0.014]"
+			className="relative border-t border-white/6 bg-white/[0.014]"
 		>
 			<div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 sm:py-[88px]">
 				<div className="eyebrow mb-5">03 — TAJRIBA</div>
-				<h2 className="m-0 mb-[52px] font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+				<h2 className="m-0 mb-[52px] font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] text-balance">
 					Yo&apos;l xaritasi
 				</h2>
 
@@ -42,7 +42,7 @@ export default async function Experience({ lang }: PropsWithLang) {
 							>
 								{/* node dot */}
 								<span
-									className={`absolute -left-[29px] top-[26px] h-[13px] w-[13px] rounded-full shadow-[0_0_0_4px_#0E1013] ${
+									className={`absolute left-[-29px] top-[26px] h-[13px] w-[13px] rounded-full shadow-[0_0_0_4px_#0E1013] ${
 										isFirst ? "bg-accent" : "bg-line3"
 									}`}
 								/>

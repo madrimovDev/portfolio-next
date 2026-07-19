@@ -8,7 +8,7 @@ export default function Beta() {
 		<div className="fixed bottom-10 inset-x-0 w-full flex justify-center z-20 px-4">
 			<div
 				role="alert"
-				className="alert alert-warning bg-warning/50 glass max-w-screen-sm flex items-center justify-between"
+				className="alert alert-warning bg-warning/50 glass max-w-(--breakpoint-sm) flex items-center justify-between"
 			>
 				<span className="inline-flex items-center gap-2 text-xs sm:text-base">
 					<svg

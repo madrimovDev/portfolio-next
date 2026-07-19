@@ -29,7 +29,7 @@ export async function generateMetadata(
 			template: `%s | ${SITE_NAME}`,
 		},
 		description: work.desc,
-		manifest: "site.webmanifest",
+		manifest: "/site.webmanifest",
 		openGraph: {
 			type: "website",
 			locale: OG_LOCALE[params.lang],
@@ -75,7 +75,7 @@ export default async function RootLayout(
 		<div className="flex min-h-full flex-col">
 			<Aurora />
 			<Navbar items={dict.menu} />
-			<main className="flex-grow w-full">{children}</main>
+			<main className="grow w-full">{children}</main>
 			<Footer />
 		</div>
 	);

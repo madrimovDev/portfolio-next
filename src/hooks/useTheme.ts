@@ -27,6 +27,9 @@ export const useTheme = () => {
 	useEffect(() => {
 		const def = localStorage.getItem("theme");
 		if (def) {
+			// localStorage faqat clientda mavjud — lazy useState initializer SSR/hydration
+			// mismatch keltiradi, shuning uchun mountda bir marta state'ga sinxronlaymiz.
+			// eslint-disable-next-line react-hooks/set-state-in-effect
 			setTheme(def as Theme);
 		}
 	}, []);
