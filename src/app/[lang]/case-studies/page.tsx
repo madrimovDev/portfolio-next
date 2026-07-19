@@ -14,10 +14,11 @@ const CS_DESC: Record<Lang, string> = {
 	en: "Case studies of production systems built by Xudoshukur Madrimov — government, education, fintech and transport.",
 };
 
-export async function generateMetadata({ params }: PropsWithParams): Promise<Metadata> {
-	const { ui } = await getDict(params.lang);
-	const suffix = "/case-studies";
-	return {
+export async function generateMetadata(props: PropsWithParams): Promise<Metadata> {
+    const params = await props.params;
+    const { ui } = await getDict(params.lang);
+    const suffix = "/case-studies";
+    return {
 		title: ui.caseStudiesTitle,
 		description: CS_DESC[params.lang],
 		alternates: alternates(params.lang, suffix),
@@ -32,11 +33,12 @@ export async function generateMetadata({ params }: PropsWithParams): Promise<Met
 	};
 }
 
-export default async function CaseStudiesPage({ params }: PropsWithParams) {
-	const lang = params.lang as Lang;
-	const { ui } = await getDict(lang);
-	const items = (await getProjects(lang)).filter((p) => p.hasCaseStudy);
-	return (
+export default async function CaseStudiesPage(props: PropsWithParams) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const { ui } = await getDict(lang);
+    const items = (await getProjects(lang)).filter((p) => p.hasCaseStudy);
+    return (
 		<section className="relative mx-auto max-w-5xl px-5 pt-36 pb-24">
 			<Reveal><span className="section-eyebrow">{ui.caseStudiesTitle}</span></Reveal>
 			<div className="mt-8 grid gap-5 sm:grid-cols-2">

@@ -10,14 +10,15 @@ const PORT_DESC: Record<Lang, string> = {
 	en: "Production projects by Madrimov Xudoshukur — built with React, Next.js, Node.js, Bun and Electron.",
 };
 
-export async function generateMetadata({
-	params,
-}: {
-	params: { lang: Lang };
-}): Promise<Metadata> {
-	const { portfolio } = await getDict(params.lang);
-	const suffix = "/portfolio";
-	return {
+export async function generateMetadata(
+    props: {
+        params: Promise<{ lang: Lang }>;
+    }
+): Promise<Metadata> {
+    const params = await props.params;
+    const { portfolio } = await getDict(params.lang);
+    const suffix = "/portfolio";
+    return {
 		title: portfolio.title,
 		description: PORT_DESC[params.lang],
 		alternates: alternates(params.lang, suffix),

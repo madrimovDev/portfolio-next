@@ -23,12 +23,11 @@ import { PropsWithParams } from "~/types";
 
 export const revalidate = 300;
 
-export async function generateMetadata({
-	params,
-}: PropsWithParams): Promise<Metadata> {
-	const { header, work } = await getDict(params.lang);
+export async function generateMetadata(props: PropsWithParams): Promise<Metadata> {
+    const params = await props.params;
+    const { header, work } = await getDict(params.lang);
 
-	return {
+    return {
 		title: { absolute: `${header.name} — ${header.jobTitle}` },
 		description: work.desc,
 		creator: header.name,
@@ -55,9 +54,10 @@ export async function generateMetadata({
 	};
 }
 
-export default async function Home({ params }: PropsWithParams) {
-	const { header } = await getDict(params.lang);
-	const personLd = {
+export default async function Home(props: PropsWithParams) {
+    const params = await props.params;
+    const { header } = await getDict(params.lang);
+    const personLd = {
 		"@context": "https://schema.org",
 		"@type": "Person",
 		"@id": PERSON_ID,
@@ -71,7 +71,7 @@ export default async function Home({ params }: PropsWithParams) {
 			"https://t.me/madrimov",
 		],
 	};
-	const websiteLd = {
+    const websiteLd = {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
 		"@id": WEBSITE_ID,
@@ -80,7 +80,7 @@ export default async function Home({ params }: PropsWithParams) {
 		inLanguage: params.lang,
 		publisher: { "@id": PERSON_ID },
 	};
-	return (
+    return (
 		<>
 			<JsonLd data={[personLd, websiteLd]} />
 			<SignalEffects />

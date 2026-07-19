@@ -15,10 +15,11 @@ const BLOG_DESC: Record<Lang, string> = {
 	en: "Articles by Xudoshukur Madrimov on backend, architecture, DevOps and production engineering.",
 };
 
-export async function generateMetadata({ params }: PropsWithParams): Promise<Metadata> {
-	const { ui } = await getDict(params.lang);
-	const suffix = "/blog";
-	return {
+export async function generateMetadata(props: PropsWithParams): Promise<Metadata> {
+    const params = await props.params;
+    const { ui } = await getDict(params.lang);
+    const suffix = "/blog";
+    return {
 		title: ui.blogTitle,
 		description: BLOG_DESC[params.lang],
 		alternates: alternates(params.lang, suffix),
@@ -33,11 +34,12 @@ export async function generateMetadata({ params }: PropsWithParams): Promise<Met
 	};
 }
 
-export default async function BlogPage({ params }: PropsWithParams) {
-	const lang = params.lang as Lang;
-	const { ui } = await getDict(lang);
-	const posts = await getPublishedPosts(lang);
-	return (
+export default async function BlogPage(props: PropsWithParams) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const { ui } = await getDict(lang);
+    const posts = await getPublishedPosts(lang);
+    return (
 		<section className="relative mx-auto max-w-3xl px-5 pt-36 pb-24">
 			<Reveal>
 				<span className="section-eyebrow">{ui.blogTitle}</span>

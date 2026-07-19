@@ -8,15 +8,13 @@ function esc(s: string): string {
 	return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-export async function GET(
-	_req: Request,
-	{ params }: { params: { lang: string } }
-) {
-	if (!isLang(params.lang)) return new Response("Not found", { status: 404 });
-	const lang = params.lang;
-	const posts = await getPublishedPosts(lang);
+export async function GET(_req: Request, props: { params: Promise<{ lang: string }> }) {
+    const params = await props.params;
+    if (!isLang(params.lang)) return new Response("Not found", { status: 404 });
+    const lang = params.lang;
+    const posts = await getPublishedPosts(lang);
 
-	const items = posts
+    const items = posts
 		.map((p) => {
 			const url = `${SITE_URL}/${lang}/blog/${p.slug}`;
 			return `\t\t<item>
@@ -29,7 +27,7 @@ export async function GET(
 		})
 		.join("\n");
 
-	const xml = `<?xml version="1.0" encoding="UTF-8"?>
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 \t<channel>
 \t\t<title>${esc(SITE_NAME)} — Blog</title>
@@ -40,7 +38,7 @@ ${items}
 \t</channel>
 </rss>`;
 
-	return new Response(xml, {
+    return new Response(xml, {
 		headers: { "Content-Type": "application/rss+xml; charset=utf-8" },
 	});
 }

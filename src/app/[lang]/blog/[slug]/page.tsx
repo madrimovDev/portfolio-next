@@ -29,14 +29,15 @@ export async function generateStaticParams() {
 	return out;
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-	const lang = params.lang as Lang;
-	const post = await getPostBySlug(lang, params.slug);
-	// Yo'q slug metadata bosqichida 404 bo'lishi shart — aks holda streaming
-	// boshlanib, status 200 + layout'ning "index, follow" robots'i ketadi (soft-404).
-	if (!post) notFound();
-	const suffix = `/blog/${post.slug}`;
-	return {
+export async function generateMetadata(props: { params: Promise<{ lang: string; slug: string }> }) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const post = await getPostBySlug(lang, params.slug);
+    // Yo'q slug metadata bosqichida 404 bo'lishi shart — aks holda streaming
+    // boshlanib, status 200 + layout'ning "index, follow" robots'i ketadi (soft-404).
+    if (!post) notFound();
+    const suffix = `/blog/${post.slug}`;
+    return {
 		title: post.title,
 		description: post.description,
 		keywords: post.tags,
@@ -56,20 +57,21 @@ export async function generateMetadata({ params }: { params: { lang: string; slu
 	};
 }
 
-export default async function PostPage({
-	params,
-}: {
-	params: { lang: string; slug: string };
-}) {
-	const lang = params.lang as Lang;
-	const post = await getPostBySlug(lang, params.slug);
-	if (!post) notFound();
-	const { ui } = await getDict(lang);
-	const blocks = await getBlocks(post.id);
+export default async function PostPage(
+    props: {
+        params: Promise<{ lang: string; slug: string }>;
+    }
+) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const post = await getPostBySlug(lang, params.slug);
+    if (!post) notFound();
+    const { ui } = await getDict(lang);
+    const blocks = await getBlocks(post.id);
 
-	const suffix = `/blog/${post.slug}`;
-	const url = pageUrl(lang, suffix);
-	const breadcrumbLd = {
+    const suffix = `/blog/${post.slug}`;
+    const url = pageUrl(lang, suffix);
+    const breadcrumbLd = {
 		"@context": "https://schema.org",
 		"@type": "BreadcrumbList",
 		itemListElement: [
@@ -78,7 +80,7 @@ export default async function PostPage({
 			{ "@type": "ListItem", position: 3, name: post.title, item: url },
 		],
 	};
-	const articleLd = {
+    const articleLd = {
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
 		"@id": `${url}#article`,
@@ -98,7 +100,7 @@ export default async function PostPage({
 		},
 	};
 
-	return (
+    return (
 		<article className="relative mx-auto max-w-2xl px-5 pt-36 pb-24">
 			<JsonLd data={articleLd} />
 			<JsonLd data={breadcrumbLd} />

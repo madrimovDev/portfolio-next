@@ -26,13 +26,14 @@ export async function generateStaticParams() {
 	return out;
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-	const lang = params.lang as Lang;
-	const project = await getProjectBySlug(lang, params.slug);
-	// Yo'q slug metadata bosqichida 404 bo'lishi shart (soft-404 oldini olish).
-	if (!project || !project.hasCaseStudy) notFound();
-	const suffix = `/case-studies/${project.slug}`;
-	return {
+export async function generateMetadata(props: { params: Promise<{ lang: string; slug: string }> }) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const project = await getProjectBySlug(lang, params.slug);
+    // Yo'q slug metadata bosqichida 404 bo'lishi shart (soft-404 oldini olish).
+    if (!project || !project.hasCaseStudy) notFound();
+    const suffix = `/case-studies/${project.slug}`;
+    return {
 		title: `${project.title} — Case Study`,
 		description: project.description,
 		keywords: project.tags,
@@ -49,15 +50,16 @@ export async function generateMetadata({ params }: { params: { lang: string; slu
 	};
 }
 
-export default async function Page({ params }: { params: { lang: string; slug: string } }) {
-	const lang = params.lang as Lang;
-	const project = await getProjectBySlug(lang, params.slug);
-	if (!project || !project.hasCaseStudy) notFound();
-	const { ui } = await getDict(lang);
-	const blocks = await getProjectBlocks(project.id);
-	const suffix = `/case-studies/${project.slug}`;
-	const url = pageUrl(lang, suffix);
-	const articleLd = {
+export default async function Page(props: { params: Promise<{ lang: string; slug: string }> }) {
+    const params = await props.params;
+    const lang = params.lang as Lang;
+    const project = await getProjectBySlug(lang, params.slug);
+    if (!project || !project.hasCaseStudy) notFound();
+    const { ui } = await getDict(lang);
+    const blocks = await getProjectBlocks(project.id);
+    const suffix = `/case-studies/${project.slug}`;
+    const url = pageUrl(lang, suffix);
+    const articleLd = {
 		"@context": "https://schema.org",
 		"@type": "Article",
 		"@id": `${url}#article`,
@@ -74,7 +76,7 @@ export default async function Page({ params }: { params: { lang: string; slug: s
 			name: "Xudoshukur Madrimov",
 		},
 	};
-	return (
+    return (
 		<article className="relative mx-auto max-w-3xl px-5 pt-36 pb-24">
 			<JsonLd data={articleLd} />
 			<Reveal>

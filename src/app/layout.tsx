@@ -33,7 +33,7 @@ export default async function RootLayout({
 	};
 	children: React.ReactNode;
 }>) {
-	const headerLocale = headers().get("x-locale");
+	const headerLocale = (await headers()).get("x-locale");
 	const lang = headerLocale && isLang(headerLocale) ? headerLocale : DEFAULT_LOCALE;
 	return (
 		<html
