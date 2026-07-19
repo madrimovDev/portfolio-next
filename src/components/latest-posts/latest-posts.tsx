@@ -33,11 +33,11 @@ export default async function LatestPosts({
 	return (
 		<section
 			id="blog"
-			className="relative border-t border-white/[0.06] bg-white/[0.014]"
+			className="relative border-t border-white/6 bg-white/[0.014]"
 		>
 			<div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 sm:py-[88px]">
 				<div className="eyebrow mb-5">05 — BLOG</div>
-				<h2 className="m-0 mb-11 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+				<h2 className="m-0 mb-11 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] text-balance">
 					So&apos;nggi yozuvlar
 				</h2>
 
@@ -46,7 +46,7 @@ export default async function LatestPosts({
 						<Link
 							key={p.slug}
 							href={`/${lang}/blog/${p.slug}`}
-							className={`group flex items-baseline justify-between gap-[30px] rounded-[14px] border-t border-line px-[22px] py-[26px] transition-[background,border-color] duration-300 hover:border-transparent hover:bg-white/[0.04] ${
+							className={`group flex items-baseline justify-between gap-[30px] rounded-[14px] border-t border-line px-[22px] py-[26px] transition-[background,border-color] duration-300 hover:border-transparent hover:bg-white/4 ${
 								i === posts.length - 1 ? "border-b" : ""
 							}`}
 						>

@@ -31,7 +31,7 @@ export default async function Header({ lang }: PropsWithLang) {
 
 			{/* amber corner glow */}
 			<div
-				className="pointer-events-none absolute -right-[140px] -top-[140px] h-[660px] w-[660px]"
+				className="pointer-events-none absolute right-[-140px] top-[-140px] h-[660px] w-[660px]"
 				style={{
 					background:
 						"radial-gradient(circle,rgba(255,194,75,.13),transparent 60%)",
@@ -59,14 +59,14 @@ export default async function Header({ lang }: PropsWithLang) {
 						{header.kicker}
 					</div>
 
-					<h1 className="m-0 font-display font-extrabold leading-[.88] tracking-[-.04em] text-[clamp(34px,11vw,108px)] break-words">
+					<h1 className="m-0 font-display font-extrabold leading-[.88] tracking-[-.04em] text-[clamp(34px,11vw,108px)] wrap-break-word">
 						MADRIMOV
 					</h1>
 					<h1 className="mt-1.5 font-display font-light leading-none tracking-[-.01em] text-[#7e848c] text-[clamp(26px,3.6vw,52px)]">
 						Xudoshukur
 					</h1>
 
-					<p className="mt-8 max-w-[19ch] font-display font-medium leading-[1.25] tracking-[-.02em] text-[clamp(20px,2.1vw,28px)]">
+					<p className="mt-8 max-w-[19ch] font-display font-medium leading-tight tracking-[-.02em] text-[clamp(20px,2.1vw,28px)]">
 						{header.tagline}
 					</p>
 					<p className="mb-[34px] mt-5 max-w-[50ch] text-[17px] leading-[1.65] text-muted">
@@ -131,7 +131,7 @@ export default async function Header({ lang }: PropsWithLang) {
 				{/* right column — portrait placeholder */}
 				<div className="relative">
 					<div
-						className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl border border-white/[0.18] shadow-[inset_0_1px_0_rgba(255,255,255,.4),0_30px_70px_-34px_rgba(0,0,0,.8)] backdrop-blur-[30px]"
+						className="relative flex aspect-4/5 items-center justify-center overflow-hidden rounded-3xl border border-white/18 shadow-[inset_0_1px_0_rgba(255,255,255,.4),0_30px_70px_-34px_rgba(0,0,0,.8)] backdrop-blur-[30px]"
 						style={{
 							background:
 								"linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,.04))",
@@ -151,7 +151,7 @@ export default async function Header({ lang }: PropsWithLang) {
 
 					{/* LIVE badge */}
 					<div
-						className="absolute -right-[14px] top-[18px] inline-flex items-center gap-[7px] rounded-xl border border-white/[0.12] px-[13px] py-[9px] font-mono text-[11px] text-accent shadow-[0_18px_40px_-18px_#000,inset_0_1px_0_rgba(255,255,255,.18)] backdrop-blur-[18px]"
+						className="absolute right-[-14px] top-[18px] inline-flex items-center gap-[7px] rounded-xl border border-white/12 px-[13px] py-[9px] font-mono text-[11px] text-accent shadow-[0_18px_40px_-18px_#000,inset_0_1px_0_rgba(255,255,255,.18)] backdrop-blur-[18px]"
 						style={{
 							background:
 								"linear-gradient(180deg,rgba(40,44,50,.6),rgba(20,22,26,.45))",
@@ -163,7 +163,7 @@ export default async function Header({ lang }: PropsWithLang) {
 
 					{/* location badge */}
 					<div
-						className="absolute -bottom-4 -left-4 rounded-[14px] border border-white/[0.12] px-[17px] py-[13px] shadow-[0_22px_46px_-22px_#000,inset_0_1px_0_rgba(255,255,255,.18)] backdrop-blur-[18px]"
+						className="absolute -bottom-4 -left-4 rounded-[14px] border border-white/12 px-[17px] py-[13px] shadow-[0_22px_46px_-22px_#000,inset_0_1px_0_rgba(255,255,255,.18)] backdrop-blur-[18px]"
 						style={{
 							background:
 								"linear-gradient(180deg,rgba(40,44,50,.6),rgba(20,22,26,.45))",

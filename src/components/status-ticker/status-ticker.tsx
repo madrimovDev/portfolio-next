@@ -18,9 +18,9 @@ const MARQUEE = [...SYSTEMS, ...SYSTEMS];
 
 export default function StatusTicker() {
 	return (
-		<div className="glass border-b border-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,.05)]">
+		<div className="glass border-b border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,.05)]">
 			<div className="mx-auto flex h-10 max-w-[1200px] items-center gap-[18px] overflow-hidden px-5 sm:px-8">
-				<span className="flex-shrink-0 font-mono text-[11px] tracking-[.16em] text-accent">
+				<span className="shrink-0 font-mono text-[11px] tracking-[.16em] text-accent">
 					SYSTEMS
 				</span>
 
@@ -45,7 +45,7 @@ export default function StatusTicker() {
 
 				<span
 					id="tashkent-clock"
-					className="flex-shrink-0 whitespace-nowrap font-mono text-xs tracking-[.04em] text-accent"
+					className="shrink-0 whitespace-nowrap font-mono text-xs tracking-[.04em] text-accent"
 				>
 					TASHKENT --:--:--
 				</span>

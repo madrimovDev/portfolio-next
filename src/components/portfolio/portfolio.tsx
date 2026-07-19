@@ -27,7 +27,7 @@ export default async function Portfolio({
 	return (
 		<section
 			id="projects"
-			className={`relative border-t border-white/[0.06] ${
+			className={`relative border-t border-white/6 ${
 				standalone ? "pt-36" : ""
 			}`}
 		>
@@ -35,7 +35,7 @@ export default async function Portfolio({
 				<div className="mb-11 flex flex-wrap items-end justify-between gap-4">
 					<div>
 						<div className="eyebrow mb-5">04 — LOYIHALAR</div>
-						<h2 className="m-0 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+						<h2 className="m-0 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] text-balance">
 							Tanlangan ishlar
 						</h2>
 					</div>

@@ -35,9 +35,9 @@ export default function PortfolioCard({
 		.toUpperCase();
 
 	return (
-		<div className="glass-strong group flex h-full flex-col overflow-hidden rounded-[20px] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-[3px] hover:border-white/20">
+		<div className="glass-strong group flex h-full flex-col overflow-hidden rounded-[20px] transition-[transform,border-color,box-shadow] duration-300 hover:translate-y-[-3px] hover:border-white/20">
 			{/* cover area: Notion image OR amber initials on faint glass */}
-			<div className="relative flex h-[168px] items-center justify-center overflow-hidden border-b border-white/[0.08] bg-[linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.02))]">
+			<div className="relative flex h-[168px] items-center justify-center overflow-hidden border-b border-white/8 bg-[linear-gradient(155deg,rgba(255,255,255,.08),rgba(255,255,255,.02))]">
 				{project.cover ? (
 					<Image
 						src={project.cover}
@@ -52,7 +52,7 @@ export default function PortfolioCard({
 					</span>
 				)}
 				{project.private ? (
-					<span className="absolute right-3.5 top-3.5 rounded-full border border-line3 px-[9px] py-1 font-mono text-[10px] uppercase tracking-[.1em] text-muted">
+					<span className="absolute right-3.5 top-3.5 rounded-full border border-line3 px-[9px] py-1 font-mono text-[10px] uppercase tracking-widest text-muted">
 						{ui.private}
 					</span>
 				) : null}

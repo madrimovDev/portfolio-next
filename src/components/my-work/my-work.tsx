@@ -29,13 +29,13 @@ export default async function MyWork({ lang }: PropsWithLang) {
 	return (
 		<section
 			id="about"
-			className="relative border-t border-white/[0.06] bg-white/[0.014]"
+			className="relative border-t border-white/6 bg-white/[0.014]"
 		>
 			<div className="mx-auto grid max-w-[1200px] grid-cols-1 items-start gap-10 px-5 py-20 sm:px-8 sm:py-[88px] lg:grid-cols-[1.4fr_1fr] lg:gap-14">
 				{/* left — eyebrow + heading + paragraphs */}
 				<div>
 					<div className="eyebrow mb-5">01 — MEN HAQIMDA</div>
-					<h2 className="m-0 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+					<h2 className="m-0 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] text-balance">
 						Jiddiy tizimlarni
 						<br />
 						ishonchli qilib quraman

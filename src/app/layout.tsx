@@ -7,21 +7,21 @@ import { DEFAULT_LOCALE, isLang } from "~/lib/seo";
 const display = Unbounded({
 	subsets: ["latin"],
 	weight: ["300", "400", "500", "600", "700", "800"],
-	variable: "--font-display",
+	variable: "--font-unbounded",
 	display: "swap",
 });
 
 const sans = Golos_Text({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
-	variable: "--font-sans",
+	variable: "--font-golos",
 	display: "swap",
 });
 
 const mono = JetBrains_Mono({
 	subsets: ["latin"],
 	weight: ["400", "500", "600"],
-	variable: "--font-mono",
+	variable: "--font-jetbrains",
 	display: "swap",
 });
 

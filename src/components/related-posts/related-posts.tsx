@@ -42,7 +42,7 @@ export default async function RelatedPosts({
 					<li key={p.slug}>
 						<Link
 							href={`/${lang}/blog/${p.slug}`}
-							className="group flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-lg px-3 py-2.5 -mx-3 transition-colors hover:bg-white/[0.04]"
+							className="group flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-lg px-3 py-2.5 -mx-3 transition-colors hover:bg-white/4"
 						>
 							<span className="font-display font-semibold text-fg group-hover:text-accent transition-colors">
 								{p.title}

@@ -13,10 +13,10 @@ export default async function Skills({ lang }: PropsWithLang) {
 	const { skills } = await getDict(lang);
 
 	return (
-		<section id="skills" className="relative border-t border-white/[0.06]">
+		<section id="skills" className="relative border-t border-white/6">
 			<div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-8 sm:py-[88px]">
 				<div className="eyebrow mb-5">02 — KO&apos;NIKMALAR</div>
-				<h2 className="m-0 mb-11 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] [text-wrap:balance]">
+				<h2 className="m-0 mb-11 font-display text-[clamp(30px,4vw,44px)] font-semibold leading-[1.08] tracking-[-.02em] text-balance">
 					Texnologiyalar steki
 				</h2>
 
@@ -26,7 +26,7 @@ export default async function Skills({ lang }: PropsWithLang) {
 							key={group.category}
 							className="glass rounded-[18px] px-[22px] pb-6 pt-[22px]"
 						>
-							<div className="mb-4 font-mono text-xs uppercase tracking-[.1em] text-[#888E96]">
+							<div className="mb-4 font-mono text-xs uppercase tracking-widest text-[#888E96]">
 								{group.category}
 							</div>
 							<div className="flex flex-wrap gap-2">

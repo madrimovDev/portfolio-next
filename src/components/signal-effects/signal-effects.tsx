@@ -290,7 +290,7 @@ export default function SignalEffects() {
 			{!introDone && (
 				<div
 					aria-hidden
-					className="fixed inset-0 z-[300] flex flex-col items-center justify-center gap-[22px] bg-surface animate-sgIntroOut"
+					className="fixed inset-0 z-300 flex flex-col items-center justify-center gap-[22px] bg-surface animate-sgIntroOut"
 				>
 					<div className="flex h-14 w-14 items-center justify-center rounded-[15px] border-2 border-accent font-display text-[22px] font-bold text-accent">
 						MX
@@ -298,7 +298,7 @@ export default function SignalEffects() {
 					<div className="font-mono text-xs tracking-[.2em] text-[#888E96]">
 						INITIALIZING SYSTEMS
 					</div>
-					<div className="h-0.5 w-[190px] overflow-hidden rounded-sm bg-line">
+					<div className="h-0.5 w-[190px] overflow-hidden rounded-xs bg-line">
 						<div className="h-full bg-accent animate-sgIntroBar" />
 					</div>
 				</div>
@@ -307,7 +307,7 @@ export default function SignalEffects() {
 			{/* scanline texture overlay */}
 			<div
 				aria-hidden
-				className="pointer-events-none fixed inset-0 z-[200]"
+				className="pointer-events-none fixed inset-0 z-200"
 				style={{
 					backgroundImage:
 						"repeating-linear-gradient(0deg,rgba(255,255,255,.016),rgba(255,255,255,.016) 1px,transparent 1px,transparent 3px)",

@@ -37,9 +37,9 @@ export default function Footer() {
 				madrimov.uz
 			</div>
 
-			<div className="relative z-[1] mx-auto max-w-[1200px] px-5 pb-10 pt-[90px] sm:px-8">
+			<div className="relative z-1 mx-auto max-w-[1200px] px-5 pb-10 pt-[90px] sm:px-8">
 				<div className="flex flex-wrap items-end justify-between gap-10 border-b border-line pb-16">
-					<h2 className="m-0 max-w-[14ch] font-display text-[clamp(34px,5.5vw,68px)] font-bold leading-none tracking-[-.025em]">
+					<h2 className="m-0 max-w-[14ch] font-display text-[clamp(34px,5.5vw,68px)] font-bold leading-none tracking-tight">
 						Keling, jiddiy
 						<br />
 						tizim quramiz
