@@ -6,6 +6,9 @@
   "engines": {
     "node": "22.x"
   },
+  "overrides": {
+    "postcss": "^8.5.10"
+  },
   "scripts": {
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",

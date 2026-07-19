@@ -11,11 +11,74 @@ const headers = () => ({
 	"Content-Type": "application/json",
 });
 
-function plain(rt: any[]): string {
+/** Notion API javoblarining kodda ishlatiladigan qismi uchun minimal tiplar */
+export interface NotionRichText {
+	plain_text: string;
+	href?: string | null;
+	annotations?: {
+		bold?: boolean;
+		italic?: boolean;
+		code?: boolean;
+	};
+}
+
+interface NotionFile {
+	type?: string;
+	external?: { url?: string };
+	file?: { url?: string };
+}
+
+interface NotionProperty {
+	title?: NotionRichText[];
+	rich_text?: NotionRichText[];
+	date?: { start?: string } | null;
+	multi_select?: { name: string }[];
+	select?: { name?: string } | null;
+	checkbox?: boolean;
+	url?: string | null;
+	number?: number | null;
+	files?: NotionFile[];
+}
+
+interface NotionPage {
+	id: string;
+	last_edited_time?: string;
+	properties: Record<string, NotionProperty | undefined>;
+}
+
+interface NotionRichTextHolder {
+	rich_text?: NotionRichText[];
+}
+
+export interface NotionBlock {
+	id: string;
+	type: string;
+	bulleted_list_item?: NotionRichTextHolder;
+	numbered_list_item?: NotionRichTextHolder;
+	heading_2?: NotionRichTextHolder;
+	heading_3?: NotionRichTextHolder;
+	paragraph?: NotionRichTextHolder;
+	code?: NotionRichTextHolder;
+	quote?: NotionRichTextHolder;
+	image?: {
+		type?: string;
+		external?: { url?: string };
+		file?: { url?: string };
+		caption?: NotionRichText[];
+	};
+}
+
+interface NotionQueryResponse<T> {
+	results?: T[];
+	has_more?: boolean;
+	next_cursor?: string;
+}
+
+function plain(rt: NotionRichText[] | undefined): string {
 	return (rt ?? []).map((t) => t.plain_text).join("");
 }
 
-function toMeta(page: any): BlogPostMeta {
+function toMeta(page: NotionPage): BlogPostMeta {
 	const p = page.properties;
 	return {
 		id: page.id,
@@ -24,7 +87,7 @@ function toMeta(page: any): BlogPostMeta {
 		description: plain(p.Description?.rich_text),
 		date: p.Date?.date?.start ?? "",
 		lastEdited: page.last_edited_time ?? "",
-		tags: (p.Tags?.multi_select ?? []).map((t: any) => t.name),
+		tags: (p.Tags?.multi_select ?? []).map((t) => t.name),
 		lang: p.Lang?.select?.name || "uz",
 	};
 }
@@ -46,7 +109,7 @@ const getRawPosts = cache(async (): Promise<BlogPostMeta[]> => {
 				next: { revalidate: 300 },
 			});
 			if (!res.ok) break;
-			const data = await res.json();
+			const data: NotionQueryResponse<NotionPage> = await res.json();
 			posts.push(...(data.results ?? []).map(toMeta));
 			cursor = data.has_more ? data.next_cursor : undefined;
 		} while (cursor);
@@ -93,20 +156,20 @@ export type ProjectMeta = {
 	order: number;
 };
 
-function fileUrl(filesProp: any): string | undefined {
+function fileUrl(filesProp: NotionProperty | undefined): string | undefined {
 	const f = (filesProp?.files ?? [])[0];
 	if (!f) return undefined;
 	return f.type === "external" ? f.external?.url : f.file?.url;
 }
 
-function toProject(page: any): ProjectMeta {
+function toProject(page: NotionPage): ProjectMeta {
 	const p = page.properties;
 	return {
 		id: page.id,
 		slug: plain(p.Slug?.rich_text) || page.id,
 		title: plain(p.Title?.title),
 		description: plain(p.Description?.rich_text),
-		tags: (p.Tags?.multi_select ?? []).map((t: any) => t.name),
+		tags: (p.Tags?.multi_select ?? []).map((t) => t.name),
 		category: plain(p.Category?.rich_text),
 		link: p.Link?.url || undefined,
 		private: p.Private?.checkbox ?? false,
@@ -133,7 +196,7 @@ const getRawProjects = cache(async (): Promise<ProjectMeta[]> => {
 				next: { revalidate: 300 },
 			});
 			if (!res.ok) break;
-			const data = await res.json();
+			const data: NotionQueryResponse<NotionPage> = await res.json();
 			projects.push(...(data.results ?? []).map(toProject));
 			cursor = data.has_more ? data.next_cursor : undefined;
 		} while (cursor);
@@ -167,13 +230,13 @@ export async function getProjectBySlug(lang: string, slug: string): Promise<Proj
 }
 
 /** Case study body bloklari — mavjud getBlocks qayta ishlatiladi */
-export async function getProjectBlocks(pageId: string): Promise<any[]> {
+export async function getProjectBlocks(pageId: string): Promise<NotionBlock[]> {
 	return getBlocks(pageId);
 }
 
-export async function getBlocks(pageId: string): Promise<any[]> {
+export async function getBlocks(pageId: string): Promise<NotionBlock[]> {
 	if (!TOKEN) return [];
-	const blocks: any[] = [];
+	const blocks: NotionBlock[] = [];
 	let cursor: string | undefined;
 	try {
 		do {
@@ -185,7 +248,7 @@ export async function getBlocks(pageId: string): Promise<any[]> {
 				next: { revalidate: 300 },
 			});
 			if (!res.ok) break;
-			const data = await res.json();
+			const data: NotionQueryResponse<NotionBlock> = await res.json();
 			blocks.push(...(data.results ?? []));
 			cursor = data.has_more ? data.next_cursor : undefined;
 		} while (cursor);

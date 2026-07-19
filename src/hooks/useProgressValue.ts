@@ -27,7 +27,7 @@ const useProgressValue = (delay: number): ProgressValueHook => {
     return () => {
       clearInterval(timer)
     };
-  }, [delay]);
+  }, [delay, progress]);
 
   return { progress, isLoading };
 };
