@@ -1,6 +1,11 @@
 import Portfolio from "~/components/portfolio/portfolio";
-import { PropsWithParams } from "~/types";
+import { Lang } from "~/types";
 
-export default function Page({ params }: PropsWithParams) {
-	return <Portfolio lang={params.lang} standalone />;
+export default async function Page({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}) {
+	const { lang } = await params;
+	return <Portfolio lang={lang} standalone />;
 }

@@ -14,14 +14,15 @@ import { SITE_URL, SITE_NAME, OG_LOCALE, isLang } from "~/lib/seo";
  * canonicalizatsiya qilib, indeksdan chiqarib yuborardi).
  * `openGraph.url` ham bu yerda yo'q — har sahifa o'zi beradi.
  */
-export async function generateMetadata({
-	params,
-}: {
-	params: { lang: string };
-}): Promise<Metadata> {
-	if (!isLang(params.lang)) return {};
-	const { header, work } = await getDict(params.lang);
-	return {
+export async function generateMetadata(
+    props: {
+        params: Promise<{ lang: string }>;
+    }
+): Promise<Metadata> {
+    const params = await props.params;
+    if (!isLang(params.lang)) return {};
+    const { header, work } = await getDict(params.lang);
+    return {
 		metadataBase: new URL(SITE_URL),
 		title: {
 			default: `${header.name} — ${header.jobTitle}`,
@@ -53,19 +54,24 @@ export async function generateMetadata({
 	};
 }
 
-export default async function RootLayout({
-	children,
-	params,
-}: Readonly<{
-	params: {
-		lang: string;
-	};
-	children: React.ReactNode;
-}>) {
-	// Yaroqsiz til — toza 404 (soft-404 / cheksiz URL fazosini oldini oladi).
-	if (!isLang(params.lang)) notFound();
-	const dict = await getDict(params.lang as Lang);
-	return (
+export default async function RootLayout(
+    props: Readonly<{
+        params: Promise<{
+            lang: string;
+        }>;
+        children: React.ReactNode;
+    }>
+) {
+    const params = await props.params;
+
+    const {
+        children
+    } = props;
+
+    // Yaroqsiz til — toza 404 (soft-404 / cheksiz URL fazosini oldini oladi).
+    if (!isLang(params.lang)) notFound();
+    const dict = await getDict(params.lang as Lang);
+    return (
 		<div className="flex min-h-full flex-col">
 			<Aurora />
 			<Navbar items={dict.menu} />

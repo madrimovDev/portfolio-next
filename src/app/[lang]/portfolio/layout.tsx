@@ -13,20 +13,21 @@ const PORT_DESC: Record<Lang, string> = {
 export async function generateMetadata({
 	params,
 }: {
-	params: { lang: Lang };
+	params: Promise<{ lang: Lang }>;
 }): Promise<Metadata> {
-	const { portfolio } = await getDict(params.lang);
+	const { lang } = await params;
+	const { portfolio } = await getDict(lang);
 	const suffix = "/portfolio";
 	return {
 		title: portfolio.title,
-		description: PORT_DESC[params.lang],
-		alternates: alternates(params.lang, suffix),
+		description: PORT_DESC[lang],
+		alternates: alternates(lang, suffix),
 		openGraph: {
 			type: "website",
-			locale: OG_LOCALE[params.lang],
-			url: pageUrl(params.lang, suffix),
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, suffix),
 			title: portfolio.title,
-			description: PORT_DESC[params.lang],
+			description: PORT_DESC[lang],
 			siteName: `${SITE_NAME} Portfolio`,
 			images: [{ url: "/avatar.jpg", alt: portfolio.title }],
 		},

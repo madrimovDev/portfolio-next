@@ -8,12 +8,9 @@ function esc(s: string): string {
 	return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-export async function GET(
-	_req: Request,
-	{ params }: { params: { lang: string } }
-) {
-	if (!isLang(params.lang)) return new Response("Not found", { status: 404 });
-	const lang = params.lang;
+export async function GET(_req: Request, { params }: { params: Promise<{ lang: string }> }) {
+	const { lang } = await params;
+	if (!isLang(lang)) return new Response("Not found", { status: 404 });
 	const posts = await getPublishedPosts(lang);
 
 	const items = posts

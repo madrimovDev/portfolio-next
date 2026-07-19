@@ -19,14 +19,17 @@ import Skills from "~/components/skills/skills";
 import Portfolio from "~/components/portfolio/portfolio";
 import LatestPosts from "~/components/latest-posts/latest-posts";
 import { getDict } from "~/dict";
-import { PropsWithParams } from "~/types";
+import { Lang } from "~/types";
 
 export const revalidate = 300;
 
 export async function generateMetadata({
 	params,
-}: PropsWithParams): Promise<Metadata> {
-	const { header, work } = await getDict(params.lang);
+}: {
+	params: Promise<{ lang: Lang }>;
+}): Promise<Metadata> {
+	const { lang } = await params;
+	const { header, work } = await getDict(lang);
 
 	return {
 		title: { absolute: `${header.name} — ${header.jobTitle}` },
@@ -44,19 +47,24 @@ export async function generateMetadata({
 			"Madrimov",
 			"Xudoshukur Madrimov",
 		],
-		alternates: alternates(params.lang, ""),
+		alternates: alternates(lang, ""),
 		openGraph: {
 			type: "website",
-			locale: OG_LOCALE[params.lang],
-			url: pageUrl(params.lang, ""),
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, ""),
 			siteName: `${SITE_NAME} Portfolio`,
 			images: [{ url: "/avatar.jpg", alt: `${SITE_NAME} Portfolio` }],
 		},
 	};
 }
 
-export default async function Home({ params }: PropsWithParams) {
-	const { header } = await getDict(params.lang);
+export default async function Home({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}) {
+	const { lang } = await params;
+	const { header } = await getDict(lang);
 	const personLd = {
 		"@context": "https://schema.org",
 		"@type": "Person",
@@ -77,7 +85,7 @@ export default async function Home({ params }: PropsWithParams) {
 		"@id": WEBSITE_ID,
 		url: SITE_URL,
 		name: SITE_NAME,
-		inLanguage: params.lang,
+		inLanguage: lang,
 		publisher: { "@id": PERSON_ID },
 	};
 	return (
@@ -85,13 +93,13 @@ export default async function Home({ params }: PropsWithParams) {
 			<JsonLd data={[personLd, websiteLd]} />
 			<SignalEffects />
 			<StatusTicker />
-			<Header lang={params.lang} />
+			<Header lang={lang} />
 			<Sectors />
-			<MyWork lang={params.lang} />
-			<Skills lang={params.lang} />
-			<Experience lang={params.lang} />
-			<Portfolio lang={params.lang} limit={6} />
-			<LatestPosts lang={params.lang} limit={3} />
+			<MyWork lang={lang} />
+			<Skills lang={lang} />
+			<Experience lang={lang} />
+			<Portfolio lang={lang} limit={6} />
+			<LatestPosts lang={lang} limit={3} />
 		</>
 	);
 }

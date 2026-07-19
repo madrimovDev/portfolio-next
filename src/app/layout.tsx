@@ -28,12 +28,9 @@ const mono = JetBrains_Mono({
 export default async function RootLayout({
 	children,
 }: Readonly<{
-	params: {
-		lang: string;
-	};
 	children: React.ReactNode;
 }>) {
-	const headerLocale = headers().get("x-locale");
+	const headerLocale = (await headers()).get("x-locale");
 	const lang = headerLocale && isLang(headerLocale) ? headerLocale : DEFAULT_LOCALE;
 	return (
 		<html

@@ -26,9 +26,14 @@ export async function generateStaticParams() {
 	return out;
 }
 
-export async function generateMetadata({ params }: { params: { lang: string; slug: string } }) {
-	const lang = params.lang as Lang;
-	const project = await getProjectBySlug(lang, params.slug);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: string; slug: string }>;
+}) {
+	const { lang: langParam, slug } = await params;
+	const lang = langParam as Lang;
+	const project = await getProjectBySlug(lang, slug);
 	// Yo'q slug metadata bosqichida 404 bo'lishi shart (soft-404 oldini olish).
 	if (!project || !project.hasCaseStudy) notFound();
 	const suffix = `/case-studies/${project.slug}`;
@@ -49,9 +54,14 @@ export async function generateMetadata({ params }: { params: { lang: string; slu
 	};
 }
 
-export default async function Page({ params }: { params: { lang: string; slug: string } }) {
-	const lang = params.lang as Lang;
-	const project = await getProjectBySlug(lang, params.slug);
+export default async function Page({
+	params,
+}: {
+	params: Promise<{ lang: string; slug: string }>;
+}) {
+	const { lang: langParam, slug } = await params;
+	const lang = langParam as Lang;
+	const project = await getProjectBySlug(lang, slug);
 	if (!project || !project.hasCaseStudy) notFound();
 	const { ui } = await getDict(lang);
 	const blocks = await getProjectBlocks(project.id);

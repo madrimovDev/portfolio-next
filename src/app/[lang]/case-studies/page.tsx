@@ -3,7 +3,7 @@ import Link from "next/link";
 import Reveal from "~/components/reveal/reveal";
 import { getDict } from "~/dict";
 import { getProjects } from "~/lib/notion";
-import { PropsWithParams, Lang } from "~/types";
+import { Lang } from "~/types";
 import { SITE_NAME, OG_LOCALE, alternates, pageUrl } from "~/lib/seo";
 
 export const revalidate = 300;
@@ -14,26 +14,35 @@ const CS_DESC: Record<Lang, string> = {
 	en: "Case studies of production systems built by Xudoshukur Madrimov — government, education, fintech and transport.",
 };
 
-export async function generateMetadata({ params }: PropsWithParams): Promise<Metadata> {
-	const { ui } = await getDict(params.lang);
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}): Promise<Metadata> {
+	const { lang } = await params;
+	const { ui } = await getDict(lang);
 	const suffix = "/case-studies";
 	return {
 		title: ui.caseStudiesTitle,
-		description: CS_DESC[params.lang],
-		alternates: alternates(params.lang, suffix),
+		description: CS_DESC[lang],
+		alternates: alternates(lang, suffix),
 		openGraph: {
 			type: "website",
-			locale: OG_LOCALE[params.lang],
-			url: pageUrl(params.lang, suffix),
+			locale: OG_LOCALE[lang],
+			url: pageUrl(lang, suffix),
 			title: ui.caseStudiesTitle,
-			description: CS_DESC[params.lang],
+			description: CS_DESC[lang],
 			siteName: `${SITE_NAME} Portfolio`,
 		},
 	};
 }
 
-export default async function CaseStudiesPage({ params }: PropsWithParams) {
-	const lang = params.lang as Lang;
+export default async function CaseStudiesPage({
+	params,
+}: {
+	params: Promise<{ lang: Lang }>;
+}) {
+	const { lang } = await params;
 	const { ui } = await getDict(lang);
 	const items = (await getProjects(lang)).filter((p) => p.hasCaseStudy);
 	return (

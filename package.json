@@ -10,28 +10,29 @@
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
     "start": "bun --bun next start",
-    "lint": "next lint"
+    "lint": "eslint src"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.5.4",
-    "@vercel/analytics": "^1.2.1",
-    "negotiator": "^0.6.3",
-    "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18"
+    "@formatjs/intl-localematcher": "^0.8.13",
+    "@vercel/analytics": "^2.0.1",
+    "negotiator": "^1.0.0",
+    "next": "16.2",
+    "react": "19",
+    "react-dom": "19"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/negotiator": "^0.6.3",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/negotiator": "^0.6.4",
+    "@types/node": "^26.1.1",
+    "@types/react": "19",
+    "@types/react-dom": "19",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.7.2",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "9",
+    "eslint-config-next": "16.2",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "6.0.3"
   }
 }
