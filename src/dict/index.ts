@@ -71,6 +71,18 @@ type Ui = {
 	tgCtaDesc: string;
 	tgCtaBtn: string;
 	relatedTitle: string;
+	views: string;
+	clapHint: string;
+	commentsTitle: string;
+	commentsEmpty: string;
+	commentsLangNote: string;
+	namePlaceholder: string;
+	bodyPlaceholder: string;
+	submit: string;
+	sending: string;
+	errorGeneric: string;
+	errorRateLimit: string;
+	errorDuplicate: string;
 };
 
 type Index = {

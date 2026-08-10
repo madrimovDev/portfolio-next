@@ -107,7 +107,19 @@
       "tgCtaTitle": "Articles like this, every week",
       "tgCtaDesc": "New articles, hands-on engineering experience and projects — on the Telegram channel.",
       "tgCtaBtn": "Join the channel",
-      "relatedTitle": "Related articles"
+      "relatedTitle": "Related articles",
+      "views": "views",
+      "clapHint": "Liked it? Tap a few times",
+      "commentsTitle": "Comments",
+      "commentsEmpty": "No comments yet — be the first",
+      "commentsLangNote": "Comments in this language",
+      "namePlaceholder": "Your name",
+      "bodyPlaceholder": "Write a comment...",
+      "submit": "Send",
+      "sending": "Sending...",
+      "errorGeneric": "Could not send. Please try again later.",
+      "errorRateLimit": "Too fast. Please wait a moment.",
+      "errorDuplicate": "This comment already exists."
     }
   }
 }

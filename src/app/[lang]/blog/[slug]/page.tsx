@@ -1,9 +1,14 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "~/components/reveal/reveal";
 import JsonLd from "~/components/json-ld/json-ld";
 import TelegramCta from "~/components/telegram-cta/telegram-cta";
 import RelatedPosts from "~/components/related-posts/related-posts";
+import PostInteractionsProvider from "~/components/post-interactions/post-interactions-provider";
+import ViewCount from "~/components/post-interactions/view-count";
+import ClapButton from "~/components/post-interactions/clap-button";
+import Comments from "~/components/comments/comments";
 import { getDict } from "~/dict";
 import { getPublishedPosts, getPostBySlug, getBlocks } from "~/lib/notion";
 import { renderBlocks } from "~/lib/notion-render";
@@ -101,38 +106,59 @@ export default async function PostPage(
 	};
 
     return (
-		<article className="relative mx-auto max-w-2xl px-5 pt-36 pb-24">
-			<JsonLd data={articleLd} />
-			<JsonLd data={breadcrumbLd} />
-			<Reveal>
-				<Link href={`/${lang}/blog`} className="section-eyebrow">
-					← {ui.blogTitle}
-				</Link>
-			</Reveal>
-			<Reveal delay={80}>
-				<span className="mt-6 block font-mono text-xs text-soft">
-					{formatDate(post.date, lang)}
-				</span>
-				<h1 className="mt-2 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
-					{post.title}
-				</h1>
-				<div className="mt-4 flex flex-wrap gap-1.5">
-					{post.tags.map((t) => (
-						<span key={t} className="tech-badge">{t}</span>
-					))}
-				</div>
-			</Reveal>
-			<Reveal delay={160}>
-				<div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-accent prose-strong:text-fg prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-pre:bg-surface2 prose-pre:border prose-pre:border-line">
-					{renderBlocks(blocks)}
-				</div>
-			</Reveal>
-			<Reveal delay={200}>
-				<RelatedPosts lang={lang} currentSlug={post.slug} tags={post.tags} />
-			</Reveal>
-			<Reveal delay={220}>
-				<TelegramCta lang={lang} />
-			</Reveal>
-		</article>
+		<PostInteractionsProvider slug={post.slug}>
+			<article className="relative mx-auto max-w-2xl px-5 pt-36 pb-24">
+				<JsonLd data={articleLd} />
+				<JsonLd data={breadcrumbLd} />
+				<Reveal>
+					<Link href={`/${lang}/blog`} className="section-eyebrow">
+						← {ui.blogTitle}
+					</Link>
+				</Reveal>
+				<Reveal delay={80}>
+					<div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+						<span className="font-mono text-xs text-soft">
+							{formatDate(post.date, lang)}
+						</span>
+						<span className="font-mono text-xs text-soft">·</span>
+						<ViewCount label={ui.views} />
+					</div>
+					<h1 className="mt-2 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">
+						{post.title}
+					</h1>
+					<div className="mt-4 flex flex-wrap gap-1.5">
+						{post.tags.map((t) => (
+							<span key={t} className="tech-badge">{t}</span>
+						))}
+					</div>
+				</Reveal>
+				<Reveal delay={160}>
+					<div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-accent prose-strong:text-fg prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-pre:bg-surface2 prose-pre:border prose-pre:border-line">
+						{renderBlocks(blocks)}
+					</div>
+				</Reveal>
+				<Reveal delay={180}>
+					<ClapButton hint={ui.clapHint} />
+				</Reveal>
+				{/*
+				  Suspense: fikrlar Supabase'dan keladi. Usiz sekin (yoki
+				  timeout'gacha osilgan) Supabase butun HTML'ni to'sib turardi —
+				  har bir o'quvchi maqolani ko'rishdan oldin 5 sekundgacha kutardi.
+				  Streaming bilan maqola darrov chiqadi, fikrlar keyin ulanadi;
+				  ular baribir server HTML'ida bo'ladi, ya'ni SEO saqlanadi.
+				*/}
+				<Reveal delay={200}>
+					<Suspense fallback={<div className="mt-16 h-40" aria-hidden="true" />}>
+						<Comments lang={lang} slug={post.slug} />
+					</Suspense>
+				</Reveal>
+				<Reveal delay={220}>
+					<RelatedPosts lang={lang} currentSlug={post.slug} tags={post.tags} />
+				</Reveal>
+				<Reveal delay={240}>
+					<TelegramCta lang={lang} />
+				</Reveal>
+			</article>
+		</PostInteractionsProvider>
 	);
 }
