@@ -107,7 +107,19 @@
       "tgCtaTitle": "Bu kabi maqolalar har hafta",
       "tgCtaDesc": "Yangi maqolalar, amaliy muhandislik tajribasi va loyihalar — Telegram kanalda.",
       "tgCtaBtn": "Kanalga qo'shilish",
-      "relatedTitle": "O'xshash maqolalar"
+      "relatedTitle": "O'xshash maqolalar",
+      "views": "ko'rish",
+      "clapHint": "Yoqdimi? Bir necha marta bosing",
+      "commentsTitle": "Fikrlar",
+      "commentsEmpty": "Hali fikr yo'q — birinchi bo'ling",
+      "commentsLangNote": "Bu tildagi fikrlar",
+      "namePlaceholder": "Ismingiz",
+      "bodyPlaceholder": "Fikringizni yozing...",
+      "submit": "Yuborish",
+      "sending": "Yuborilmoqda...",
+      "errorGeneric": "Yuborib bo'lmadi. Birozdan keyin urinib ko'ring.",
+      "errorRateLimit": "Juda tez yozyapsiz. Biroz kuting.",
+      "errorDuplicate": "Bu fikr allaqachon yozilgan."
     }
   }
 }
