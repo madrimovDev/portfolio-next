@@ -35,8 +35,15 @@ create table if not exists public.clap_budget (
 );
 
 -- ---------- RLS: policy YOZILMAYDI ----------
--- Policy'siz RLS = anon va authenticated ga nol ruxsat.
+-- Policy'siz RLS = anon va authenticated ga nol ruxsat (PostgREST orqali
+-- jadvalga to'g'ridan murojaat qilib bo'lmaydi).
 -- service_role RLS'ni chetlab o'tadi va faqat route handler'da ishlatiladi.
+--
+-- `force row level security` ATAYLAB QO'SHILMAGAN. Force jadval egasiga ham
+-- RLS'ni qo'llaydi; pastdagi funksiyalar esa `security definer` — ular ega
+-- (postgres) nomidan ishlaydi. Force bo'lsa, policy yo'qligi sababli
+-- funksiyalarning o'zi ham jadvalni o'qiy/yoza olmay qolardi.
+-- Funksiyalarga kirishni RLS emas, fayl oxiridagi `revoke execute` chegaralaydi.
 
 alter table public.post_stats  enable row level security;
 alter table public.comments    enable row level security;
