@@ -7,6 +7,7 @@ import { Lang, PostComment } from "~/types";
 type T = {
 	empty: string;
 	namePlaceholder: string;
+	aliasHint: string;
 	bodyPlaceholder: string;
 	submit: string;
 	sending: string;
@@ -34,6 +35,24 @@ export default function CommentThread({
 	const [website, setWebsite] = useState(""); // honeypot
 	const [sending, setSending] = useState(false);
 	const [error, setError] = useState<string | null>(null);
+	const [alias, setAlias] = useState<string | null>(null);
+
+	// Ism bo'sh qolsa qanday taxallus olishini oldindan ko'rsatamiz.
+	// Bu endpoint bazaga tegmaydi — Supabase yiqilgan bo'lsa ham ishlaydi.
+	useEffect(() => {
+		let alive = true;
+		fetch(`/api/posts/${slug}/alias?lang=${lang}`)
+			.then((r) => (r.ok ? r.json() : null))
+			.then((data: { alias: string } | null) => {
+				if (alive && data) setAlias(data.alias);
+			})
+			.catch(() => {
+				/* jim: maslahat ko'rsatilmaydi, forma baribir ishlaydi */
+			});
+		return () => {
+			alive = false;
+		};
+	}, [slug, lang]);
 
 	// ISR muvaffaqiyatli render'ni 5 daqiqaga keshlaydi. Agar server tomonda
 	// Supabase javob bermagan bo'lsa, bo'sh ro'yxat keshlanib qolardi —
@@ -102,9 +121,14 @@ export default function CommentThread({
 					placeholder={t.namePlaceholder}
 					minLength={2}
 					maxLength={40}
-					required
 					className="w-full rounded-lg border border-line bg-surface2 px-3 py-2 text-sm outline-none focus:border-accent"
 				/>
+				{/* Maydon bo'sh turgandagina ko'rinadi — ism yozilsa yo'qoladi */}
+				{alias && name.trim().length === 0 && (
+					<p className="mt-1.5 text-xs text-soft">
+						{t.aliasHint} <span className="font-mono text-accent">{alias}</span>
+					</p>
+				)}
 				<textarea
 					value={body}
 					onChange={(e) => setBody(e.target.value)}

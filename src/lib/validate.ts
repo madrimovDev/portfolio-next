@@ -21,10 +21,22 @@ const CTRL_ALL = /[\u0000-\u001F\u007F]/g;
  
 const CTRL_KEEP_NL = /[\u0000-\u0009\u000B-\u001F\u007F]/g;
 
-export function cleanName(raw: unknown): string | null {
-	if (typeof raw !== "string") return null;
+/**
+ * Ism uch xil natija berishi mumkin — "bo'sh" va "yaroqsiz" ni ajratish shart:
+ * bo'sh bo'lsa taxallus beriladi, yaroqsiz bo'lsa 400 qaytadi.
+ */
+export type NameResult =
+	| { kind: "empty" }
+	| { kind: "ok"; value: string }
+	| { kind: "invalid" };
+
+export function cleanName(raw: unknown): NameResult {
+	if (raw === undefined || raw === null) return { kind: "empty" };
+	if (typeof raw !== "string") return { kind: "invalid" };
 	const v = raw.replace(CTRL_ALL, " ").replace(/\s+/g, " ").trim();
-	return v.length >= 2 && v.length <= 40 ? v : null;
+	if (v.length === 0) return { kind: "empty" };
+	if (v.length < 2 || v.length > 40) return { kind: "invalid" };
+	return { kind: "ok", value: v };
 }
 
 export function cleanBody(raw: unknown): string | null {

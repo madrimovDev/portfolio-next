@@ -1,125 +1,222 @@
 {
-  "Index": {
-    "menu": [
-      { "href": "/", "title": "Bosh sahifa" },
-      { "href": "/#about", "title": "Men haqimda" },
-      { "href": "/#skills", "title": "Ko'nikmalar" },
-      { "href": "/#experience", "title": "Tajriba" },
-      { "href": "/case-studies", "title": "Case Studies" },
-      { "href": "/blog", "title": "Maqolalar" },
-      { "href": "/portfolio", "title": "Loyihalar" }
-    ],
-    "header": {
-      "greeting": "Salom, men",
-      "name": "Madrimov Xudoshukur",
-      "jobTitle": "Team Lead / Fullstack dasturchi",
-      "subtitle": "TypeScript'da production mahsulotlar yarataman: frontendda React / Next.js, backendda Bun / Hono / Node.js. G'oyadan relizgacha.",
-      "location": "Xiva, O'zbekiston",
-      "ctaContact": "Bog'lanish",
-      "ctaCv": "CV yuklab olish",
-      "ctaProjects": "Loyihalar",
-      "ctaTelegram": "TG kanal",
-      "kicker": "LIVE · 4 tizim ishlab turibdi",
-      "tagline": "Murakkab tizimlarni ishonchli qilib quraman.",
-      "desc": "Davlat va korporativ sektor uchun ishlab chiqarish tizimlarini quraman — arxitekturadan relizgacha — va jamoani yetaklayman.",
-      "stats": [
-        { "value": "4+", "label": "yil tajriba" },
-        { "value": "6", "label": "production tizim" },
-        { "value": "3", "label": "OSS npm paket" }
-      ]
-    },
-    "work": {
-      "title": "Men haqimda",
-      "eyebrow": "Men kim",
-      "quote": "Ishlasangiz — ishlaydi.",
-      "desc": "Dasturchilik yo'limni 2021-yilda frontend ustozi sifatida boshladim, bugun esa jamoaga Team Lead bo'lib rahbarlik qilaman. Shu davrda interfeys verstkasidan to arxitektura loyihalash va to'liq production-platformalarni yetkazib berishgacha yo'lni bosib o'tdim. Butun stek bilan ishlayman: frontendda React / Next.js, backendda Bun / Hono / Node.js. Dasturlashni mustaqil o'rgandim va har kuni o'rganishda davom etaman.",
-      "links": {
-        "GitHub": "https://github.com/madrimovDev",
-        "Telegram": "https://t.me/madrimov",
-        "Email": "mailto:madrimov5014@gmail.com"
-      }
-    },
-    "skills": {
-      "title": "Ko'nikma va texnologiyalar",
-      "eyebrow": "Stek",
-      "groups": [
-        {
-          "category": "Frontend",
-          "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Chakra UI", "Redux Toolkit", "Zustand", "TanStack Query"]
-        },
-        {
-          "category": "Backend",
-          "items": ["Node.js", "Bun", "Hono", "Express", "NestJS", "REST API", "Drizzle ORM", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Zod", "JWT"]
-        },
-        {
-          "category": "Desktop",
-          "items": ["Electron", "Tauri", "ESC/POS"]
-        },
-        {
-          "category": "Vositalar",
-          "items": ["Git", "Docker", "Turborepo", "Linear", "Biome", "Playwright"]
-        }
-      ]
-    },
-    "experience": {
-      "title": "Ish tajribasi",
-      "eyebrow": "Faoliyat",
-      "organizations": [
-        {
-          "year": "2023 — hozirgacha",
-          "jobTitle": "Team Lead / Fullstack dasturchi",
-          "organization": "MBOS Union",
-          "link": "mbos.uz",
-          "desc": "Dasturchilar jamoasiga rahbarlik qilaman: vazifalar qo'yish, kod-revyu, jarayonlarni Linear orqali boshqarish. Arxitekturani loyihalab, bir qator production-platformalarni fullstack ishlab chiqaman.",
-          "stack": ["TypeScript", "React", "Next.js", "Bun", "Hono", "NestJS", "Drizzle ORM", "PostgreSQL", "Redis", "Electron"],
-          "projects": ["MNazorat", "M-Smart School", "M-Smart Kids", "e-Jarima maydon", "Monro Delivery", "Soliq integration"]
-        },
-        {
-          "year": "2022 — 2023",
-          "jobTitle": "Frontend dasturchi",
-          "organization": "Technolab",
-          "link": "",
-          "desc": "Online Education onlayn ta'lim platformasi (LMS) frontendini to'liq yakka o'zim ishlab chiqdim: shaxsiy kabinetlar, video-darslar, kontent muharriri, PDF sertifikatlar va dashboardlar (backend — Django).",
-          "stack": ["React", "TypeScript", "Redux Toolkit", "TanStack Query", "Chakra UI", "React Hook Form"]
-        },
-        {
-          "year": "2021 — 2023",
-          "jobTitle": "Frontend ustoz / o'qituvchi",
-          "organization": "Data Talim",
-          "link": "datamarkaz.uz",
-          "desc": "Bolalar va kattalarga frontend dasturlashni o'rgatdim: HTML, CSS, JavaScript, React. 6 oylik kurslar, kuniga 2–3 guruh. O'quvchilarni noldan junior darajasigacha tayyorladim.",
-          "stack": ["JavaScript", "React", "Next.js", "HTML", "CSS"]
-        }
-      ]
-    },
-    "portfolio": {
-      "title": "Tanlangan loyihalar",
-      "eyebrow": "Ishlar",
-      "subtitle": "Fullstack dasturchi va timlid sifatida ishlagan production mahsulotlarim.",
-      "viewAll": "Barcha loyihalar"
-    },
-    "ui": {
-      "private": "Maxfiy",
-      "visit": "Ochish",
-      "caseStudy": "Batafsil",
-      "caseStudiesTitle": "Case Studies",
-      "blogTitle": "Maqolalar",
-      "tgCtaTitle": "Bu kabi maqolalar har hafta",
-      "tgCtaDesc": "Yangi maqolalar, amaliy muhandislik tajribasi va loyihalar — Telegram kanalda.",
-      "tgCtaBtn": "Kanalga qo'shilish",
-      "relatedTitle": "O'xshash maqolalar",
-      "views": "ko'rish",
-      "clapHint": "Yoqdimi? Bir necha marta bosing",
-      "commentsTitle": "Fikrlar",
-      "commentsEmpty": "Hali fikr yo'q — birinchi bo'ling",
-      "commentsLangNote": "Bu tildagi fikrlar",
-      "namePlaceholder": "Ismingiz",
-      "bodyPlaceholder": "Fikringizni yozing...",
-      "submit": "Yuborish",
-      "sending": "Yuborilmoqda...",
-      "errorGeneric": "Yuborib bo'lmadi. Birozdan keyin urinib ko'ring.",
-      "errorRateLimit": "Juda tez yozyapsiz. Biroz kuting.",
-      "errorDuplicate": "Bu fikr allaqachon yozilgan."
-    }
-  }
+	"Index": {
+		"menu": [
+			{
+				"href": "/",
+				"title": "Bosh sahifa"
+			},
+			{
+				"href": "/#about",
+				"title": "Men haqimda"
+			},
+			{
+				"href": "/#skills",
+				"title": "Ko'nikmalar"
+			},
+			{
+				"href": "/#experience",
+				"title": "Tajriba"
+			},
+			{
+				"href": "/case-studies",
+				"title": "Case Studies"
+			},
+			{
+				"href": "/blog",
+				"title": "Maqolalar"
+			},
+			{
+				"href": "/portfolio",
+				"title": "Loyihalar"
+			}
+		],
+		"header": {
+			"greeting": "Salom, men",
+			"name": "Madrimov Xudoshukur",
+			"jobTitle": "Team Lead / Fullstack dasturchi",
+			"subtitle": "TypeScript'da production mahsulotlar yarataman: frontendda React / Next.js, backendda Bun / Hono / Node.js. G'oyadan relizgacha.",
+			"location": "Xiva, O'zbekiston",
+			"ctaContact": "Bog'lanish",
+			"ctaCv": "CV yuklab olish",
+			"ctaProjects": "Loyihalar",
+			"ctaTelegram": "TG kanal",
+			"kicker": "LIVE · 4 tizim ishlab turibdi",
+			"tagline": "Murakkab tizimlarni ishonchli qilib quraman.",
+			"desc": "Davlat va korporativ sektor uchun ishlab chiqarish tizimlarini quraman — arxitekturadan relizgacha — va jamoani yetaklayman.",
+			"stats": [
+				{
+					"value": "4+",
+					"label": "yil tajriba"
+				},
+				{
+					"value": "6",
+					"label": "production tizim"
+				},
+				{
+					"value": "3",
+					"label": "OSS npm paket"
+				}
+			]
+		},
+		"work": {
+			"title": "Men haqimda",
+			"eyebrow": "Men kim",
+			"quote": "Ishlasangiz — ishlaydi.",
+			"desc": "Dasturchilik yo'limni 2021-yilda frontend ustozi sifatida boshladim, bugun esa jamoaga Team Lead bo'lib rahbarlik qilaman. Shu davrda interfeys verstkasidan to arxitektura loyihalash va to'liq production-platformalarni yetkazib berishgacha yo'lni bosib o'tdim. Butun stek bilan ishlayman: frontendda React / Next.js, backendda Bun / Hono / Node.js. Dasturlashni mustaqil o'rgandim va har kuni o'rganishda davom etaman.",
+			"links": {
+				"GitHub": "https://github.com/madrimovDev",
+				"Telegram": "https://t.me/madrimov",
+				"Email": "mailto:madrimov5014@gmail.com"
+			}
+		},
+		"skills": {
+			"title": "Ko'nikma va texnologiyalar",
+			"eyebrow": "Stek",
+			"groups": [
+				{
+					"category": "Frontend",
+					"items": [
+						"React",
+						"Next.js",
+						"TypeScript",
+						"Tailwind CSS",
+						"Ant Design",
+						"Chakra UI",
+						"Redux Toolkit",
+						"Zustand",
+						"TanStack Query"
+					]
+				},
+				{
+					"category": "Backend",
+					"items": [
+						"Node.js",
+						"Bun",
+						"Hono",
+						"Express",
+						"NestJS",
+						"REST API",
+						"Drizzle ORM",
+						"Prisma",
+						"PostgreSQL",
+						"Redis",
+						"BullMQ",
+						"Zod",
+						"JWT"
+					]
+				},
+				{
+					"category": "Desktop",
+					"items": [
+						"Electron",
+						"Tauri",
+						"ESC/POS"
+					]
+				},
+				{
+					"category": "Vositalar",
+					"items": [
+						"Git",
+						"Docker",
+						"Turborepo",
+						"Linear",
+						"Biome",
+						"Playwright"
+					]
+				}
+			]
+		},
+		"experience": {
+			"title": "Ish tajribasi",
+			"eyebrow": "Faoliyat",
+			"organizations": [
+				{
+					"year": "2023 — hozirgacha",
+					"jobTitle": "Team Lead / Fullstack dasturchi",
+					"organization": "MBOS Union",
+					"link": "mbos.uz",
+					"desc": "Dasturchilar jamoasiga rahbarlik qilaman: vazifalar qo'yish, kod-revyu, jarayonlarni Linear orqali boshqarish. Arxitekturani loyihalab, bir qator production-platformalarni fullstack ishlab chiqaman.",
+					"stack": [
+						"TypeScript",
+						"React",
+						"Next.js",
+						"Bun",
+						"Hono",
+						"NestJS",
+						"Drizzle ORM",
+						"PostgreSQL",
+						"Redis",
+						"Electron"
+					],
+					"projects": [
+						"MNazorat",
+						"M-Smart School",
+						"M-Smart Kids",
+						"e-Jarima maydon",
+						"Monro Delivery",
+						"Soliq integration"
+					]
+				},
+				{
+					"year": "2022 — 2023",
+					"jobTitle": "Frontend dasturchi",
+					"organization": "Technolab",
+					"link": "",
+					"desc": "Online Education onlayn ta'lim platformasi (LMS) frontendini to'liq yakka o'zim ishlab chiqdim: shaxsiy kabinetlar, video-darslar, kontent muharriri, PDF sertifikatlar va dashboardlar (backend — Django).",
+					"stack": [
+						"React",
+						"TypeScript",
+						"Redux Toolkit",
+						"TanStack Query",
+						"Chakra UI",
+						"React Hook Form"
+					]
+				},
+				{
+					"year": "2021 — 2023",
+					"jobTitle": "Frontend ustoz / o'qituvchi",
+					"organization": "Data Talim",
+					"link": "datamarkaz.uz",
+					"desc": "Bolalar va kattalarga frontend dasturlashni o'rgatdim: HTML, CSS, JavaScript, React. 6 oylik kurslar, kuniga 2–3 guruh. O'quvchilarni noldan junior darajasigacha tayyorladim.",
+					"stack": [
+						"JavaScript",
+						"React",
+						"Next.js",
+						"HTML",
+						"CSS"
+					]
+				}
+			]
+		},
+		"portfolio": {
+			"title": "Tanlangan loyihalar",
+			"eyebrow": "Ishlar",
+			"subtitle": "Fullstack dasturchi va timlid sifatida ishlagan production mahsulotlarim.",
+			"viewAll": "Barcha loyihalar"
+		},
+		"ui": {
+			"private": "Maxfiy",
+			"visit": "Ochish",
+			"caseStudy": "Batafsil",
+			"caseStudiesTitle": "Case Studies",
+			"blogTitle": "Maqolalar",
+			"tgCtaTitle": "Bu kabi maqolalar har hafta",
+			"tgCtaDesc": "Yangi maqolalar, amaliy muhandislik tajribasi va loyihalar — Telegram kanalda.",
+			"tgCtaBtn": "Kanalga qo'shilish",
+			"relatedTitle": "O'xshash maqolalar",
+			"views": "ko'rish",
+			"clapHint": "Yoqdimi? Bir necha marta bosing",
+			"commentsTitle": "Fikrlar",
+			"commentsEmpty": "Hali fikr yo'q — birinchi bo'ling",
+			"commentsLangNote": "Bu tildagi fikrlar",
+			"namePlaceholder": "Ismingiz (ixtiyoriy)",
+			"aliasHint": "Bo'sh qoldirsangiz:",
+			"bodyPlaceholder": "Fikringizni yozing...",
+			"submit": "Yuborish",
+			"sending": "Yuborilmoqda...",
+			"errorGeneric": "Yuborib bo'lmadi. Birozdan keyin urinib ko'ring.",
+			"errorRateLimit": "Juda tez yozyapsiz. Biroz kuting.",
+			"errorDuplicate": "Bu fikr allaqachon yozilgan."
+		}
+	}
 }

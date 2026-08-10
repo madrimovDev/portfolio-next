@@ -77,6 +77,7 @@ type Ui = {
 	commentsEmpty: string;
 	commentsLangNote: string;
 	namePlaceholder: string;
+	aliasHint: string;
 	bodyPlaceholder: string;
 	submit: string;
 	sending: string;
