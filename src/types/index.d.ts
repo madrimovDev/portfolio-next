@@ -14,3 +14,15 @@ export type BlogPostMeta = {
 	tags: string[];
 	lang: string;
 };
+
+export type PostStats = {
+	views: number;
+	claps: number;
+};
+
+export type PostComment = {
+	id: string;
+	author_name: string;
+	body: string;
+	created_at: string;
+};
