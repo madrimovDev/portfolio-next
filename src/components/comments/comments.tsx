@@ -20,6 +20,7 @@ export default async function Comments({ lang, slug }: { lang: Lang; slug: strin
 				t={{
 					empty: ui.commentsEmpty,
 					namePlaceholder: ui.namePlaceholder,
+					aliasHint: ui.aliasHint,
 					bodyPlaceholder: ui.bodyPlaceholder,
 					submit: ui.submit,
 					sending: ui.sending,

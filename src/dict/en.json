@@ -1,125 +1,222 @@
 {
-  "Index": {
-    "menu": [
-      { "href": "/", "title": "Home" },
-      { "href": "/#about", "title": "About" },
-      { "href": "/#skills", "title": "Skills" },
-      { "href": "/#experience", "title": "Experience" },
-      { "href": "/case-studies", "title": "Case Studies" },
-      { "href": "/blog", "title": "Blog" },
-      { "href": "/portfolio", "title": "Projects" }
-    ],
-    "header": {
-      "greeting": "Hi, I'm",
-      "name": "Madrimov Xudoshukur",
-      "jobTitle": "Team Lead / Fullstack Developer",
-      "subtitle": "I build production products with TypeScript: React / Next.js on the frontend, Bun / Hono / Node.js on the backend. From idea to release.",
-      "location": "Khiva, Uzbekistan",
-      "ctaContact": "Get in touch",
-      "ctaCv": "Download CV",
-      "ctaProjects": "Projects",
-      "ctaTelegram": "TG channel",
-      "kicker": "LIVE · 4 systems in production",
-      "tagline": "I build complex systems you can rely on.",
-      "desc": "I design and run production systems for government and enterprise — from architecture to release — and lead the team.",
-      "stats": [
-        { "value": "4+", "label": "years experience" },
-        { "value": "6", "label": "production systems" },
-        { "value": "3", "label": "OSS npm packages" }
-      ]
-    },
-    "work": {
-      "title": "About me",
-      "eyebrow": "Who I am",
-      "quote": "If you work, it will work.",
-      "desc": "I started my journey in development back in 2021 as a frontend mentor, and today I lead a team as a Team Lead. Along the way I grew from building interfaces to designing architecture and shipping full production platforms. I work across the whole stack: React / Next.js on the frontend and Bun / Hono / Node.js on the backend. I'm a self-taught developer and I keep learning every day.",
-      "links": {
-        "GitHub": "https://github.com/madrimovDev",
-        "Telegram": "https://t.me/madrimov",
-        "Email": "mailto:madrimov5014@gmail.com"
-      }
-    },
-    "skills": {
-      "title": "Skills & technologies",
-      "eyebrow": "Stack",
-      "groups": [
-        {
-          "category": "Frontend",
-          "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Chakra UI", "Redux Toolkit", "Zustand", "TanStack Query"]
-        },
-        {
-          "category": "Backend",
-          "items": ["Node.js", "Bun", "Hono", "Express", "NestJS", "REST API", "Drizzle ORM", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Zod", "JWT"]
-        },
-        {
-          "category": "Desktop",
-          "items": ["Electron", "Tauri", "ESC/POS"]
-        },
-        {
-          "category": "Tools",
-          "items": ["Git", "Docker", "Turborepo", "Linear", "Biome", "Playwright"]
-        }
-      ]
-    },
-    "experience": {
-      "title": "Experience",
-      "eyebrow": "Career",
-      "organizations": [
-        {
-          "year": "2023 — present",
-          "jobTitle": "Team Lead / Fullstack Developer",
-          "organization": "MBOS Union",
-          "link": "mbos.uz",
-          "desc": "I lead the development team: assigning tasks, running code reviews, managing workflows in Linear. I design architecture and build a range of production platforms as a fullstack developer.",
-          "stack": ["TypeScript", "React", "Next.js", "Bun", "Hono", "NestJS", "Drizzle ORM", "PostgreSQL", "Redis", "Electron"],
-          "projects": ["MNazorat", "M-Smart School", "M-Smart Kids", "e-Jarima maydon", "Monro Delivery", "Soliq integration"]
-        },
-        {
-          "year": "2022 — 2023",
-          "jobTitle": "Frontend Developer",
-          "organization": "Technolab",
-          "link": "",
-          "desc": "Single-handedly built the entire frontend of the Online Education platform (LMS): user dashboards, video lessons, a learning content editor, PDF certificate generation and analytics dashboards (backend in Django).",
-          "stack": ["React", "TypeScript", "Redux Toolkit", "TanStack Query", "Chakra UI", "React Hook Form"]
-        },
-        {
-          "year": "2021 — 2023",
-          "jobTitle": "Frontend Mentor / Instructor",
-          "organization": "Data Talim",
-          "link": "datamarkaz.uz",
-          "desc": "Taught frontend development to kids and adults: HTML, CSS, JavaScript, React. 6-month courses, 2–3 groups daily. Brought students from zero to a junior level.",
-          "stack": ["JavaScript", "React", "Next.js", "HTML", "CSS"]
-        }
-      ]
-    },
-    "portfolio": {
-      "title": "Selected projects",
-      "eyebrow": "Work",
-      "subtitle": "Production products I worked on as a fullstack developer and team lead.",
-      "viewAll": "All projects"
-    },
-    "ui": {
-      "private": "Private",
-      "visit": "Open",
-      "caseStudy": "Read case study",
-      "caseStudiesTitle": "Case Studies",
-      "blogTitle": "Blog",
-      "tgCtaTitle": "Articles like this, every week",
-      "tgCtaDesc": "New articles, hands-on engineering experience and projects — on the Telegram channel.",
-      "tgCtaBtn": "Join the channel",
-      "relatedTitle": "Related articles",
-      "views": "views",
-      "clapHint": "Liked it? Tap a few times",
-      "commentsTitle": "Comments",
-      "commentsEmpty": "No comments yet — be the first",
-      "commentsLangNote": "Comments in this language",
-      "namePlaceholder": "Your name",
-      "bodyPlaceholder": "Write a comment...",
-      "submit": "Send",
-      "sending": "Sending...",
-      "errorGeneric": "Could not send. Please try again later.",
-      "errorRateLimit": "Too fast. Please wait a moment.",
-      "errorDuplicate": "This comment already exists."
-    }
-  }
+	"Index": {
+		"menu": [
+			{
+				"href": "/",
+				"title": "Home"
+			},
+			{
+				"href": "/#about",
+				"title": "About"
+			},
+			{
+				"href": "/#skills",
+				"title": "Skills"
+			},
+			{
+				"href": "/#experience",
+				"title": "Experience"
+			},
+			{
+				"href": "/case-studies",
+				"title": "Case Studies"
+			},
+			{
+				"href": "/blog",
+				"title": "Blog"
+			},
+			{
+				"href": "/portfolio",
+				"title": "Projects"
+			}
+		],
+		"header": {
+			"greeting": "Hi, I'm",
+			"name": "Madrimov Xudoshukur",
+			"jobTitle": "Team Lead / Fullstack Developer",
+			"subtitle": "I build production products with TypeScript: React / Next.js on the frontend, Bun / Hono / Node.js on the backend. From idea to release.",
+			"location": "Khiva, Uzbekistan",
+			"ctaContact": "Get in touch",
+			"ctaCv": "Download CV",
+			"ctaProjects": "Projects",
+			"ctaTelegram": "TG channel",
+			"kicker": "LIVE · 4 systems in production",
+			"tagline": "I build complex systems you can rely on.",
+			"desc": "I design and run production systems for government and enterprise — from architecture to release — and lead the team.",
+			"stats": [
+				{
+					"value": "4+",
+					"label": "years experience"
+				},
+				{
+					"value": "6",
+					"label": "production systems"
+				},
+				{
+					"value": "3",
+					"label": "OSS npm packages"
+				}
+			]
+		},
+		"work": {
+			"title": "About me",
+			"eyebrow": "Who I am",
+			"quote": "If you work, it will work.",
+			"desc": "I started my journey in development back in 2021 as a frontend mentor, and today I lead a team as a Team Lead. Along the way I grew from building interfaces to designing architecture and shipping full production platforms. I work across the whole stack: React / Next.js on the frontend and Bun / Hono / Node.js on the backend. I'm a self-taught developer and I keep learning every day.",
+			"links": {
+				"GitHub": "https://github.com/madrimovDev",
+				"Telegram": "https://t.me/madrimov",
+				"Email": "mailto:madrimov5014@gmail.com"
+			}
+		},
+		"skills": {
+			"title": "Skills & technologies",
+			"eyebrow": "Stack",
+			"groups": [
+				{
+					"category": "Frontend",
+					"items": [
+						"React",
+						"Next.js",
+						"TypeScript",
+						"Tailwind CSS",
+						"Ant Design",
+						"Chakra UI",
+						"Redux Toolkit",
+						"Zustand",
+						"TanStack Query"
+					]
+				},
+				{
+					"category": "Backend",
+					"items": [
+						"Node.js",
+						"Bun",
+						"Hono",
+						"Express",
+						"NestJS",
+						"REST API",
+						"Drizzle ORM",
+						"Prisma",
+						"PostgreSQL",
+						"Redis",
+						"BullMQ",
+						"Zod",
+						"JWT"
+					]
+				},
+				{
+					"category": "Desktop",
+					"items": [
+						"Electron",
+						"Tauri",
+						"ESC/POS"
+					]
+				},
+				{
+					"category": "Tools",
+					"items": [
+						"Git",
+						"Docker",
+						"Turborepo",
+						"Linear",
+						"Biome",
+						"Playwright"
+					]
+				}
+			]
+		},
+		"experience": {
+			"title": "Experience",
+			"eyebrow": "Career",
+			"organizations": [
+				{
+					"year": "2023 — present",
+					"jobTitle": "Team Lead / Fullstack Developer",
+					"organization": "MBOS Union",
+					"link": "mbos.uz",
+					"desc": "I lead the development team: assigning tasks, running code reviews, managing workflows in Linear. I design architecture and build a range of production platforms as a fullstack developer.",
+					"stack": [
+						"TypeScript",
+						"React",
+						"Next.js",
+						"Bun",
+						"Hono",
+						"NestJS",
+						"Drizzle ORM",
+						"PostgreSQL",
+						"Redis",
+						"Electron"
+					],
+					"projects": [
+						"MNazorat",
+						"M-Smart School",
+						"M-Smart Kids",
+						"e-Jarima maydon",
+						"Monro Delivery",
+						"Soliq integration"
+					]
+				},
+				{
+					"year": "2022 — 2023",
+					"jobTitle": "Frontend Developer",
+					"organization": "Technolab",
+					"link": "",
+					"desc": "Single-handedly built the entire frontend of the Online Education platform (LMS): user dashboards, video lessons, a learning content editor, PDF certificate generation and analytics dashboards (backend in Django).",
+					"stack": [
+						"React",
+						"TypeScript",
+						"Redux Toolkit",
+						"TanStack Query",
+						"Chakra UI",
+						"React Hook Form"
+					]
+				},
+				{
+					"year": "2021 — 2023",
+					"jobTitle": "Frontend Mentor / Instructor",
+					"organization": "Data Talim",
+					"link": "datamarkaz.uz",
+					"desc": "Taught frontend development to kids and adults: HTML, CSS, JavaScript, React. 6-month courses, 2–3 groups daily. Brought students from zero to a junior level.",
+					"stack": [
+						"JavaScript",
+						"React",
+						"Next.js",
+						"HTML",
+						"CSS"
+					]
+				}
+			]
+		},
+		"portfolio": {
+			"title": "Selected projects",
+			"eyebrow": "Work",
+			"subtitle": "Production products I worked on as a fullstack developer and team lead.",
+			"viewAll": "All projects"
+		},
+		"ui": {
+			"private": "Private",
+			"visit": "Open",
+			"caseStudy": "Read case study",
+			"caseStudiesTitle": "Case Studies",
+			"blogTitle": "Blog",
+			"tgCtaTitle": "Articles like this, every week",
+			"tgCtaDesc": "New articles, hands-on engineering experience and projects — on the Telegram channel.",
+			"tgCtaBtn": "Join the channel",
+			"relatedTitle": "Related articles",
+			"views": "views",
+			"clapHint": "Liked it? Tap a few times",
+			"commentsTitle": "Comments",
+			"commentsEmpty": "No comments yet — be the first",
+			"commentsLangNote": "Comments in this language",
+			"namePlaceholder": "Your name (optional)",
+			"aliasHint": "If left empty:",
+			"bodyPlaceholder": "Write a comment...",
+			"submit": "Send",
+			"sending": "Sending...",
+			"errorGeneric": "Could not send. Please try again later.",
+			"errorRateLimit": "Too fast. Please wait a moment.",
+			"errorDuplicate": "This comment already exists."
+		}
+	}
 }

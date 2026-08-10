@@ -1,125 +1,222 @@
 {
-  "Index": {
-    "menu": [
-      { "href": "/", "title": "Главная" },
-      { "href": "/#about", "title": "Обо мне" },
-      { "href": "/#skills", "title": "Навыки" },
-      { "href": "/#experience", "title": "Опыт" },
-      { "href": "/case-studies", "title": "Кейсы" },
-      { "href": "/blog", "title": "Блог" },
-      { "href": "/portfolio", "title": "Проекты" }
-    ],
-    "header": {
-      "greeting": "Привет, я",
-      "name": "Мадримов Худошукур",
-      "jobTitle": "Team Lead / Fullstack-разработчик",
-      "subtitle": "Создаю production-продукты на TypeScript: React / Next.js на фронтенде, Bun / Hono / Node.js на бэкенде. От идеи до релиза.",
-      "location": "Хива, Узбекистан",
-      "ctaContact": "Связаться",
-      "ctaCv": "Скачать CV",
-      "ctaProjects": "Проекты",
-      "ctaTelegram": "TG канал",
-      "kicker": "LIVE · 4 системы в продакшене",
-      "tagline": "Создаю сложные системы, которым можно доверять.",
-      "desc": "Проектирую и веду продакшен-системы для госсектора и бизнеса — от архитектуры до релиза — и руковожу командой.",
-      "stats": [
-        { "value": "4+", "label": "лет опыта" },
-        { "value": "6", "label": "production-систем" },
-        { "value": "3", "label": "OSS npm-пакета" }
-      ]
-    },
-    "work": {
-      "title": "Обо мне",
-      "eyebrow": "Кто я",
-      "quote": "Если ты работаешь — это работает.",
-      "desc": "Свой путь в разработке я начал в 2021 году как наставник по фронтенду, а сегодня руковожу командой как Team Lead. За это время прошёл путь от вёрстки интерфейсов до проектирования архитектуры и поставки полноценных production-платформ. Работаю со всем стеком: React / Next.js на фронтенде и Bun / Hono / Node.js на бэкенде. Программированию научился самостоятельно и продолжаю учиться каждый день.",
-      "links": {
-        "GitHub": "https://github.com/madrimovDev",
-        "Telegram": "https://t.me/madrimov",
-        "Email": "mailto:madrimov5014@gmail.com"
-      }
-    },
-    "skills": {
-      "title": "Навыки и технологии",
-      "eyebrow": "Стек",
-      "groups": [
-        {
-          "category": "Frontend",
-          "items": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Ant Design", "Chakra UI", "Redux Toolkit", "Zustand", "TanStack Query"]
-        },
-        {
-          "category": "Backend",
-          "items": ["Node.js", "Bun", "Hono", "Express", "NestJS", "REST API", "Drizzle ORM", "Prisma", "PostgreSQL", "Redis", "BullMQ", "Zod", "JWT"]
-        },
-        {
-          "category": "Desktop",
-          "items": ["Electron", "Tauri", "ESC/POS"]
-        },
-        {
-          "category": "Инструменты",
-          "items": ["Git", "Docker", "Turborepo", "Linear", "Biome", "Playwright"]
-        }
-      ]
-    },
-    "experience": {
-      "title": "Опыт работы",
-      "eyebrow": "Карьера",
-      "organizations": [
-        {
-          "year": "2023 — наст. время",
-          "jobTitle": "Team Lead / Fullstack-разработчик",
-          "organization": "MBOS Union",
-          "link": "mbos.uz",
-          "desc": "Руковожу командой разработки: ставлю задачи, провожу код-ревью, веду процессы в Linear. Проектирую архитектуру и разрабатываю fullstack ряд production-платформ.",
-          "stack": ["TypeScript", "React", "Next.js", "Bun", "Hono", "NestJS", "Drizzle ORM", "PostgreSQL", "Redis", "Electron"],
-          "projects": ["MNazorat", "M-Smart School", "M-Smart Kids", "e-Jarima maydon", "Monro Delivery", "Soliq integration"]
-        },
-        {
-          "year": "2022 — 2023",
-          "jobTitle": "Frontend-разработчик",
-          "organization": "Technolab",
-          "link": "",
-          "desc": "Полностью в одиночку разработал фронтенд платформы онлайн-образования (LMS) Online Education: личные кабинеты, видео-уроки, редактор учебного контента, генерация сертификатов в PDF и дашборды (бэкенд — Django).",
-          "stack": ["React", "TypeScript", "Redux Toolkit", "TanStack Query", "Chakra UI", "React Hook Form"]
-        },
-        {
-          "year": "2021 — 2023",
-          "jobTitle": "Frontend-ментор / преподаватель",
-          "organization": "Data Talim",
-          "link": "datamarkaz.uz",
-          "desc": "Преподавал фронтенд-разработку детям и взрослым: HTML, CSS, JavaScript, React. 6-месячные курсы, по 2–3 группы ежедневно. Подготовил студентов с нуля до уровня junior.",
-          "stack": ["JavaScript", "React", "Next.js", "HTML", "CSS"]
-        }
-      ]
-    },
-    "portfolio": {
-      "title": "Избранные проекты",
-      "eyebrow": "Работы",
-      "subtitle": "Production-продукты, над которыми я работал как fullstack-разработчик и тимлид.",
-      "viewAll": "Все проекты"
-    },
-    "ui": {
-      "private": "Приватный",
-      "visit": "Открыть",
-      "caseStudy": "Подробнее",
-      "caseStudiesTitle": "Кейсы",
-      "blogTitle": "Блог",
-      "tgCtaTitle": "Такие статьи — каждую неделю",
-      "tgCtaDesc": "Новые статьи, практический инженерный опыт и проекты — в Telegram-канале.",
-      "tgCtaBtn": "Подписаться на канал",
-      "relatedTitle": "Похожие статьи",
-      "views": "просмотров",
-      "clapHint": "Понравилось? Нажмите несколько раз",
-      "commentsTitle": "Комментарии",
-      "commentsEmpty": "Пока нет комментариев — будьте первым",
-      "commentsLangNote": "Комментарии на этом языке",
-      "namePlaceholder": "Ваше имя",
-      "bodyPlaceholder": "Напишите комментарий...",
-      "submit": "Отправить",
-      "sending": "Отправка...",
-      "errorGeneric": "Не удалось отправить. Попробуйте позже.",
-      "errorRateLimit": "Слишком часто. Подождите немного.",
-      "errorDuplicate": "Такой комментарий уже есть."
-    }
-  }
+	"Index": {
+		"menu": [
+			{
+				"href": "/",
+				"title": "Главная"
+			},
+			{
+				"href": "/#about",
+				"title": "Обо мне"
+			},
+			{
+				"href": "/#skills",
+				"title": "Навыки"
+			},
+			{
+				"href": "/#experience",
+				"title": "Опыт"
+			},
+			{
+				"href": "/case-studies",
+				"title": "Кейсы"
+			},
+			{
+				"href": "/blog",
+				"title": "Блог"
+			},
+			{
+				"href": "/portfolio",
+				"title": "Проекты"
+			}
+		],
+		"header": {
+			"greeting": "Привет, я",
+			"name": "Мадримов Худошукур",
+			"jobTitle": "Team Lead / Fullstack-разработчик",
+			"subtitle": "Создаю production-продукты на TypeScript: React / Next.js на фронтенде, Bun / Hono / Node.js на бэкенде. От идеи до релиза.",
+			"location": "Хива, Узбекистан",
+			"ctaContact": "Связаться",
+			"ctaCv": "Скачать CV",
+			"ctaProjects": "Проекты",
+			"ctaTelegram": "TG канал",
+			"kicker": "LIVE · 4 системы в продакшене",
+			"tagline": "Создаю сложные системы, которым можно доверять.",
+			"desc": "Проектирую и веду продакшен-системы для госсектора и бизнеса — от архитектуры до релиза — и руковожу командой.",
+			"stats": [
+				{
+					"value": "4+",
+					"label": "лет опыта"
+				},
+				{
+					"value": "6",
+					"label": "production-систем"
+				},
+				{
+					"value": "3",
+					"label": "OSS npm-пакета"
+				}
+			]
+		},
+		"work": {
+			"title": "Обо мне",
+			"eyebrow": "Кто я",
+			"quote": "Если ты работаешь — это работает.",
+			"desc": "Свой путь в разработке я начал в 2021 году как наставник по фронтенду, а сегодня руковожу командой как Team Lead. За это время прошёл путь от вёрстки интерфейсов до проектирования архитектуры и поставки полноценных production-платформ. Работаю со всем стеком: React / Next.js на фронтенде и Bun / Hono / Node.js на бэкенде. Программированию научился самостоятельно и продолжаю учиться каждый день.",
+			"links": {
+				"GitHub": "https://github.com/madrimovDev",
+				"Telegram": "https://t.me/madrimov",
+				"Email": "mailto:madrimov5014@gmail.com"
+			}
+		},
+		"skills": {
+			"title": "Навыки и технологии",
+			"eyebrow": "Стек",
+			"groups": [
+				{
+					"category": "Frontend",
+					"items": [
+						"React",
+						"Next.js",
+						"TypeScript",
+						"Tailwind CSS",
+						"Ant Design",
+						"Chakra UI",
+						"Redux Toolkit",
+						"Zustand",
+						"TanStack Query"
+					]
+				},
+				{
+					"category": "Backend",
+					"items": [
+						"Node.js",
+						"Bun",
+						"Hono",
+						"Express",
+						"NestJS",
+						"REST API",
+						"Drizzle ORM",
+						"Prisma",
+						"PostgreSQL",
+						"Redis",
+						"BullMQ",
+						"Zod",
+						"JWT"
+					]
+				},
+				{
+					"category": "Desktop",
+					"items": [
+						"Electron",
+						"Tauri",
+						"ESC/POS"
+					]
+				},
+				{
+					"category": "Инструменты",
+					"items": [
+						"Git",
+						"Docker",
+						"Turborepo",
+						"Linear",
+						"Biome",
+						"Playwright"
+					]
+				}
+			]
+		},
+		"experience": {
+			"title": "Опыт работы",
+			"eyebrow": "Карьера",
+			"organizations": [
+				{
+					"year": "2023 — наст. время",
+					"jobTitle": "Team Lead / Fullstack-разработчик",
+					"organization": "MBOS Union",
+					"link": "mbos.uz",
+					"desc": "Руковожу командой разработки: ставлю задачи, провожу код-ревью, веду процессы в Linear. Проектирую архитектуру и разрабатываю fullstack ряд production-платформ.",
+					"stack": [
+						"TypeScript",
+						"React",
+						"Next.js",
+						"Bun",
+						"Hono",
+						"NestJS",
+						"Drizzle ORM",
+						"PostgreSQL",
+						"Redis",
+						"Electron"
+					],
+					"projects": [
+						"MNazorat",
+						"M-Smart School",
+						"M-Smart Kids",
+						"e-Jarima maydon",
+						"Monro Delivery",
+						"Soliq integration"
+					]
+				},
+				{
+					"year": "2022 — 2023",
+					"jobTitle": "Frontend-разработчик",
+					"organization": "Technolab",
+					"link": "",
+					"desc": "Полностью в одиночку разработал фронтенд платформы онлайн-образования (LMS) Online Education: личные кабинеты, видео-уроки, редактор учебного контента, генерация сертификатов в PDF и дашборды (бэкенд — Django).",
+					"stack": [
+						"React",
+						"TypeScript",
+						"Redux Toolkit",
+						"TanStack Query",
+						"Chakra UI",
+						"React Hook Form"
+					]
+				},
+				{
+					"year": "2021 — 2023",
+					"jobTitle": "Frontend-ментор / преподаватель",
+					"organization": "Data Talim",
+					"link": "datamarkaz.uz",
+					"desc": "Преподавал фронтенд-разработку детям и взрослым: HTML, CSS, JavaScript, React. 6-месячные курсы, по 2–3 группы ежедневно. Подготовил студентов с нуля до уровня junior.",
+					"stack": [
+						"JavaScript",
+						"React",
+						"Next.js",
+						"HTML",
+						"CSS"
+					]
+				}
+			]
+		},
+		"portfolio": {
+			"title": "Избранные проекты",
+			"eyebrow": "Работы",
+			"subtitle": "Production-продукты, над которыми я работал как fullstack-разработчик и тимлид.",
+			"viewAll": "Все проекты"
+		},
+		"ui": {
+			"private": "Приватный",
+			"visit": "Открыть",
+			"caseStudy": "Подробнее",
+			"caseStudiesTitle": "Кейсы",
+			"blogTitle": "Блог",
+			"tgCtaTitle": "Такие статьи — каждую неделю",
+			"tgCtaDesc": "Новые статьи, практический инженерный опыт и проекты — в Telegram-канале.",
+			"tgCtaBtn": "Подписаться на канал",
+			"relatedTitle": "Похожие статьи",
+			"views": "просмотров",
+			"clapHint": "Понравилось? Нажмите несколько раз",
+			"commentsTitle": "Комментарии",
+			"commentsEmpty": "Пока нет комментариев — будьте первым",
+			"commentsLangNote": "Комментарии на этом языке",
+			"namePlaceholder": "Ваше имя (необязательно)",
+			"aliasHint": "Если оставить пустым:",
+			"bodyPlaceholder": "Напишите комментарий...",
+			"submit": "Отправить",
+			"sending": "Отправка...",
+			"errorGeneric": "Не удалось отправить. Попробуйте позже.",
+			"errorRateLimit": "Слишком часто. Подождите немного.",
+			"errorDuplicate": "Такой комментарий уже есть."
+		}
+	}
 }

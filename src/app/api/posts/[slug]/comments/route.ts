@@ -1,5 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
+import { aliasFor } from "~/lib/alias";
 import { addComment, clientIp, getComments, hashIp } from "~/lib/supabase";
 import { notifyNewComment } from "~/lib/telegram";
 import { cleanBody, cleanName, isValidLang, isValidSlug } from "~/lib/validate";
@@ -45,13 +46,19 @@ export async function POST(
 	}
 
 	const lang = typeof payload.lang === "string" ? payload.lang : "";
-	const name = cleanName(payload.name);
+	const nameResult = cleanName(payload.name);
 	const body = cleanBody(payload.body);
-	if (!isValidLang(lang) || !name || !body) {
+	if (!isValidLang(lang) || nameResult.kind === "invalid" || !body) {
 		return NextResponse.json({ error: "invalid_input" }, { status: 400, headers: NO_STORE });
 	}
 
 	const ipHash = await hashIp(clientIp(req.headers));
+	// Ism bo'sh qoldirilgan bo'lsa taxallus beriladi. U yozish paytida
+	// saqlanadi, har renderda qayta hisoblanmaydi — shuning uchun IP_SALT
+	// kelajakda almashsa ham eski fikrlar o'z ismini yo'qotmaydi.
+	const name =
+		nameResult.kind === "ok" ? nameResult.value : aliasFor(ipHash, slug, lang);
+
 	const { comment, error } = await addComment(slug, lang, name, body, ipHash);
 
 	if (error === "rate_limited") {
